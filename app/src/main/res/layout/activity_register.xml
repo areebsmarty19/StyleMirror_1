@@ -25,18 +25,20 @@
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="300dp"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
                     app:srcCompat="@drawable/top_background" />
 
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="250dp"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +72,7 @@
                     android:background="@drawable/edittext_background"
                     android:drawableStart="@drawable/baseline_person_24"
                     android:ems="10"
-                    android:hint=" Enter User Name..."
+                    android:hint="   Enter User Name..."
                     android:inputType="textPersonName"
                     android:paddingStart="24dp"
                     android:textColorHint="#8A8888"
@@ -97,7 +99,7 @@
                     android:background="@drawable/edittext_background"
                     android:drawableStart="@drawable/baseline_email_24"
                     android:ems="10"
-                    android:hint=" Enter your Email..."
+                    android:hint="   Enter your Email..."
                     android:inputType="textEmailAddress"
                     android:paddingStart="24dp"
                     android:textColorHint="#8A8888"
@@ -114,6 +116,15 @@
                     android:textColor="#ffffff"
                     android:textSize="21sp" />
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:passwordToggleEnabled="true"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:textColorHint="#8A8888">
+
+
                 <EditText
                     android:id="@+id/Password"
                     android:layout_width="match_parent"
@@ -124,11 +135,12 @@
                     android:background="@drawable/edittext_background"
                     android:drawableStart="@drawable/baseline_lock_24"
                     android:ems="10"
-                    android:hint=" Enter your Password..."
+                    android:hint="   Enter your Password..."
                     android:inputType="textPassword"
                     android:paddingStart="24dp"
                     android:textColorHint="#8A8888"
                     android:textSize="19sp" />
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
                     android:id="@+id/SignUpbtn"
