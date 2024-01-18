@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "264987199660",
+    "project_id": "stylemirror-1",
+    "storage_bucket": "stylemirror-1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:264987199660:android:f7c34808cb00cccdfdb709",
+        "android_client_info": {
+          "package_name": "com.example.stylemirror_1_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH6TNCwgqmhX3prsTGxEvTmOB-2hALVns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
