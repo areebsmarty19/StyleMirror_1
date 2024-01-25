@@ -16,23 +16,17 @@
             android:name=".activity_register"
             android:exported="false" />
         <activity
-            android:name=".Activity.MainActivity"
+            android:name=".activity_login"
             android:exported="false" />
         <activity
-            android:name=".Activity.CartActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.DetailActivity"
-            android:exported="false" />
-        <activity
-        android:name="activity_login"
-        android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
