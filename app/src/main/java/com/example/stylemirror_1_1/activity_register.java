@@ -15,7 +15,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
+import com.google.firebase.firestore.auth.User;
 
 import java.util.List;
 import java.util.Objects;
@@ -105,7 +105,6 @@ public class activity_register extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         String userId = Objects.requireNonNull(task.getResult().getUser()).getUid();
                         User user= new User(email,userId,username);
-                        Toast.makeText(activity_register.this, "Register Successfull", Toast.LENGTH_SHORT).show();
                         addUserToDB(user);
                         //Insert to db
                     } else {
@@ -124,12 +123,8 @@ public class activity_register extends AppCompatActivity {
         databaseReference.child(user.getUserId()).setValue(user)
                 .addOnCompleteListener(task -> {
                     hideProgress();
-                    try{
-                    Intent intent = new Intent(activity_register.this, activity_login.class);
-                    startActivity(intent);}
-                    catch(Exception e){
-                        e.printStackTrace();
-                    }
+                    Intent intent = new Intent(activity_register.this, MainActivity.class);
+                    startActivity(intent);
                     finish();
                 }).addOnFailureListener(e -> {
                     hideProgress();

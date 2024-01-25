@@ -9,13 +9,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-
+import com.example.stylemirror_1_1.Activity.MainActivity;
+import com.example.stylemirror_1_1.databinding.ActivityLoginBinding;
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.example.stylemirror_1_1.databinding.ActivityLoginBinding;
 
 import java.util.Objects;
 
