@@ -1,21 +1,20 @@
 package com.example.stylemirror_1_1;
 
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.stylemirror_1_1.databinding.ActivityRegisterBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.auth.User;
 
 import java.util.List;
 import java.util.Objects;
@@ -26,7 +25,7 @@ public class activity_register extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private ProgressDialog progressDialog;
 
-    private com.example.stylemirror_1_1.databinding.ActivityRegisterBinding binding;
+    private ActivityRegisterBinding binding;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -123,7 +122,7 @@ public class activity_register extends AppCompatActivity {
         databaseReference.child(user.getUserId()).setValue(user)
                 .addOnCompleteListener(task -> {
                     hideProgress();
-                    Intent intent = new Intent(activity_register.this, MainActivity.class);
+                    Intent intent = new Intent(activity_register.this, activity_login.class);
                     startActivity(intent);
                     finish();
                 }).addOnFailureListener(e -> {
