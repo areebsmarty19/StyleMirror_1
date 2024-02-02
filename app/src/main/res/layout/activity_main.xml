@@ -174,8 +174,8 @@
                         android:id="@+id/imageView51"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
-                        app:srcCompat="@drawable/specs" />
+                        android:src="@drawable/spectacles2"
+                        />
 
                     <TextView
                         android:id="@+id/textView72"
@@ -266,9 +266,8 @@
                         android:id="@+id/imageView55"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-
-                        app:srcCompat="@drawable/cat5" />
+                        android:src="@drawable/viewmore1"
+                        />
 
                     <TextView
                         android:id="@+id/textView75"
