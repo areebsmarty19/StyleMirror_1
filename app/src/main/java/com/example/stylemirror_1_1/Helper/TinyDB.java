@@ -31,7 +31,6 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 
-
 import com.example.stylemirror_1_1.domain.PopularDomain;
 import com.google.gson.Gson;
 

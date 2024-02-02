@@ -2,7 +2,9 @@ package com.example.stylemirror_1_1.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -12,11 +14,13 @@ import com.example.stylemirror_1_1.Adapter.PopularAdapter;
 import com.example.stylemirror_1_1.R;
 import com.example.stylemirror_1_1.databinding.ActivityMainBinding;
 import com.example.stylemirror_1_1.domain.PopularDomain;
+import com.example.stylemirror_1_1.explorer;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
+    ImageView img1=(ImageView)findViewById(R.id.imageView61);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,14 @@ public class MainActivity extends AppCompatActivity {
         statusBarColor();
          initRecyclerView();
          bottomNavigation();
+         img1.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent = new Intent(MainActivity.this, explorer.class);
+                 startActivity(intent);
+             }
+         });
+
     }
 
     private void bottomNavigation() {
