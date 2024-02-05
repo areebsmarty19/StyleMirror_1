@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">StyleMirror_1_1</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="product_image">Product Image</string>
+    <string name="product_price">Price: Rs %1$.2f</string>
+    <string name="buy_product">Buy Product</string>
+    <string name="checkout">Checkout</string>
+    <string name="shopping_cart">Shopping Cart</string>
+    <string name="rupee">₹</string>
+    <string name="try_in_your_home">Try In Your Home</string>
+    <string name="product_details">Product Details</string>
+    <string name="buy_now">Buy Now</string>
+    <string name="add_to_cart">Add To Cart</string>
+    <string name="in_stock">In stock.</string>
+    <string name="_00">.0</string>
 </resources>
