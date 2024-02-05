@@ -1,21 +1,19 @@
 package com.example.stylemirror_1_1;
 
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.auth.User;
 
 import java.util.List;
 import java.util.Objects;
@@ -104,8 +102,10 @@ public class activity_register extends AppCompatActivity {
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         String userId = Objects.requireNonNull(task.getResult().getUser()).getUid();
-                        User user= new User(email,userId,username);
-                        addUserToDB(user);
+
+                        String sanitizedEmail = sanitizeEmail(email);
+                        User user = new User(email, userId, username);
+                        addUserToDB(user,sanitizedEmail);
                         //Insert to db
                     } else {
                         Toast.makeText(activity_register.this, "Register failed", Toast.LENGTH_SHORT).show();
@@ -119,11 +119,24 @@ public class activity_register extends AppCompatActivity {
                 });
     }
 
-    private void addUserToDB(User user) {
-        databaseReference.child(user.getUserId()).setValue(user)
+//    private void addUserToDB(User user) {
+//        databaseReference.child(user.getUserId()).setValue(user)
+//                .addOnCompleteListener(task -> {
+//                    hideProgress();
+//                    Intent intent = new Intent(activity_register.this, MainActivity.class);
+//                    startActivity(intent);
+//                    finish();
+//                }).addOnFailureListener(e -> {
+//                    hideProgress();
+//                    Toast.makeText(activity_register.this, "Database failed", Toast.LENGTH_SHORT).show();
+//                });
+//    }
+
+    private void addUserToDB(User user, String sanitizedEmail) {
+        databaseReference.child(sanitizedEmail).setValue(user)
                 .addOnCompleteListener(task -> {
                     hideProgress();
-                    Intent intent = new Intent(activity_register.this, MainActivity.class);
+                    Intent intent = new Intent(activity_register.this, activity_login.class);
                     startActivity(intent);
                     finish();
                 }).addOnFailureListener(e -> {
@@ -131,6 +144,17 @@ public class activity_register extends AppCompatActivity {
                     Toast.makeText(activity_register.this, "Database failed", Toast.LENGTH_SHORT).show();
                 });
     }
+
+    private String sanitizeEmail(String email) {
+        // Replace invalid characters with underscores or any character that suits your needs
+        return email.replace(".", "_dot_")
+                .replace("#", "_hash_")
+                .replace("$", "_dollar_")
+                .replace("[", "_leftBracket_")
+                .replace("]", "_rightBracket_")
+                .replace("@", "_at_");
+    }
+
 
     private void hideProgress() {
         progressDialog.dismiss();

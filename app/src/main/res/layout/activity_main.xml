@@ -99,7 +99,9 @@
                     android:padding="8dp"
                     android:textColor="#9aa2aa"
                     android:textSize="16sp" />
+
             </LinearLayout>
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -220,7 +222,6 @@
                         android:id="@+id/imageView53"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         app:srcCompat="@drawable/shoes4" />
 
                     <TextView
@@ -266,7 +267,7 @@
                         android:id="@+id/imageView55"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/viewmore1"
+                        android:src="@drawable/viewmore"
                         />
 
                     <TextView
@@ -279,6 +280,7 @@
                         android:textColor="@color/black" />
                 </LinearLayout>
             </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -305,7 +307,9 @@
                     android:layout_height="wrap_content"
                     android:text="See all"
                     android:textColor="@color/purple_light" />
+
             </LinearLayout>
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/PopularView"
@@ -317,149 +321,149 @@
         </LinearLayout>
     </ScrollView>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="110dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/appBar"
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:layout_gravity="bottom"
-            android:background="@drawable/edittext_background"
-            android:padding="4dp"
-            app:fabCradleMargin="8dp"
-            app:fabCradleRoundedCornerRadius="50dp"
-            app:fabCradleVerticalOffset="6dp">
-
-            <LinearLayout
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="110dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:orientation="vertical">
+                <com.google.android.material.bottomappbar.BottomAppBar
+                    android:id="@+id/appBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/edittext_background"
+                    android:padding="4dp"
+                    app:fabCradleMargin="8dp"
+                    app:fabCradleRoundedCornerRadius="50dp"
+                    app:fabCradleVerticalOffset="6dp">
 
-                    <ImageView
-                        android:id="@+id/imageView61"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/btn_1" />
-
-                    <TextView
-                        android:id="@+id/textView101"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Explorer"
-                        android:textAlignment="center" />
-                </LinearLayout>
+                        android:layout_height="wrap_content">
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2"
+                            android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageView62"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/btn_2" />
+                            <ImageView
+                                android:id="@+id/imageView61"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/btn_1" />
 
-                    <TextView
-                        android:id="@+id/textView102"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Wishlist"
-                        android:textAlignment="center" />
-                </LinearLayout>
+                            <TextView
+                                android:id="@+id/textView101"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="Explorer"
+                                android:textAlignment="center" />
+                        </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:orientation="vertical"
-                    android:visibility="invisible">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2"
+                            android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageView63"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/btn_1" />
+                            <ImageView
+                                android:id="@+id/imageView62"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/btn_2" />
 
-                    <TextView
-                        android:id="@+id/textView103"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Explorer"
-                        android:textAlignment="center" />
-                </LinearLayout>
+                            <TextView
+                                android:id="@+id/textView102"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="Wishlist"
+                                android:textAlignment="center" />
+                        </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/cartBtn"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2"
+                            android:orientation="vertical"
+                            android:visibility="invisible">
 
-                    <ImageView
-                        android:id="@+id/imageView64"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/btn_3" />
+                            <ImageView
+                                android:id="@+id/imageView63"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/btn_1" />
 
-                    <TextView
-                        android:id="@+id/textView104"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Cart"
-                        android:textAlignment="center" />
-                </LinearLayout>
+                            <TextView
+                                android:id="@+id/textView103"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="Explorer"
+                                android:textAlignment="center" />
+                        </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:orientation="vertical">
+                        <LinearLayout
+                            android:id="@+id/cartBtn"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2"
+                            android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageView6"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/btn_4" />
+                            <ImageView
+                                android:id="@+id/imageView64"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/btn_3" />
 
-                    <TextView
-                        android:id="@+id/textView10"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Profile"
-                        android:textAlignment="center" />
-                </LinearLayout>
-            </LinearLayout>
-        </com.google.android.material.bottomappbar.BottomAppBar>
+                            <TextView
+                                android:id="@+id/textView104"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="Cart"
+                                android:textAlignment="center" />
+                        </LinearLayout>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/qrcode"
-            app:backgroundTint="@color/purple_Dark"
-            app:layout_anchor="@id/appBar"
-            app:maxImageSize="30dp"
-            app:tint="@color/white" />
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/imageView6"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/btn_4" />
+
+                            <TextView
+                                android:id="@+id/textView10"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="Profile"
+                                android:textAlignment="center" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.bottomappbar.BottomAppBar>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/qrcode"
+                    app:backgroundTint="@color/purple_Dark"
+                    app:layout_anchor="@id/appBar"
+                    app:maxImageSize="30dp"
+                    app:tint="@color/white" />
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
