@@ -1,53 +1,25 @@
-package com.example.stylemirror_1_1.Activity;
+package com.example.stylemirror_1_1;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Window;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.stylemirror_1_1.Adapter.PopularAdapter;
-import com.example.stylemirror_1_1.R;
-import com.example.stylemirror_1_1.databinding.ActivityMainBinding;
+import com.example.stylemirror_1_1.databinding.ActivityListBinding;
 import com.example.stylemirror_1_1.domain.PopularDomain;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
-    ActivityMainBinding binding;
-    //ImageView img1=(ImageView)findViewById(R.id.imageView61);
-
+public class activity_list extends AppCompatActivity {
+    ActivityListBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        binding = ActivityListBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-
-         statusBarColor();
-         initRecyclerView();
-         bottomNavigation();
-//         img1.setOnClickListener(new View.OnClickListener() {
-//             @Override
-//             public void onClick(View v) {
-//                 Intent intent = new Intent(MainActivity.this, explorer.class);
-//                 startActivity(intent);
-//             }
-//         });
     }
-
-    private void bottomNavigation() {
-        binding.cartBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, CartActivity.class)));
-    }
-
-    private void statusBarColor() {
-        Window window=MainActivity.this.getWindow();
-        window.setStatusBarColor(ContextCompat.getColor(MainActivity.this,R.color.purple_Dark));
-    }
-
-    private void initRecyclerView() {
+    private void itemlistRecyclerView() {
         ArrayList<PopularDomain> items=new ArrayList<>();
         items.add(new com.example.stylemirror_1_1.domain.PopularDomain("T-shirt black","item_1",15,4,500,"Immerse yourself in a world of vibrant visuals and\n" +
                 " immersive sound with the monitor.\n" +
@@ -83,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 "entertainment space. The ultra-slim bezel and\n" +
                 " premium finish blend seamlessly with any decor"));
 
-        binding.PopularView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
-        binding.PopularView.setAdapter(new PopularAdapter(items));
+        binding.productList.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        binding.productList.setAdapter(new PopularAdapter(items));
     }
 }
