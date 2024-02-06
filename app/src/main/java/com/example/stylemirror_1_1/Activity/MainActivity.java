@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -13,11 +14,13 @@ import com.example.stylemirror_1_1.Adapter.PopularAdapter;
 import com.example.stylemirror_1_1.R;
 import com.example.stylemirror_1_1.databinding.ActivityMainBinding;
 import com.example.stylemirror_1_1.domain.PopularDomain;
+import com.example.stylemirror_1_1.explorer;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
+    ImageView img1=(ImageView)findViewById(R.id.imageView61);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,14 +29,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-         statusBarColor();
+        statusBarColor();
          initRecyclerView();
          bottomNavigation();
-
-         binding.exploreBtn.setOnClickListener(view -> {
-             Intent intent = new Intent(MainActivity.this,activity_explorer.class);
-             startActivity(intent);
+         img1.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent = new Intent(MainActivity.this, explorer.class);
+                 startActivity(intent);
+             }
          });
+
     }
 
     private void bottomNavigation() {
@@ -46,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
-        ArrayList<PopularDomain> items=new ArrayList<>();
+        ArrayList<com.example.stylemirror_1_1.domain.PopularDomain> items=new ArrayList<>();
         items.add(new com.example.stylemirror_1_1.domain.PopularDomain("T-shirt black","item_1",15,4,500,"Immerse yourself in a world of vibrant visuals and\n" +
                 " immersive sound with the monitor.\n" +
                 " Its cutting-edge monitor technology brings every\n" +

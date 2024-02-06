@@ -32,6 +32,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.example.stylemirror_1_1.domain.PopularDomain;
+import com.example.stylemirror_1_1.domain.ShoesDomain;
 import com.google.gson.Gson;
 
 import java.io.File;
@@ -339,6 +340,19 @@ public class TinyDB {
         return playerList;
     }
 
+    public ArrayList<ShoesDomain> getShoesListObject(String key){
+        Gson gson = new Gson();
+
+        ArrayList<String> objStrings = getListString(key);
+        ArrayList<ShoesDomain> playerList =  new ArrayList<ShoesDomain>();
+
+        for(String jObjString : objStrings){
+            ShoesDomain player  = gson.fromJson(jObjString,  ShoesDomain.class);
+            playerList.add(player);
+        }
+        return playerList;
+    }
+
 
 
     public <T> T getObject(String key, Class<T> classOfT){
@@ -493,6 +507,16 @@ public class TinyDB {
         Gson gson = new Gson();
         ArrayList<String> objStrings = new ArrayList<String>();
         for(PopularDomain player: playerList){
+            objStrings.add(gson.toJson(player));
+        }
+        putListString(key, objStrings);
+    }
+
+    public void putShoesListObject(String key, ArrayList<ShoesDomain> playerList){
+        checkForNullKey(key);
+        Gson gson = new Gson();
+        ArrayList<String> objStrings = new ArrayList<String>();
+        for(ShoesDomain player: playerList){
             objStrings.add(gson.toJson(player));
         }
         putListString(key, objStrings);
