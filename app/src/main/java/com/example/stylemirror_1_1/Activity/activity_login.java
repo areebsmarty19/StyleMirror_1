@@ -1,4 +1,4 @@
-package com.example.stylemirror_1_1;
+package com.example.stylemirror_1_1.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -9,7 +9,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.stylemirror_1_1.Activity.MainActivity;
 import com.example.stylemirror_1_1.databinding.ActivityLoginBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.auth.FirebaseAuth;

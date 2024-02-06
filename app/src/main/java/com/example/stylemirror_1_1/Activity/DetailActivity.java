@@ -1,22 +1,32 @@
 package com.example.stylemirror_1_1.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
+import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
 import com.example.stylemirror_1_1.Helper.ManagmentCart;
+import com.example.stylemirror_1_1.Helper.ShoesCart;
 import com.example.stylemirror_1_1.R;
 import com.example.stylemirror_1_1.databinding.ActivityDetailBinding;
+import com.example.stylemirror_1_1.databinding.ActivityMainBinding;
 import com.example.stylemirror_1_1.domain.PopularDomain;
+import com.example.stylemirror_1_1.domain.ShoesDomain;
+
 
 public class DetailActivity extends AppCompatActivity {
     private ActivityDetailBinding binding;
+    private ActivityMainBinding binding1;
     private PopularDomain object;
+    private ShoesDomain object2;
     private int numberOrder = 1;
-    private com.example.stylemirror_1_1.Helper.ManagmentCart managmentCart;
+    private ManagmentCart managmentCart;
+    private ShoesCart shoesCart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +36,7 @@ public class DetailActivity extends AppCompatActivity {
 
         getBundles();
         managmentCart = new ManagmentCart(this);
+        shoesCart = new ShoesCart(this);
         statusBarColor();
     }
 
@@ -38,21 +49,51 @@ public class DetailActivity extends AppCompatActivity {
         object = (PopularDomain) getIntent().getSerializableExtra("object");
 
         int drawableResourceId = this.getResources().getIdentifier(object.getPicUrl(), "drawable", this.getPackageName());
+
         Glide.with(this)
                 .load(drawableResourceId)
-                .into(binding.itemPic);
+                .into(binding.productImage);
 
-        binding.titleTxt.setText(object.getTitle());
-        binding.priceTxt.setText("$" + object.getPrice());
-        binding.descriptionTxt.setText(object.getDescription());
-        binding.reviewTxt.setText(object.getReview() + "");
-        binding.ratingTxt.setText(object.getScore() + "");
+        binding.productName.setText(object.getTitle());
+            binding.productPrice.setText("$" + object.getPrice());
+            binding.productFullDescription.setText(object.getDescription());
+            //binding.reviewTxt.setText(object.getReview() + "");
+            //binding.ratingTxt.setText(object.getScore() + "");
 
-        binding.addToCardBtn.setOnClickListener(v -> {
-            object.setNumberInCart(numberOrder);
-            managmentCart.insertFood(object);
+            binding.addToCart.setOnClickListener(v -> {
+                object.setNumberInCart(numberOrder);
+                managmentCart.insertFood(object);
+            });
+
+//        object2 = (ShoesDomain) getIntent().getSerializableExtra("object2");
+//        int drawableResourceId2 = this.getResources().getIdentifier(object.getPicUrl(), "drawable", this.getPackageName());
+//        Glide.with(this)
+//                .load(drawableResourceId2)
+//                .into(binding.productImage);
+//            binding.productName.setText(object2.getShoesTitle());
+//            binding.productPrice.setText("$" + object2.getShoesPrice());
+//            binding.productFullDescription.setText(object2.getShoesDescription());
+//            //binding.reviewTxt.setText(object2.getReview() + "");
+//            //binding.ratingTxt.setText(object2.getScore() + "");
+//
+//            binding.addToCart.setOnClickListener(v -> {
+//                object2.setShoesNumberInCart(numberOrder);
+//                shoesCart.insertShoes(object2);
+//            });
+
+        binding.buyNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                object.setNumberInCart(numberOrder);
+                managmentCart.insertFood(object);
+
+//                object2.setShoesNumberInCart(numberOrder);
+//                shoesCart.insertShoes(object2);
+
+                Intent intent = new Intent(DetailActivity.this,CartActivity.class);
+                startActivity(intent);
+            }
         });
-
         binding.backBtn.setOnClickListener(v -> finish());
     }
 }

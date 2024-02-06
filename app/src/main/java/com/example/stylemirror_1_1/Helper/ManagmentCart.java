@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.example.stylemirror_1_1.domain.PopularDomain;
-
+import com.example.stylemirror_1_1.domain.ShoesDomain;
 import java.util.ArrayList;
 
 public class ManagmentCart {
@@ -28,7 +28,7 @@ public class ManagmentCart {
             }
         }
         if(existAlready){
-            listpop.get(n).setNumberInCart(item.getNumberInCart());
+            listpop.get(n).setNumberInCart(item.getNumberInCart()+1);
         }else{
             listpop.add(item);
         }
@@ -51,6 +51,7 @@ public class ManagmentCart {
     public void minusNumberItem(ArrayList<PopularDomain> listItem,int position,ChangeNumberItemsListener changeNumberItemsListener){
         if(listItem.get(position).getNumberInCart()==1){
             listItem.remove(position);
+
         }else{
             listItem.get(position).setNumberInCart(listItem.get(position).getNumberInCart()-1);
         }

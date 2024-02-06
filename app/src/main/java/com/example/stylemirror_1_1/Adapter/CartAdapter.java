@@ -70,7 +70,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Viewholder> {
 
             changeNumberItemsListener.change();
             binding.numberItemTxt.setText(String.valueOf(items.get(position).getNumberInCart()));
-notifyItemChanged(position);
+            notifyItemChanged(position);
         }));
     }
 
