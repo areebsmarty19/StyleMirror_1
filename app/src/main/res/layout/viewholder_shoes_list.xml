@@ -89,66 +89,6 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Shoes 1" />
 
-        <ImageView
-            android:id="@+id/rating1"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_baseline_star_24"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="4dp"
-            app:layout_constraintTop_toBottomOf="@id/shoestitle"
-            app:layout_constraintStart_toEndOf="@id/shoespic" />
-
-        <ImageView
-            android:id="@+id/rating2"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_baseline_star_24"
-            android:layout_marginTop="4dp"
-            android:layout_marginStart="-3dp"
-            app:layout_constraintTop_toBottomOf="@id/shoestitle"
-            app:layout_constraintStart_toEndOf="@id/rating1" />
-
-        <ImageView
-            android:id="@+id/rating3"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_baseline_star_24"
-            android:layout_marginTop="4dp"
-            android:layout_marginStart="-3dp"
-            app:layout_constraintTop_toBottomOf="@id/shoestitle"
-            app:layout_constraintStart_toEndOf="@id/rating2" />
-
-        <ImageView
-            android:id="@+id/rating4"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_baseline_star_24"
-            android:layout_marginTop="4dp"
-            android:layout_marginStart="-3dp"
-            app:layout_constraintTop_toBottomOf="@id/shoestitle"
-            app:layout_constraintStart_toEndOf="@id/rating3" />
-
-        <ImageView
-            android:id="@+id/rating5"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_baseline_star_half_24"
-            android:layout_marginTop="4dp"
-            android:layout_marginStart="-3dp"
-            app:layout_constraintTop_toBottomOf="@id/shoestitle"
-            app:layout_constraintStart_toEndOf="@id/rating4" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/rating_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:layout_marginTop="6dp"
-            android:layout_marginStart="2dp"
-            app:layout_constraintStart_toEndOf="@id/rating5"
-            app:layout_constraintTop_toBottomOf="@id/shoestitle"
-            tools:text="1,000" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/currency"
@@ -159,7 +99,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="6dp"
             app:layout_constraintStart_toEndOf="@id/shoespic"
-            app:layout_constraintTop_toBottomOf="@id/rating1"
+            app:layout_constraintTop_toBottomOf="@id/shoestitle"
             android:text="@string/rupee" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -170,7 +110,7 @@
             android:textColor="#CC3507"
             android:layout_marginTop="4dp"
             app:layout_constraintStart_toEndOf="@id/currency"
-            app:layout_constraintTop_toBottomOf="@id/rating1"
+            app:layout_constraintTop_toBottomOf="@id/shoestitle"
             tools:text="1,000" />
 
         <com.google.android.material.textview.MaterialTextView
