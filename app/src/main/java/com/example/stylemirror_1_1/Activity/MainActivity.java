@@ -14,13 +14,11 @@ import com.example.stylemirror_1_1.Adapter.PopularAdapter;
 import com.example.stylemirror_1_1.R;
 import com.example.stylemirror_1_1.databinding.ActivityMainBinding;
 import com.example.stylemirror_1_1.domain.PopularDomain;
-import com.example.stylemirror_1_1.explorer;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
-    ImageView img1=(ImageView)findViewById(R.id.imageView61);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +30,17 @@ public class MainActivity extends AppCompatActivity {
         statusBarColor();
          initRecyclerView();
          bottomNavigation();
-         img1.setOnClickListener(new View.OnClickListener() {
+         binding.imageView61.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-                 Intent intent = new Intent(MainActivity.this, explorer.class);
+                 Intent intent = new Intent(MainActivity.this, activity_explorer.class);
+                 startActivity(intent);
+             }
+         });
+         binding.ViewAll.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent = new Intent(MainActivity.this, activity_explorer.class);
                  startActivity(intent);
              }
          });
@@ -52,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
-        ArrayList<com.example.stylemirror_1_1.domain.PopularDomain> items=new ArrayList<>();
-        items.add(new com.example.stylemirror_1_1.domain.PopularDomain("T-shirt black","item_1",15,4,500,"Immerse yourself in a world of vibrant visuals and\n" +
+        ArrayList<PopularDomain> items=new ArrayList<>();
+        items.add(new PopularDomain(1,"T-shirt black","item_1",15,4,500,"Immerse yourself in a world of vibrant visuals and\n" +
                 " immersive sound with the monitor.\n" +
                 " Its cutting-edge monitor technology brings every\n" +
                 " scene to life with striking clarity and rich colors.\n" +
@@ -64,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 " not just a TV, but a centerpiece for your \n" +
                 "entertainment space. The ultra-slim bezel and\n" +
                 " premium finish blend seamlessly with any decor"));
-        items.add(new PopularDomain("Smart Watch","item_2",10,4.5,450,"Immerse yourself in a world of vibrant visuals and\n" +
+        items.add(new PopularDomain(2,"Smart Watch","item_2",10,4.5,450,"Immerse yourself in a world of vibrant visuals and\n" +
                 " immersive sound with the monitor.\n" +
                 " Its cutting-edge monitor technology brings every\n" +
                 " scene to life with striking clarity and rich colors.\n" +
@@ -75,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 " not just a TV, but a centerpiece for your \n" +
                 "entertainment space. The ultra-slim bezel and\n" +
                 " premium finish blend seamlessly with any decor"));
-        items.add(new PopularDomain("Phone","item_3",3,4.9,800,"Immerse yourself in a world of vibrant visuals and\n" +
+        items.add(new PopularDomain(3,"Phone","item_3",3,4.9,800,"Immerse yourself in a world of vibrant visuals and\n" +
                 " immersive sound with the monitor.\n" +
                 " Its cutting-edge monitor technology brings every\n" +
                 " scene to life with striking clarity and rich colors.\n" +

@@ -104,7 +104,7 @@
             android:layout_height="28dp"
             android:text="-"
             android:textColor="@color/black"
-android:gravity="center"
+            android:gravity="center"
             android:layout_marginEnd="12dp"
             android:background="@drawable/white_circle_background"
             app:layout_constraintBottom_toBottomOf="parent"

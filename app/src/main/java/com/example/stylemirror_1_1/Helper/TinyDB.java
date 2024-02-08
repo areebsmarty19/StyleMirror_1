@@ -32,7 +32,6 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.example.stylemirror_1_1.domain.PopularDomain;
-import com.example.stylemirror_1_1.domain.ShoesDomain;
 import com.google.gson.Gson;
 
 import java.io.File;
@@ -297,6 +296,9 @@ public class TinyDB {
         return new ArrayList<String>(Arrays.asList(TextUtils.split(preferences.getString(key, ""), "‚‗‚")));
     }
 
+    public ArrayList<String> getShoesListString(String key) {
+        return new ArrayList<String>(Arrays.asList(TextUtils.split(preferences.getString(key, ""), "‚‗‚")));
+    }
     /**
      * Get boolean value from SharedPreferences at 'key'. If key not found, return false
      * @param key SharedPreferences key
@@ -339,21 +341,6 @@ public class TinyDB {
         }
         return playerList;
     }
-
-    public ArrayList<ShoesDomain> getShoesListObject(String key){
-        Gson gson = new Gson();
-
-        ArrayList<String> objStrings = getListString(key);
-        ArrayList<ShoesDomain> playerList =  new ArrayList<ShoesDomain>();
-
-        for(String jObjString : objStrings){
-            ShoesDomain player  = gson.fromJson(jObjString,  ShoesDomain.class);
-            playerList.add(player);
-        }
-        return playerList;
-    }
-
-
 
     public <T> T getObject(String key, Class<T> classOfT){
 
@@ -449,7 +436,6 @@ public class TinyDB {
         checkForNullKey(key); checkForNullValue(value);
         preferences.edit().putString(key, value).apply();
     }
-
     /**
      * Put ArrayList of String into SharedPreferences with 'key' and save
      * @param key SharedPreferences key
@@ -501,7 +487,6 @@ public class TinyDB {
     	Gson gson = new Gson();
     	putString(key, gson.toJson(obj));
     }
-
     public void putListObject(String key, ArrayList<PopularDomain> playerList){
         checkForNullKey(key);
         Gson gson = new Gson();
@@ -512,15 +497,6 @@ public class TinyDB {
         putListString(key, objStrings);
     }
 
-    public void putShoesListObject(String key, ArrayList<ShoesDomain> playerList){
-        checkForNullKey(key);
-        Gson gson = new Gson();
-        ArrayList<String> objStrings = new ArrayList<String>();
-        for(ShoesDomain player: playerList){
-            objStrings.add(gson.toJson(player));
-        }
-        putListString(key, objStrings);
-    }
 
     /**
      * Remove SharedPreferences item with 'key'

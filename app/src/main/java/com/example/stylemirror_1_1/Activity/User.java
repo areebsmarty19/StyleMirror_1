@@ -1,4 +1,4 @@
-package com.example.stylemirror_1_1;
+package com.example.stylemirror_1_1.Activity;
 
 public class User {
     private String userId, username, email;

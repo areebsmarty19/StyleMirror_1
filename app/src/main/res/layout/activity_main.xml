@@ -168,14 +168,14 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/spec">
 
                     <ImageView
                         android:id="@+id/imageView51"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/spectacles2"
-                        />
+                        android:src="@drawable/spectacles2" />
 
                     <TextView
                         android:id="@+id/textView72"
@@ -191,13 +191,13 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/sneakers">
 
                     <ImageView
                         android:id="@+id/imageView52"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         app:srcCompat="@drawable/shoes2" />
 
                     <TextView
@@ -214,13 +214,13 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/formals">
 
                     <ImageView
                         android:id="@+id/imageView53"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         app:srcCompat="@drawable/shoes4" />
 
                     <TextView
@@ -237,13 +237,13 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/makeup">
 
                     <ImageView
                         android:id="@+id/imageView54"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         app:srcCompat="@drawable/makeup" />
 
                     <TextView
@@ -260,14 +260,14 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/View_all">
 
                     <ImageView
                         android:id="@+id/imageView55"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/viewmore1"
-                        />
+                        android:src="@drawable/viewmore1" />
 
                     <TextView
                         android:id="@+id/textView75"
@@ -296,7 +296,6 @@
                     android:text="Popular Product"
                     android:textColor="@color/black"
                     android:textSize="19sp"
-
                     android:textStyle="bold" />
 
                 <TextView

@@ -1,5 +1,4 @@
-package com.example.stylemirror_1_1;
-
+package com.example.stylemirror_1_1.Activity;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
@@ -10,7 +9,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.stylemirror_1_1.Activity.MainActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -47,36 +45,27 @@ public class activity_register extends AppCompatActivity {
 
             if(musername.length() >= 5 && !memail.equals("") && mpassword.length()>6)
             {
-
                 //Login
                 fetchUserFromEmail(musername, memail, mpassword);
-
             }
-
             else
             {
                 Toast.makeText(activity_register.this,"Please enter proper values", Toast.LENGTH_SHORT).show();
             }
         });
 
-
         binding.existingUser.setOnClickListener(v -> {
             Intent intent = new Intent(activity_register.this,activity_login.class);
             startActivity(intent);
             finish();
         });
-
-
     }
-
 
     private void initProgressDialog() {
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Registering user...");
         progressDialog.setCanceledOnTouchOutside(false);
     }
-
-
     private void fetchUserFromEmail(String username, String email, String password) {
         progressDialog.show();
         firebaseAuth.fetchSignInMethodsForEmail(email)
@@ -97,7 +86,6 @@ public class activity_register extends AppCompatActivity {
                 });
     }
 
-
     private void registerNewUser(String username, String email, String password) {
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
@@ -117,12 +105,11 @@ public class activity_register extends AppCompatActivity {
                     }
                 });
     }
-
     private void addUserToDB(User user) {
         databaseReference.child(user.getUserId()).setValue(user)
                 .addOnCompleteListener(task -> {
                     hideProgress();
-                    Intent intent = new Intent(activity_register.this, MainActivity.class);
+                    Intent intent = new Intent(activity_register.this, activity_login.class);
                     startActivity(intent);
                     finish();
                 }).addOnFailureListener(e -> {
@@ -130,7 +117,6 @@ public class activity_register extends AppCompatActivity {
                     Toast.makeText(activity_register.this, "Database failed", Toast.LENGTH_SHORT).show();
                 });
     }
-
     private void hideProgress() {
         progressDialog.dismiss();
     }
