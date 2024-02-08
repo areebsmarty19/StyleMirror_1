@@ -3,15 +3,18 @@ package com.example.stylemirror_1_1.domain;
 import java.io.Serializable;
 
 public class PopularDomain implements Serializable {
+    private int id;
     private String title;
     private String picUrl;
+
     private int review;
     private double score;
     private int numberInCart;
     private double price;
     private String description;
 
-    public PopularDomain(String title, String picUrl, int review, double score, double price,String description) {
+    public PopularDomain(int id , String title, String picUrl, int review, double score, double price,String description) {
+        this.id = id;
         this.title = title;
         this.picUrl = picUrl;
         this.review = review;
@@ -19,7 +22,13 @@ public class PopularDomain implements Serializable {
         this.price = price;
         this.description=description;
     }
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getDescription() {
         return description;
     }
