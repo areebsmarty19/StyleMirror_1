@@ -136,13 +136,59 @@ import com.example.stylemirror_1_1.databinding.ActivityRegisterBinding;
 public class activity_register extends AppCompatActivity {
 
     ActivityRegisterBinding binding;
+    DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding=ActivityRegisterBinding.inflate(getLayoutInflater());
+        binding = ActivityRegisterBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        databaseHelper = new DatabaseHelper(this);
+
+        binding.SignUpbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String username = binding.username.getText().toString();
+                String email = binding.email.getText().toString();
+                String password = binding.password.getText().toString();
+
+                if (username.equals("") || email.equals("") || password.equals(""))
+                    Toast.makeText(activity_register.this, "All fields are mandatory", Toast.LENGTH_SHORT).show();
+                else {
+                    if (password.length() >= 6 || password.length() <= 12) {
+                        Boolean checkUserEmail = databaseHelper.checkEmail(email);
+
+                        if (checkUserEmail == false) {
+                            Boolean insert = databaseHelper.insertdata(username,email, password);
+
+                            if (insert == true) {
+                                Toast.makeText(activity_register.this, "Signup Successfully!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(activity_register.this, activity_login.class);
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(activity_register.this, "Signup Failed!", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(activity_register.this, "User already exists! Please login", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(activity_register.this, "Invalid Password!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+
+        binding.existingUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity_register.this, activity_login.class);
+                startActivity(intent);
+            }
+        });
+    }
+}
 //        binding.backIv.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -150,29 +196,29 @@ public class activity_register extends AppCompatActivity {
 //            }
 //        });
 
-        binding.existingUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(activity_register.this, activity_login.class));
-                finish();
-            }
-        });
-
-        binding.SignUpbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                DatabaseHelper db = new DatabaseHelper(activity_register.this);
-                UserModel userModel = new UserModel(binding.username.getText().toString(),binding.email.getText().toString(),binding.password.getText().toString());
-                boolean success = db.registerUser(userModel);
-                if(success){
-                    Toast.makeText(activity_register.this, "Registered Successfully!", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(activity_register.this, activity_login.class));
-                    finish();
-                }
-
-
-            }
-        });
-    }
-}
+//        binding.existingUser.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(activity_register.this, activity_login.class));
+//                finish();
+//            }
+//        });
+//
+//        binding.SignUpbtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                DatabaseHelper db = new DatabaseHelper(activity_register.this);
+//                UserModel userModel = new UserModel(binding.username.getText().toString(),binding.email.getText().toString(),binding.password.getText().toString());
+//                boolean success = db.registerUser(userModel);
+//                if(success){
+//                    Toast.makeText(activity_register.this, "Registered Successfully!", Toast.LENGTH_SHORT).show();
+//                    startActivity(new Intent(activity_register.this, activity_login.class));
+//                    finish();
+//                }
+//
+//
+//            }
+//        });
+//    }
+//}

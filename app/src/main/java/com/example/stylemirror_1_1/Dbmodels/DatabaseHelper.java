@@ -19,7 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String EMAIL = "EMAIL";
     public static final String PASSWORD = "PASSWORD";
 
-    public DatabaseHelper(@Nullable Context context) {
+    public DatabaseHelper(Context context) {
         super(context, "Users.db", null, 1);
     }
 
@@ -36,15 +36,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+        db.execSQL("drop Table if exists USER_TABLE");
     }
    // public String fetchUsernameFromDb(){}
-    public boolean registerUser(UserModel userModel){
+    public boolean insertdata(String username , String email , String password){
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(USERNAME,userModel.getUsername());
-        cv.put(EMAIL,userModel.getEmail());
-        cv.put(PASSWORD,userModel.getPassword());
+        cv.put(USERNAME,username);
+        cv.put(EMAIL,email);
+        cv.put(PASSWORD,password);
 
         long insert = db.insert(USER_TABLE,null,cv);
         Log.d("Database", "Successfully inserted");
@@ -56,22 +57,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-     public boolean validatelogin(String username,String password){
-        db = this.getReadableDatabase();
-        String fetch = "SELECT * from "+USER_TABLE+" where "+USERNAME+"= '"+username+ "'"+"AND "+PASSWORD+" = '"+password+"'";
-        cursor = db.rawQuery(fetch,null);
+    public Boolean checkEmail(String email){
+        db  = this.getWritableDatabase();
+        cursor = db.rawQuery("Select * from users where email = ?", new String[]{email});
 
-        if(cursor.moveToFirst()){
-            close();
+        if(cursor.getCount() > 0) {
             return true;
-        }
-        else {
-            close();
+        }else {
             return false;
         }
-     }
+    }
+
+//    public boolean validatelogin(String email,String password){
+//        db = this.getReadableDatabase();
+//        String fetch = "SELECT * from "+USER_TABLE+" where "+EMAIL+"= '"+email+PASSWORD+" = '"+password+"'";
+//        cursor = db.rawQuery(fetch,null);
+//
+//        if(cursor.moveToFirst()){
+//            close();
+//            return true;
+//        }
+//        else {
+//            close();
+//            return false;
+//        }
+//     }
      public void close(){
          db.close();
          cursor.close();
      }
+    public Boolean checkEmailPassword(String email, String password){
+        db = this.getWritableDatabase();
+        cursor = db.rawQuery("Select * from users where email = ? and password = ?", new String[]{email, password});
+        if (cursor.getCount() > 0) {
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

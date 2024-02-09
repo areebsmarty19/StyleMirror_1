@@ -111,55 +111,91 @@ import com.example.stylemirror_1_1.databinding.ActivityLoginBinding;
 public class activity_login extends AppCompatActivity {
     public static boolean logged = false;
     private ActivityLoginBinding binding;
-   // @SuppressLint("MissingInflatedId")
+    DatabaseHelper databaseHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        register();
-        onClickLogin();
-    }
 
-    private void onClickLogin() {
+        databaseHelper = new DatabaseHelper(this);
         binding.logbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(validateAuth()){
-                    DatabaseHelper db = new DatabaseHelper(activity_login.this);
-                    boolean found = db.validatelogin(binding.username.getText().toString().trim(),binding.password.getText().toString().trim());
-                    if (found == true) {
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        intent.putExtra("name",binding.username.getText().toString().trim());
-                        Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_SHORT).show();
-                        logged=true;
-                        startActivity(intent);
-                        finish();
-                    }
-                    else {
-                        Toast.makeText(getApplicationContext(),"User not found!",Toast.LENGTH_SHORT).show();
-                    }
-                }
+                String email = binding.email.getText().toString();
+                String password = binding.password.getText().toString();
+
+                if(email.equals("")||password.equals(""))
+                    Toast.makeText(activity_login.this, "All fields are mandatory", Toast.LENGTH_SHORT).show();
                 else{
-                    Toast.makeText(getApplicationContext(),"Enter data in proper format!",Toast.LENGTH_SHORT).show();
+                    if (password.length() >= 6 || password.length() <= 12){
+                    Boolean checkCredentials = databaseHelper.checkEmailPassword(email, password);
+                    if(checkCredentials == true){
+                        Toast.makeText(activity_login.this, "Login Successfully!", Toast.LENGTH_SHORT).show();
+                        Intent intent  = new Intent(activity_login.this, MainActivity.class);
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(activity_login.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(activity_login.this, "Invalid Password!", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
-    }
-    private void register() {
+
         binding.nuser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(activity_login.this,activity_register.class));
+                Intent intent = new Intent(activity_login.this, activity_register.class);
+                startActivity(intent);
             }
         });
     }
-    public boolean validateAuth(){
-        if((binding.username.getText().toString().isEmpty())||(binding.password.getText().toString().isEmpty())){
-            return false;
-        }
-        else{
-            return true;
-        }
-    }
 }
+//        register();
+//        onClickLogin();
+//    }
+//
+//    private void onClickLogin() {
+//        binding.logbtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(validateAuth()){
+//                    DatabaseHelper db = new DatabaseHelper(activity_login.this);
+//                    boolean found = db.validatelogin(binding.username.getText().toString().trim(),binding.password.getText().toString().trim());
+//                    if (found == true) {
+//                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//                        intent.putExtra("name",binding.username.getText().toString().trim());
+//                        Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_SHORT).show();
+//                        logged=true;
+//                        startActivity(intent);
+//                        finish();
+//                    }
+//                    else {
+//                        Toast.makeText(getApplicationContext(),"User not found!",Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//                else{
+//                    Toast.makeText(getApplicationContext(),"Enter data in proper format!",Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+//    }
+//    private void register() {
+//        binding.nuser.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(activity_login.this,activity_register.class));
+//            }
+//        });
+//    }
+//    public boolean validateAuth(){
+//        if((binding.email.getText().toString().isEmpty())||(binding.password.getText().toString().isEmpty())){
+//            return false;
+//        }
+//        else{
+//            return true;
+//        }
+//    }
+//}

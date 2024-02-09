@@ -6,16 +6,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.stylemirror_1_1.Adapter.PopularAdapter;
 import com.example.stylemirror_1_1.domain.PopularDomain;
-import com.example.stylemirror_1_1.databinding.ActivityListBinding;
+import com.example.stylemirror_1_1.databinding.ActivityShoesListBinding;
 
 import java.util.ArrayList;
 
-public class activity_list extends AppCompatActivity {
-    ActivityListBinding binding;
+public class activity_shoes_list extends AppCompatActivity {
+    ActivityShoesListBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityListBinding.inflate(getLayoutInflater());
+        binding = ActivityShoesListBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         itemlistRecyclerView();
     }
