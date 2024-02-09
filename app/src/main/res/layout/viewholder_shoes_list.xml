@@ -16,7 +16,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/shoespic"
+            android:id="@+id/pic"
             android:layout_width="160dp"
             android:layout_height="120dp"
             android:contentDescription="@string/product_image"
@@ -28,21 +28,22 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
-            android:layout_width="40dp"
+            android:layout_width="50dp"
             android:layout_height="22dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/white_background2"
-            app:layout_constraintStart_toStartOf="@id/shoespic"
+            app:layout_constraintStart_toStartOf="@id/pic"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/shoesscore"
+                android:id="@+id/scoreTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
 
             <ImageView
                 android:id="@+id/imageView5"
@@ -62,12 +63,12 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="@id/shoespic"
-            app:layout_constraintEnd_toEndOf="@id/shoespic"
+            app:layout_constraintBottom_toBottomOf="@id/pic"
+            app:layout_constraintEnd_toEndOf="@id/pic"
             app:srcCompat="@drawable/review" />
 
         <TextView
-            android:id="@+id/shoesreview"
+            android:id="@+id/reviewTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -78,14 +79,14 @@
             app:layout_constraintTop_toTopOf="@+id/imageView7" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/shoestitle"
+            android:id="@+id/titleTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            app:layout_constraintStart_toEndOf="@id/shoespic"
+            app:layout_constraintStart_toEndOf="@id/pic"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Shoes 1" />
 
@@ -98,19 +99,19 @@
             android:textColor="#CC3507"
             android:layout_marginStart="16dp"
             android:layout_marginTop="6dp"
-            app:layout_constraintStart_toEndOf="@id/shoespic"
-            app:layout_constraintTop_toBottomOf="@id/shoestitle"
+            app:layout_constraintStart_toEndOf="@id/pic"
+            app:layout_constraintTop_toBottomOf="@id/titleTxt"
             android:text="@string/rupee" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/shoesprice"
+            android:id="@+id/feeTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textColor="#CC3507"
             android:layout_marginTop="4dp"
             app:layout_constraintStart_toEndOf="@id/currency"
-            app:layout_constraintTop_toBottomOf="@id/shoestitle"
+            app:layout_constraintTop_toBottomOf="@id/titleTxt"
             tools:text="1,000" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -120,8 +121,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
-            app:layout_constraintStart_toEndOf="@id/shoespic"
-            app:layout_constraintTop_toBottomOf="@id/shoesprice"
+            app:layout_constraintStart_toEndOf="@id/pic"
+            app:layout_constraintTop_toBottomOf="@id/feeTxt"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:text="FREE delivery by Wed, 10 Aug" />
 

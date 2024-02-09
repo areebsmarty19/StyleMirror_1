@@ -19,7 +19,7 @@ public class activity_explorer extends AppCompatActivity {
         binding.imageButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(activity_explorer.this, activity_list.class);
+                Intent intent = new Intent(activity_explorer.this, activity_shoes_list.class);
                 startActivity(intent);
             }
         });

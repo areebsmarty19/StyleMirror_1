@@ -12,7 +12,6 @@ import com.bumptech.glide.Glide;
 import com.example.stylemirror_1_1.Helper.ManagmentCart;
 import com.example.stylemirror_1_1.R;
 import com.example.stylemirror_1_1.databinding.ActivityDetailBinding;
-import com.example.stylemirror_1_1.databinding.ActivityMainBinding;
 import com.example.stylemirror_1_1.domain.PopularDomain;
 
 
@@ -47,22 +46,21 @@ public class DetailActivity extends AppCompatActivity {
                 .into(binding.productImage);
 
         binding.productName.setText(object.getTitle());
-            binding.productPrice.setText("$" + object.getPrice());
-            binding.productFullDescription.setText(object.getDescription());
-            //binding.reviewTxt.setText(object.getReview() + "");
-            //binding.ratingTxt.setText(object.getScore() + "");
+        binding.productPrice.setText("$" + object.getPrice());
+        binding.productFullDescription.setText(object.getDescription());
+        //binding.reviewTxt.setText(object.getReview() + "");
+        //binding.ratingTxt.setText(object.getScore() + "");
 
             binding.addToCart.setOnClickListener(v -> {
                 object.setNumberInCart(numberOrder);
-                managmentCart.insertFood(object);
+                managmentCart.insertFood(object,object.getId());
             });
-
 
         binding.buyNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 object.setNumberInCart(numberOrder);
-                managmentCart.insertFood(object);
+                managmentCart.insertFood(object,object.getId());
 
                 Intent intent = new Intent(DetailActivity.this,CartActivity.class);
                 startActivity(intent);

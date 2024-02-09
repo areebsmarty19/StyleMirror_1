@@ -328,7 +328,6 @@ public class TinyDB {
         return newList;
     }
 
-
     public ArrayList<PopularDomain> getListObject(String key){
         Gson gson = new Gson();
 
