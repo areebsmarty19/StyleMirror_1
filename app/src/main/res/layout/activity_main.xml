@@ -267,7 +267,7 @@
                         android:id="@+id/imageView55"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/viewmore1" />
+                        android:src="@drawable/viewmore" />
 
                     <TextView
                         android:id="@+id/textView75"

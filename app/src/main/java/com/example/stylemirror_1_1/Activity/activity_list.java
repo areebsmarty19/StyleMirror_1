@@ -21,7 +21,7 @@ public class activity_list extends AppCompatActivity {
     }
     private void itemlistRecyclerView() {
         ArrayList<PopularDomain> items=new ArrayList<>();
-        items.add(new PopularDomain(3 ,"Shoes 1","shoes",15,4,500,"Immerse yourself in a world of vibrant visuals and\n" +
+        items.add(new PopularDomain(4,"Shoes 1","shoes",15,4,500,"Immerse yourself in a world of vibrant visuals and\n" +
                 " immersive sound with the monitor.\n" +
                 " Its cutting-edge monitor technology brings every\n" +
                 " scene to life with striking clarity and rich colors.\n" +
@@ -32,7 +32,7 @@ public class activity_list extends AppCompatActivity {
                 " not just a TV, but a centerpiece for your \n" +
                 "entertainment space. The ultra-slim bezel and\n" +
                 " premium finish blend seamlessly with any decor"));
-        items.add(new PopularDomain(4,"Shoes 2","shoes1",10,4.5,450,"Immerse yourself in a world of vibrant visuals and\n" +
+        items.add(new PopularDomain(5,"Shoes 2","shoes1",10,4.5,450,"Immerse yourself in a world of vibrant visuals and\n" +
                 " immersive sound with the monitor.\n" +
                 " Its cutting-edge monitor technology brings every\n" +
                 " scene to life with striking clarity and rich colors.\n" +
@@ -43,7 +43,7 @@ public class activity_list extends AppCompatActivity {
                 " not just a TV, but a centerpiece for your \n" +
                 "entertainment space. The ultra-slim bezel and\n" +
                 " premium finish blend seamlessly with any decor"));
-        items.add(new PopularDomain(5,"Shoes 3","shoes4",3,4.9,800,"Immerse yourself in a world of vibrant visuals and\n" +
+        items.add(new PopularDomain(6,"Shoes 3","shoes4",3,4.9,800,"Immerse yourself in a world of vibrant visuals and\n" +
                 " immersive sound with the monitor.\n" +
                 " Its cutting-edge monitor technology brings every\n" +
                 " scene to life with striking clarity and rich colors.\n" +

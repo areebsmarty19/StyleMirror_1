@@ -17,12 +17,12 @@ public class ManagmentCart {
         this.tinyDB=new TinyDB(context);
     }
 
-    public void insertFood(PopularDomain item) {
+    public void insertFood(PopularDomain item,int id) {
         ArrayList<PopularDomain> listpop = getListCart();
         boolean existAlready = false;
         int n = 0;
         for (int i = 0; i < listpop.size(); i++) {
-            if (listpop.get(i).getTitle().equals(item.getTitle())) {
+            if (listpop.get(i).getId()==(item.getId())) {
                 existAlready = true;
                 n = i;
                 break;
