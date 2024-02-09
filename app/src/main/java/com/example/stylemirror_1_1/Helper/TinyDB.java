@@ -296,6 +296,9 @@ public class TinyDB {
         return new ArrayList<String>(Arrays.asList(TextUtils.split(preferences.getString(key, ""), "‚‗‚")));
     }
 
+    public ArrayList<String> getShoesListString(String key) {
+        return new ArrayList<String>(Arrays.asList(TextUtils.split(preferences.getString(key, ""), "‚‗‚")));
+    }
     /**
      * Get boolean value from SharedPreferences at 'key'. If key not found, return false
      * @param key SharedPreferences key
@@ -325,7 +328,6 @@ public class TinyDB {
         return newList;
     }
 
-
     public ArrayList<PopularDomain> getListObject(String key){
         Gson gson = new Gson();
 
@@ -338,8 +340,6 @@ public class TinyDB {
         }
         return playerList;
     }
-
-
 
     public <T> T getObject(String key, Class<T> classOfT){
 
@@ -435,7 +435,6 @@ public class TinyDB {
         checkForNullKey(key); checkForNullValue(value);
         preferences.edit().putString(key, value).apply();
     }
-
     /**
      * Put ArrayList of String into SharedPreferences with 'key' and save
      * @param key SharedPreferences key
@@ -487,7 +486,6 @@ public class TinyDB {
     	Gson gson = new Gson();
     	putString(key, gson.toJson(obj));
     }
-
     public void putListObject(String key, ArrayList<PopularDomain> playerList){
         checkForNullKey(key);
         Gson gson = new Gson();
@@ -497,6 +495,7 @@ public class TinyDB {
         }
         putListString(key, objStrings);
     }
+
 
     /**
      * Remove SharedPreferences item with 'key'

@@ -11,9 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.stylemirror_1_1.Adapter.CartAdapter;
 import com.example.stylemirror_1_1.R;
 import com.example.stylemirror_1_1.databinding.ActivityCartBinding;
+import com.example.stylemirror_1_1.Helper.ManagmentCart;
 
 public class CartActivity extends AppCompatActivity {
-    private com.example.stylemirror_1_1.Helper.ManagmentCart managmentCart;
+    private ManagmentCart managmentCart;
     ActivityCartBinding binding;
     double tax;
 
@@ -23,7 +24,7 @@ public class CartActivity extends AppCompatActivity {
         binding = ActivityCartBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        managmentCart = new com.example.stylemirror_1_1.Helper.ManagmentCart(this);
+        managmentCart = new ManagmentCart(this);
 
         setVariable();
         initlist();
@@ -54,7 +55,7 @@ public class CartActivity extends AppCompatActivity {
         tax = Math.round(managmentCart.getTotalFee() * percentTax * 100.0) / 100.0;
 
         double total = Math.round((managmentCart.getTotalFee() + tax + delivery) * 100) / 100;
-        double itemTotal = Math.round(managmentCart.getTotalFee() * 100) / 100;
+        double itemTotal = Math.round(managmentCart.getTotalFee()  * 100) / 100;
 
           binding.totalFeeTxt.setText("$" + itemTotal);
           binding.taxTxt.setText("$" + tax);

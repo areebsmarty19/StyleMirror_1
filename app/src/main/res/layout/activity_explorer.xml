@@ -19,8 +19,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <ImageView
-                android:id="@+id/imageView1"
+            <ImageButton
+                android:id="@+id/imageButton1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -28,9 +28,7 @@
                 android:layout_margin="10dp"
                 android:src="@drawable/shoesex"
                 android:adjustViewBounds="true"
-                android:background="@drawable/golden_border"
-                />
-
+                android:background="@drawable/golden_border"/>
         </FrameLayout>
 
         <FrameLayout
@@ -38,8 +36,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <ImageView
-                android:id="@+id/imageView3"
+            <ImageButton
+                android:id="@+id/imageButton2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -64,9 +62,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/imageButton3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -74,7 +71,6 @@
                 android:src="@drawable/cosmetics"
                 android:layout_margin="10dp"
                 android:background="@drawable/golden_border"/>
-
         </FrameLayout>
 
         <FrameLayout
@@ -83,7 +79,7 @@
             android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/imageButton4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

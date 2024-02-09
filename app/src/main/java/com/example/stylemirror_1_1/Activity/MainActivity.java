@@ -2,6 +2,7 @@ package com.example.stylemirror_1_1.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +18,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
-    //ImageView img1=(ImageView)findViewById(R.id.imageView61);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,16 +26,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-         statusBarColor();
+        statusBarColor();
          initRecyclerView();
          bottomNavigation();
-//         img1.setOnClickListener(new View.OnClickListener() {
-//             @Override
-//             public void onClick(View v) {
-//                 Intent intent = new Intent(MainActivity.this, explorer.class);
-//                 startActivity(intent);
-//             }
-//         });
+         binding.imageView61.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent = new Intent(MainActivity.this, activity_explorer.class);
+                 startActivity(intent);
+             }
+         });
+         binding.ViewAll.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent = new Intent(MainActivity.this, activity_explorer.class);
+                 startActivity(intent);
+             }
+         });
+
     }
 
     private void bottomNavigation() {
@@ -49,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initRecyclerView() {
         ArrayList<PopularDomain> items=new ArrayList<>();
-        items.add(new com.example.stylemirror_1_1.domain.PopularDomain("T-shirt black","item_1",15,4,500,"Immerse yourself in a world of vibrant visuals and\n" +
+        items.add(new PopularDomain(1,"T-shirt black","item_1",15,4,500,"Immerse yourself in a world of vibrant visuals and\n" +
                 " immersive sound with the monitor.\n" +
                 " Its cutting-edge monitor technology brings every\n" +
                 " scene to life with striking clarity and rich colors.\n" +
@@ -60,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 " not just a TV, but a centerpiece for your \n" +
                 "entertainment space. The ultra-slim bezel and\n" +
                 " premium finish blend seamlessly with any decor"));
-        items.add(new PopularDomain("Smart Watch","item_2",10,4.5,450,"Immerse yourself in a world of vibrant visuals and\n" +
+        items.add(new PopularDomain(2,"Smart Watch","item_2",10,4.5,450,"Immerse yourself in a world of vibrant visuals and\n" +
                 " immersive sound with the monitor.\n" +
                 " Its cutting-edge monitor technology brings every\n" +
                 " scene to life with striking clarity and rich colors.\n" +
@@ -71,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 " not just a TV, but a centerpiece for your \n" +
                 "entertainment space. The ultra-slim bezel and\n" +
                 " premium finish blend seamlessly with any decor"));
-        items.add(new PopularDomain("Phone","item_3",3,4.9,800,"Immerse yourself in a world of vibrant visuals and\n" +
+        items.add(new PopularDomain(3,"Phone","item_3",3,4.9,800,"Immerse yourself in a world of vibrant visuals and\n" +
                 " immersive sound with the monitor.\n" +
                 " Its cutting-edge monitor technology brings every\n" +
                 " scene to life with striking clarity and rich colors.\n" +
@@ -83,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 "entertainment space. The ultra-slim bezel and\n" +
                 " premium finish blend seamlessly with any decor"));
 
-        binding.PopularView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        binding.PopularView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         binding.PopularView.setAdapter(new PopularAdapter(items));
     }
 }

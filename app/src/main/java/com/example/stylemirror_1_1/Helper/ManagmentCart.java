@@ -7,6 +7,7 @@ import com.example.stylemirror_1_1.domain.PopularDomain;
 
 import java.util.ArrayList;
 
+
 public class ManagmentCart {
     private Context context;
     private TinyDB tinyDB;
@@ -16,19 +17,19 @@ public class ManagmentCart {
         this.tinyDB=new TinyDB(context);
     }
 
-    public void insertFood(PopularDomain item) {
+    public void insertFood(PopularDomain item,int id) {
         ArrayList<PopularDomain> listpop = getListCart();
         boolean existAlready = false;
         int n = 0;
         for (int i = 0; i < listpop.size(); i++) {
-            if (listpop.get(i).getTitle().equals(item.getTitle())) {
+            if (listpop.get(i).getId()==(item.getId())) {
                 existAlready = true;
                 n = i;
                 break;
             }
         }
         if(existAlready){
-            listpop.get(n).setNumberInCart(item.getNumberInCart());
+            listpop.get(n).setNumberInCart(item.getNumberInCart()+1);
         }else{
             listpop.add(item);
         }

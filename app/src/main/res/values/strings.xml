@@ -8,10 +8,11 @@
     <string name="checkout">Checkout</string>
     <string name="shopping_cart">Shopping Cart</string>
     <string name="rupee">₹</string>
-    <string name="try_in_your_home">Try In Your Home</string>
+    <string name="try_on">Try On</string>
     <string name="product_details">Product Details</string>
     <string name="buy_now">Buy Now</string>
     <string name="add_to_cart">Add To Cart</string>
     <string name="in_stock">In stock.</string>
-    <string name="_00">00</string>
+    <string name="_00">.0</string>
+
 </resources>
