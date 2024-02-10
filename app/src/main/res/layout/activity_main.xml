@@ -43,7 +43,7 @@
                         android:id="@+id/textView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tom Johnson"
+                        android:text=" "
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="@+id/textView"
@@ -174,14 +174,14 @@
                     <ImageView
                         android:id="@+id/imageView51"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/spectacles2" />
+                        android:layout_height="51dp"
+                        android:src="@drawable/specses" />
 
                     <TextView
                         android:id="@+id/textView72"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="6dp"
                         android:text="Spectacles"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -197,7 +197,7 @@
                     <ImageView
                         android:id="@+id/imageView52"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         app:srcCompat="@drawable/shoes2" />
 
                     <TextView
@@ -220,7 +220,7 @@
                     <ImageView
                         android:id="@+id/imageView53"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="49dp"
                         app:srcCompat="@drawable/shoes4" />
 
                     <TextView
@@ -342,7 +342,8 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/explorerBtn">
 
                     <ImageView
                         android:id="@+id/imageView61"
@@ -364,7 +365,8 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/wishlistBtn">
 
                     <ImageView
                         android:id="@+id/imageView62"
@@ -432,7 +434,8 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/profileBtn">
 
                     <ImageView
                         android:id="@+id/imageView6"
