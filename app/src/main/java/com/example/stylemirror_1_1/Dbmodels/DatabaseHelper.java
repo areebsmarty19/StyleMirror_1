@@ -7,7 +7,17 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -67,28 +77,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
         }
     }
-
-//    public boolean validatelogin(String email,String password){
-//        db = this.getReadableDatabase();
-//        String fetch = "SELECT * from "+USER_TABLE+" where "+EMAIL+"= '"+email+PASSWORD+" = '"+password+"'";
-//        cursor = db.rawQuery(fetch,null);
-//
-//        if(cursor.moveToFirst()){
-//            close();
-//            return true;
-//        }
-//        else {
-//            close();
-//            return false;
-//        }
-//     }
      public void close(){
          db.close();
          cursor.close();
      }
-    public Boolean checkEmailPassword(String email, String password){
+    public Boolean checkEmailPassword(String username, String password){
         db = this.getWritableDatabase();
-        cursor = db.rawQuery("Select * from users where email = ? and password = ?", new String[]{email, password});
+        cursor = db.rawQuery("Select * from users where username = ? and password = ?", new String[]{username, password});
         if (cursor.getCount() > 0) {
             return true;
         }else {

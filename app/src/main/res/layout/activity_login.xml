@@ -60,12 +60,12 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="32dp"
-                    android:text="Email"
+                    android:text="Username"
                     android:textColor="#ffffff"
                     android:textSize="24sp" />
 
                 <EditText
-                    android:id="@+id/email"
+                    android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginStart="32dp"
@@ -73,7 +73,7 @@
                     android:layout_marginEnd="32dp"
                     android:background="@drawable/edittext_background"
                     android:drawableStart="@drawable/baseline_email_24"
-                    android:hint="Enter your Email..."
+                    android:hint="Enter your Username..."
                     android:inputType="textEmailAddress"
                     android:paddingStart="20dp"
                     android:drawablePadding="20sp"
