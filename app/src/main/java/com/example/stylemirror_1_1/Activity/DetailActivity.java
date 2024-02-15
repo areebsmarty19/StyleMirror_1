@@ -1,6 +1,7 @@
 package com.example.stylemirror_1_1.Activity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -17,6 +18,8 @@ import com.example.stylemirror_1_1.databinding.ActivityDetailBinding;
 import com.example.stylemirror_1_1.domain.PopularDomain;
 
 public class DetailActivity extends AppCompatActivity {
+
+    private final String url = "https://specstry.netlify.app/";
     private ActivityDetailBinding binding;
     private PopularDomain object;
     private FavDB favDB;
@@ -82,5 +85,59 @@ public class DetailActivity extends AppCompatActivity {
             binding.favBtn.setImageResource(isFavorite ? R.drawable.ic_bookmark_filled : R.drawable.ic_bookmark);
         });
         binding.backBtn.setOnClickListener(v -> finish());
+        binding.virtual.setOnClickListener(v->{
+
+             String data = "";
+             String id = object.getId();
+
+//            intent.putExtra("id",object.getId());
+            switch (id){
+                case "10" :
+                    data = String.valueOf(0);
+                    break;
+
+                case "11" :
+                    data = String.valueOf(1);
+                    break;
+
+                case "12" :
+                    data = String.valueOf(2);
+                    break;
+
+                case "13" :
+                    data = String.valueOf(3);
+                    break;
+
+                case "14" :
+                    data = String.valueOf(4);
+                    break;
+
+                case "15" :
+                    data = String.valueOf(5);
+                    break;
+
+                case "16" :
+                    data = String.valueOf(6);
+                    break;
+
+                case "17" :
+                    data = String.valueOf(7);
+                    break;
+
+                case "18" :
+                    data = String.valueOf(8);
+                    break;
+
+                default:
+                    data = String.valueOf(0);
+                    break;
+
+            }
+            String full = url+"?data="+ Uri.encode(data);
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(full));
+            startActivity(intent);
+
+        });
     }
 }
