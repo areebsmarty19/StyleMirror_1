@@ -1,8 +1,10 @@
 package com.example.stylemirror_1_1.Helper;
 
 import android.content.Context;
+import android.view.View;
 import android.widget.Toast;
 
+import com.example.stylemirror_1_1.databinding.ViewholderCartBinding;
 import com.example.stylemirror_1_1.domain.PopularDomain;
 
 import java.util.ArrayList;
@@ -11,6 +13,7 @@ import java.util.ArrayList;
 public class ManagmentCart {
     private Context context;
     private TinyDB tinyDB;
+    private ViewholderCartBinding binding;
 
     public ManagmentCart(Context context) {
         this.context = context;
@@ -34,7 +37,7 @@ public class ManagmentCart {
             listpop.add(item);
         }
         tinyDB.putListObject("CartList",listpop);
-        Toast.makeText(context, "Added to your Cart", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, listpop.get(n).getTitle()+" Added to your Cart", Toast.LENGTH_SHORT).show();
     }
 
     public ArrayList<PopularDomain> getListCart() {

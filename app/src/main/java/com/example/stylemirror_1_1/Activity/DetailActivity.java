@@ -59,25 +59,12 @@ public class DetailActivity extends AppCompatActivity {
 
         binding.addToCart.setOnClickListener(v -> {
             object.setNumberInCart(1);
-            if (isFavorite) {
-                favDB.remove_fav(object.getId());
-                Toast.makeText(this, "Removed from favorites", Toast.LENGTH_SHORT).show();
-            } else {
-                managmentCart.insertFood(object);
-                Toast.makeText(this, "Added to cart", Toast.LENGTH_SHORT).show();
-            }
-            isFavorite = !isFavorite;
+            managmentCart.insertFood(object);
         });
 
         binding.buyNow.setOnClickListener(v -> {
             object.setNumberInCart(1);
-            if (isFavorite) {
-                favDB.remove_fav(object.getId());
-                Toast.makeText(this, "Removed from favorites", Toast.LENGTH_SHORT).show();
-            } else {
-                managmentCart.insertFood(object);
-                Toast.makeText(this, "Added to cart", Toast.LENGTH_SHORT).show();
-            }
+            managmentCart.insertFood(object);
             Intent intent = new Intent(DetailActivity.this, CartActivity.class);
             startActivity(intent);
         });

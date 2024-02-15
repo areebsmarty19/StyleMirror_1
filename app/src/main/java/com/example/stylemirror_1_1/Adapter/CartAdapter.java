@@ -2,6 +2,7 @@ package com.example.stylemirror_1_1.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -60,6 +61,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Viewholder> {
         }));
 
         binding.minusCartItem.setOnClickListener(v -> managmentCart.minusNumberItem(items, position, () -> {
+            if (binding.numberItemTxt.getText().toString().equals("1")){
+                binding.minusCartItem.setVisibility(View.INVISIBLE);
+            }
             changeNumberItemsListener.change();
             binding.numberItemTxt.setText(String.valueOf(items.get(position).getNumberInCart()));
             notifyItemChanged(position);
