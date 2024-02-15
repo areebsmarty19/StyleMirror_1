@@ -67,7 +67,7 @@ public class activity_specs_list extends AppCompatActivity {
                 " overexposure. > Headaches and migraines are possible\n " +
                 "side effects, as are mental and physical fatigue,\n" +
                 " eye strain and dry eyes, and sleep disturbances.\n"));
-        items.add(new PopularDomain(14,"Rmerom Y2K Sunglasses ","specs5",30,4.5,4498,"Y2k sunglasses are very light and comfortable,\n" +
+        items.add(new PopularDomain(14,"Rmerom Y2K Sunglasses","specs5",30,4.5,4498,"Y2k sunglasses are very light and comfortable,\n" +
                 "wrap-around shield design, more fit for the eyes,\n" +
                 "fixed nose bridge design, will not fall off, you can use\n" +
                 " them for driving. Very nice looking, these y2k glasses\n" +
@@ -82,7 +82,7 @@ public class activity_specs_list extends AppCompatActivity {
                 " Bring 2000s sunglasses to parties, shopping, traveling,\n" +
                 " you must be the brightest existence. It is also a\n" +
                 " must-have fashion item for street photographers."));
-        items.add(new PopularDomain(15,"ARZONAI Classic Aviator Metal Unisex Sunglasses ","specs6",0,0,249,"This fashionable retro vintage sunglasses design is the\n" +
+        items.add(new PopularDomain(15,"ARZONAI Classic Aviator Metal Unisex Sunglasses","specs6",0,0,249,"This fashionable retro vintage sunglasses design is the\n" +
                 " most popular style of sunglasses selling on Amazon.\n" +
                 "The most suitable glasses for driving, sports, sailing,\n" +
                 "skiing, traveling, styling, hunting outdoor tourism and\n" +
@@ -105,7 +105,7 @@ public class activity_specs_list extends AppCompatActivity {
                 "maintain them regularly. Simply spray some Aqualens\n" +
                 "solution on your lenses and wipe them with a\n" +
                 "microfiber cloth to keep your lenses smudge free.\n"));
-        items.add(new PopularDomain(18,"Ray-Ban Men's Round Sunglasses","spec9",25,3.9,4690, "Junior Round Uv Protected Sunglasses\n" +
+        items.add(new PopularDomain(18,"Ray-Ban Men's Round Sunglasses","specs9",25,3.9,4690, "Junior Round Uv Protected Sunglasses\n" +
                 "Rayban is the global leader in premium eyeglasses\n" +
                 "and by far the best selling eyeglasses brand in the world.\n" +
                 "Each pair of sunglasses comes with a case and lens\n" +
