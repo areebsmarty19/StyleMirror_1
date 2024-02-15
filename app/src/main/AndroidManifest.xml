@@ -13,7 +13,16 @@
         android:theme="@style/Theme.StyleMirror_1_1"
         tools:targetApi="31">
         <activity
-            android:name=".Activity.activity_list"
+            android:name=".Activity.activity_cosmetics_list"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.activity_specs_list"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.activity_fav_items"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.activity_shoes_list"
             android:exported="false" />
         <activity
             android:name=".Activity.activity_explorer"
@@ -35,6 +44,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -17,7 +17,7 @@ public class ManagmentCart {
         this.tinyDB=new TinyDB(context);
     }
 
-    public void insertFood(PopularDomain item,int id) {
+    public void insertFood(PopularDomain item) {
         ArrayList<PopularDomain> listpop = getListCart();
         boolean existAlready = false;
         int n = 0;

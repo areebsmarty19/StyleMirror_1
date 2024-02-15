@@ -2,67 +2,114 @@ package com.example.stylemirror_1_1.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners;
-import com.example.stylemirror_1_1.Activity.DetailActivity;
+import com.example.stylemirror_1_1.Helper.FavDB;
 import com.example.stylemirror_1_1.databinding.ViewholderShoesListBinding;
 import com.example.stylemirror_1_1.domain.PopularDomain;
+import com.example.stylemirror_1_1.R;
+import com.example.stylemirror_1_1.Activity.DetailActivity;
 
 import java.util.ArrayList;
 
 public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewholder> {
-    ArrayList<PopularDomain> items;
-    Context context;
-    ViewholderShoesListBinding binding;
+    private ArrayList<PopularDomain> items;
+    private Context context;
+    private FavDB favDB;
 
-    public PopularAdapter(ArrayList<PopularDomain> items) {
+    public PopularAdapter(ArrayList<PopularDomain> items, Context context) {
         this.items = items;
+        this.context = context;
+        this.favDB = new FavDB(context);
     }
 
     @NonNull
     @Override
-    public PopularAdapter.Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        binding = ViewholderShoesListBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
-        context = parent.getContext();
+    public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        ViewholderShoesListBinding binding = ViewholderShoesListBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new Viewholder(binding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PopularAdapter.Viewholder holder,int position) {
-        binding.titleTxt.setText(items.get(position).getTitle());
-        binding.feeTxt.setText("$" + items.get(position).getPrice());
-        binding.scoreTxt.setText("" + items.get(position).getScore());
-        binding.reviewTxt.setText("" + items.get(position).getReview());
+    public void onBindViewHolder(@NonNull Viewholder holder, int position) {
+        PopularDomain item = items.get(position);
+
+        String title = item.getTitle();
+        holder.binding.titleTxt.setText(formatTitle(title));
+        holder.binding.feeTxt.setText("" + item.getPrice());
+
+        String description = items.get(position).getDescription();
+        String des = description.length() > 38 ? description.substring(0,20) + "\n" + description.substring(20,38) : description;
+        holder.binding.descriptionTxt.setText(des + "...");
 
         int drawableResourced = holder.itemView.getResources().getIdentifier(items.get(position).getPicUrl()
                 , "drawable", holder.itemView.getContext().getPackageName());
-        int Id = holder.itemView.getId();
+
         Glide.with(context)
                 .load(drawableResourced)
                 .transform(new GranularRoundedCorners(30, 30, 0, 0))
-                .into(binding.pic);
+                .into(holder.binding.pic);
+
+        holder.binding.favBtn.setImageResource(favDB.checkFavoriteStatus(item.getId()) ? R.drawable.ic_bookmark_filled : R.drawable.ic_bookmark);
+
+        holder.binding.favBtn.setOnClickListener(v -> {
+            boolean isFavorite = favDB.checkFavoriteStatus(item.getId());
+            if (isFavorite) {
+                favDB.remove_fav(item.getId());
+                Toast.makeText(context, item.getTitle() +" Removed from Favorites.", Toast.LENGTH_SHORT).show();
+            } else {
+                favDB.insertIntoTheDatabase(item.getTitle(), item.getPicUrl(), item.getPrice(), item.getDescription(), item.getId(), "1");
+                Toast.makeText(context, item.getTitle()+" Added to Favorites.", Toast.LENGTH_SHORT).show();
+            }
+            holder.binding.favBtn.setImageResource(isFavorite ? R.drawable.ic_bookmark : R.drawable.ic_bookmark_filled);
+        });
 
         holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, DetailActivity.class);
+            Intent intent = new Intent(context,DetailActivity.class);
             intent.putExtra("object", items.get(position));
             context.startActivity(intent);
         });
     }
+
+    private String formatTitle(String title) {
+        StringBuilder formattedTitle = new StringBuilder();
+        int consecutiveSpaces = 0;
+        for (char c : title.toCharArray()) {
+            if (c == ' ') {
+                consecutiveSpaces++;
+                if (consecutiveSpaces == 3) {
+                    formattedTitle.append("\n");
+                    consecutiveSpaces = 0;
+                }
+            }
+            formattedTitle.append(c);
+        }
+        return formattedTitle.toString();
+    }
+
 
     @Override
     public int getItemCount() {
         return items.size();
     }
 
-    public class Viewholder extends RecyclerView.ViewHolder {
-        public Viewholder(ViewholderShoesListBinding binding) {
+    static class Viewholder extends RecyclerView.ViewHolder {
+        ViewholderShoesListBinding binding;
+
+        Viewholder(ViewholderShoesListBinding binding) {
             super(binding.getRoot());
+            this.binding = binding;
         }
     }
+
+
 }

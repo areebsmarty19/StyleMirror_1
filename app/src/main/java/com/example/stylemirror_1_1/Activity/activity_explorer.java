@@ -19,7 +19,23 @@ public class activity_explorer extends AppCompatActivity {
         binding.imageButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(activity_explorer.this, activity_list.class);
+                Intent intent = new Intent(activity_explorer.this, activity_shoes_list.class);
+                startActivity(intent);
+            }
+        });
+
+        binding.imageButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity_explorer.this,activity_specs_list.class);
+                startActivity(intent);
+            }
+        });
+
+        binding.imageButton3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity_explorer.this,activity_cosmetics_list.class);
                 startActivity(intent);
             }
         });

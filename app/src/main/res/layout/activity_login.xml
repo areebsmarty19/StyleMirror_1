@@ -5,14 +5,6 @@
     android:layout_height="match_parent"
     android:background="#111E2F">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,63 +49,71 @@
                     android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
+                    android:layout_marginStart="25dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="32dp"
+                    android:layout_marginEnd="25dp"
                     android:text="Username"
                     android:textColor="#ffffff"
-                    android:textSize="21sp" />
+                    android:textSize="24sp" />
 
-                <EditText
-                    android:id="@+id/username"
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="32dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="32dp"
-                    android:background="@drawable/edittext_background"
-                    android:drawableStart="@drawable/baseline_email_24"
-                    android:hint="   Enter your Username..."
-                    android:inputType="textEmailAddress"
-                    android:paddingStart="24dp"
-                    android:textColorHint="#8A8888"
-                    android:textSize="19sp"
-                    />
+                    android:textColorHint="@color/black"
+                    android:textColor="#000000"
+                    app:hintAnimationEnabled="false"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                   <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/username"
+                        android:hint="Enter Email..."
+                       android:textColorHint="@color/black"
+                        android:textSize="20sp"
+                        android:drawableStart="@drawable/baseline_email_24"
+                        android:drawablePadding="20dp"
+                        android:inputType="textEmailAddress"
+                        android:layout_marginStart="25sp"
+                        android:layout_marginEnd="25dp"
+                        android:background="@drawable/edittext_background"
+                        android:textColor="#000000"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
+                    android:layout_marginStart="25dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="32dp"
+                    android:layout_marginEnd="25dp"
                     android:text="Password"
                     android:textColor="#ffffff"
-                    android:textSize="21sp" />
+                    android:textSize="24sp" />
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     app:passwordToggleEnabled="true"
-                    android:textColorHint="#8A8888"
+                    android:textColorHint="@color/black"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-
                     <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/password"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="32dp"
-                    android:background="@drawable/edittext_background"
-                    android:drawableStart="@drawable/baseline_lock_24"
-                    android:ems="10"
-                    android:hint="   Enter your Password..."
-                    android:inputType="textPassword"
-                    android:paddingStart="24dp"
-                    android:textColorHint="#8A8888"
-                    android:textSize="19sp" />
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/password"
+                        android:hint="Enter Password..."
+                        android:textSize="20sp"
+                        android:drawableStart="@drawable/baseline_lock_24"
+                        android:drawablePadding="20dp"
+                        android:inputType="textPassword"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginEnd="25dp"
+                        android:background="@drawable/edittext2_background"
+                        android:textColor="#000000"/>
+
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <LinearLayout
@@ -186,5 +186,4 @@
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
