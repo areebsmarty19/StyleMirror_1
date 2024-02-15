@@ -1,6 +1,7 @@
 package com.example.stylemirror_1_1.Activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -14,6 +15,7 @@ public class activity_login extends AppCompatActivity {
     public static boolean logged = false;
     private ActivityLoginBinding binding;
     DatabaseHelper databaseHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,25 +23,31 @@ public class activity_login extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         databaseHelper = new DatabaseHelper(this);
+
+        // Check if user is already logged in
+        if (loggedIn()) {
+            startMainActivity();
+            return; // Return to prevent further execution of onCreate
+        }
+        binding.username.setHintTextColor(Color.WHITE);
+        binding.password.setHintTextColor(Color.WHITE);
         binding.logbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String username = binding.username.getText().toString();
                 String password = binding.password.getText().toString();
 
-                if(username.equals("")||password.equals(""))
+                if (username.equals("") || password.equals("")) {
                     Toast.makeText(activity_login.this, "All fields are mandatory", Toast.LENGTH_SHORT).show();
-                else{
-                    if (password.length() >= 6 || password.length() <= 12){
-                    Boolean checkCredentials = databaseHelper.checkEmailPassword(username, password);
-                    if(checkCredentials == true){
-                        Toast.makeText(activity_login.this, "Login Successfully!", Toast.LENGTH_SHORT).show();
-                        Intent intent  = new Intent(activity_login.this, MainActivity.class);
-                        intent.putExtra("username",username);
-                        startActivity(intent);
-                        finish();
-                    }else{
-                        Toast.makeText(activity_login.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (password.length() >= 6 && password.length() <= 12) {
+                        Boolean checkCredentials = databaseHelper.checkEmailPassword(username, password);
+                        if (checkCredentials) {
+                            databaseHelper.setUserLoggedIn(true); // Mark user as logged in
+                            Toast.makeText(activity_login.this, "Login Successfully!", Toast.LENGTH_SHORT).show();
+                            startMainActivity();
+                        } else {
+                            Toast.makeText(activity_login.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                         }
                     } else {
                         Toast.makeText(activity_login.this, "Invalid Password!", Toast.LENGTH_SHORT).show();
@@ -55,5 +63,17 @@ public class activity_login extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    // Method to check if user is logged in
+    private boolean loggedIn() {
+        return databaseHelper.isLoggedIn(); // You need to implement isLoggedIn method in DatabaseHelper
+    }
+
+    // Method to start MainActivity
+    private void startMainActivity() {
+        Intent intent = new Intent(activity_login.this, MainActivity.class);
+        startActivity(intent);
+        finish(); // Finish LoginActivity to prevent going back to it when pressing back button from MainActivity
     }
 }
