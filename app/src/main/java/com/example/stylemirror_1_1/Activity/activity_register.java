@@ -35,7 +35,7 @@ public class activity_register extends AppCompatActivity {
                 if (username.equals("") || email.equals("") || password.equals(""))
                     Toast.makeText(activity_register.this, "All fields are mandatory", Toast.LENGTH_SHORT).show();
                 else {
-                    if (password.length() >= 6 || password.length() <= 12) {
+                    if (password.length() >= 6 && password.length() <= 12) {
                         Boolean checkUserEmail = databaseHelper.checkEmail(email);
 
                         if (checkUserEmail == false) {
@@ -53,7 +53,7 @@ public class activity_register extends AppCompatActivity {
                             Toast.makeText(activity_register.this, "User already exists! Please login", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(activity_register.this, "Invalid Password!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity_register.this, "Password Should be Greater than 6 letters and between 12 letters", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
