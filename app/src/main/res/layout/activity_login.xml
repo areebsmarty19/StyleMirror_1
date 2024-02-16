@@ -69,7 +69,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/username"
-                        android:hint="Enter Email..."
+                        android:hint="Enter Username"
                        android:textColorHint="@color/black"
                         android:textSize="20sp"
                         android:drawableStart="@drawable/baseline_email_24"
