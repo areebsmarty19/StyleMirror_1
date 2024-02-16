@@ -13,21 +13,34 @@ import com.example.stylemirror_1_1.Adapter.PopularAdapter;
 import com.example.stylemirror_1_1.R;
 import com.example.stylemirror_1_1.databinding.ActivityMainBinding;
 import com.example.stylemirror_1_1.domain.PopularDomain;
+import com.example.stylemirror_1_1.Dbmodels.DatabaseHelper;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
-
+    DatabaseHelper databaseHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        String username = getIntent().getStringExtra("username");
-        binding.textView2.setText(username);
-
+        databaseHelper = new DatabaseHelper(this);
+//        String username = getIntent().getStringExtra("username");
+//        if (username != null ){
+//            binding.textView2.setText(username);
+//        }
+        if (loggedIn()) {
+            binding.textView2.setText(UsernameOfLoggInUser());
+        }
+//        if (UsernameOfLoggInUser().equals("")){
+//            binding.textView2.setText(UsernameOfLoggInUser());
+//        }
+        else {
+            String username = getIntent().getStringExtra("username");
+            binding.textView2.setText(username);
+        }
         statusBarColor();
         initRecyclerView();
         bottomNavigation();
@@ -53,9 +66,14 @@ public class MainActivity extends AppCompatActivity {
                  startActivity(intent);
              }
          });
-
     }
 
+    private String UsernameOfLoggInUser(){
+        return databaseHelper.getUsernameByIfLoggIn();
+    }
+    private boolean loggedIn() {
+        return databaseHelper.isLoggedIn(); // You need to implement isLoggedIn method in DatabaseHelper
+    }
     private void bottomNavigation() {
         binding.cartBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, CartActivity.class)));
     }

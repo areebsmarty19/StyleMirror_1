@@ -12,7 +12,6 @@ import com.example.stylemirror_1_1.Dbmodels.DatabaseHelper;
 import com.example.stylemirror_1_1.databinding.ActivityLoginBinding;
 
 public class activity_login extends AppCompatActivity {
-    public static boolean logged = false;
     private ActivityLoginBinding binding;
     DatabaseHelper databaseHelper;
 
@@ -29,8 +28,14 @@ public class activity_login extends AppCompatActivity {
             startMainActivity();
             return; // Return to prevent further execution of onCreate
         }
-        binding.username.setHintTextColor(Color.WHITE);
-        binding.password.setHintTextColor(Color.WHITE);
+
+        binding.forgetpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity_login.this,activity_forget_password.class);
+                startActivity(intent);
+            }
+        });
         binding.logbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,7 +46,7 @@ public class activity_login extends AppCompatActivity {
                     Toast.makeText(activity_login.this, "All fields are mandatory", Toast.LENGTH_SHORT).show();
                 } else {
                     if (password.length() >= 6 && password.length() <= 12) {
-                        Boolean checkCredentials = databaseHelper.checkEmailPassword(username, password);
+                        boolean checkCredentials = databaseHelper.checkEmailPassword(username, password);
                         if (checkCredentials) {
                             databaseHelper.setUserLoggedIn(true); // Mark user as logged in
                             Toast.makeText(activity_login.this, "Login Successfully!", Toast.LENGTH_SHORT).show();
@@ -74,6 +79,6 @@ public class activity_login extends AppCompatActivity {
     private void startMainActivity() {
         Intent intent = new Intent(activity_login.this, MainActivity.class);
         startActivity(intent);
-        finish(); // Finish LoginActivity to prevent going back to it when pressing back button from MainActivity
+        finish();
     }
 }

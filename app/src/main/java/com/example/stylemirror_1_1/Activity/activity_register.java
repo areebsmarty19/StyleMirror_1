@@ -45,6 +45,7 @@ public class activity_register extends AppCompatActivity {
                                 Toast.makeText(activity_register.this, "Signup Successfully!", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(activity_register.this, activity_login.class);
                                 startActivity(intent);
+                                finish();
                             } else {
                                 Toast.makeText(activity_register.this, "Signup Failed!", Toast.LENGTH_SHORT).show();
                             }
@@ -63,6 +64,7 @@ public class activity_register extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(activity_register.this, activity_login.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
