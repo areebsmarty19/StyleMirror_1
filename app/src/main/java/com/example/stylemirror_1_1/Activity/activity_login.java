@@ -78,6 +78,7 @@ public class activity_login extends AppCompatActivity {
     // Method to start MainActivity
     private void startMainActivity() {
         Intent intent = new Intent(activity_login.this, MainActivity.class);
+        intent.putExtra("username", binding.username.getText().toString());
         startActivity(intent);
         finish();
     }

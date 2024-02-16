@@ -133,5 +133,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return username;
     }
-
+    public String getEmailByIfLoggIn() {
+        db = this.getReadableDatabase();
+        String email = null;
+        Cursor cursor = db.rawQuery("SELECT " + EMAIL + " FROM " + USER_TABLE + " WHERE " + LOGGED_IN + " = 1", null);
+        if (cursor != null && cursor.moveToFirst()) {
+            int emailIndex = cursor.getColumnIndex(EMAIL);
+            if (emailIndex != -1) {
+                email = cursor.getString(emailIndex);
+            }
+        }
+        if (cursor != null) {
+            cursor.close();
+        }
+        return email;
+    }
 }

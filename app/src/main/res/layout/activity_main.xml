@@ -175,7 +175,7 @@
                         android:id="@+id/imageView51"
                         android:layout_width="match_parent"
                         android:layout_height="51dp"
-                        android:src="@drawable/specses" />
+                        android:src="@drawable/speces" />
 
                     <TextView
                         android:id="@+id/textView72"
