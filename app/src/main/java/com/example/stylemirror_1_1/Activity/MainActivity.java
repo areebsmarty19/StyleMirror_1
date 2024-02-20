@@ -19,6 +19,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
+    String usrname;
+    String email1;
     DatabaseHelper databaseHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 //            binding.textView2.setText(username);
 //        }
         if (loggedIn()) {
+            usrname = UsernameOfLoggInUser();
             binding.textView2.setText(UsernameOfLoggInUser());
         }
 //        if (UsernameOfLoggInUser().equals("")){
@@ -44,6 +47,11 @@ public class MainActivity extends AppCompatActivity {
         statusBarColor();
         initRecyclerView();
         bottomNavigation();
+
+        email1 = EmailOfLoggInUser();
+        String username = getIntent().getStringExtra("usrname");
+        String email = getIntent().getStringExtra("email");
+
          binding.explorerBtn.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
@@ -66,10 +74,22 @@ public class MainActivity extends AppCompatActivity {
                  startActivity(intent);
              }
          });
+         binding.profileBtn.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent = new Intent(MainActivity.this, activity_profile.class);
+                 intent.putExtra("usrname", usrname);
+                 intent.putExtra("email", email1);
+                 startActivity(intent);
+             }
+         });
     }
 
     private String UsernameOfLoggInUser(){
         return databaseHelper.getUsernameByIfLoggIn();
+    }
+    private String EmailOfLoggInUser(){
+        return databaseHelper.getEmailByIfLoggIn();
     }
     private boolean loggedIn() {
         return databaseHelper.isLoggedIn(); // You need to implement isLoggedIn method in DatabaseHelper
