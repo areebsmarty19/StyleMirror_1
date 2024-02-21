@@ -2,8 +2,10 @@ package com.example.stylemirror_1_1.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -16,12 +18,23 @@ import com.example.stylemirror_1_1.domain.PopularDomain;
 import com.example.stylemirror_1_1.Dbmodels.DatabaseHelper;
 
 import java.util.ArrayList;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 public class MainActivity extends AppCompatActivity {
+
+
     ActivityMainBinding binding;
     String usrname;
     String email1;
     DatabaseHelper databaseHelper;
+
+    private HandlerThreadManager handlerThreadManager;
+
+    private AmazonApiClient amazonApiClient;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,6 +96,58 @@ public class MainActivity extends AppCompatActivity {
                  startActivity(intent);
              }
          });
+        amazonApiClient = AmazonApiClient.getInstance();
+        handlerThreadManager = new HandlerThreadManager("ProductDetailsHandlerThread");
+
+        // Fetch product details asynchronously
+        handlerThreadManager.post(new Runnable() {
+            @Override
+            public void run() {
+                amazonapiservice.AmazonApiService apiService = RetrofitClient.getClient("https://vitototti.p.rapidapi.com/").create(amazonapiservice.AmazonApiService.class);
+                Call<ProductResponse> call = apiService.getProductDetails("1b115e0b9emsh209cfd59f7a8c07p13c229jsn0ec691b11e99", "B07GR5MSKD");
+
+                call.enqueue(new Callback<ProductResponse>() {
+                    @Override
+                    public void onResponse(Call<ProductResponse> call, Response<ProductResponse> response) {
+                        if (response.isSuccessful()) {
+                            ProductResponse productResponse = response.body();
+                            if (productResponse != null && productResponse.getProduct() != null) {
+                                final String title = productResponse.getProduct().getTitle();
+                                final String description = productResponse.getProduct().getDescription();
+                                final String price = productResponse.getProduct().getPrice();
+
+                                // Update UI on the main thread
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        TextView productTitleTextView = findViewById(R.id.product_title);
+                                        TextView productDescriptionTextView = findViewById(R.id.product_description);
+                                        TextView productPriceTextView = findViewById(R.id.product_price);
+
+                                        productTitleTextView.setText(title);
+                                        productDescriptionTextView.setText(description);
+                                        productPriceTextView.setText(price);
+                                    }
+                                });
+                            }
+                        } else {
+                            Log.e("MainActivity", "Error fetching product details: " + response.message());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ProductResponse> call, Throwable t) {
+                        Log.e("MainActivity", "Error fetching product details: " + t.getMessage());
+                    }
+                });
+            }
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        handlerThreadManager.quit();
     }
 
     private String UsernameOfLoggInUser(){
