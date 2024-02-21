@@ -54,9 +54,9 @@ public class DetailActivity extends AppCompatActivity {
                 .load(drawableResourceId)
                 .into(binding.productImage);
 
-        binding.productName.setText(object.getTitle());
-        binding.productPrice.setText("$" + object.getPrice());
-        binding.productFullDescription.setText(object.getDescription());
+        binding.productTitle.setText(formatTitle(object.getTitle()));
+        binding.productPrice.setText("" + object.getPrice());
+        binding.productDescription.setText(object.getDescription());
         binding.reviewTxt.setText(String.valueOf(object.getReview()));
         binding.ratingTxt.setText(String.valueOf(object.getScore()));
 
@@ -85,6 +85,7 @@ public class DetailActivity extends AppCompatActivity {
             binding.favBtn.setImageResource(isFavorite ? R.drawable.ic_bookmark_filled : R.drawable.ic_bookmark);
         });
         binding.backBtn.setOnClickListener(v -> finish());
+
         binding.virtual.setOnClickListener(v->{
 
              String data = "";
@@ -92,10 +93,6 @@ public class DetailActivity extends AppCompatActivity {
 
 //            intent.putExtra("id",object.getId());
             switch (id){
-                case "10" :
-                    data = String.valueOf(0);
-                    break;
-
                 case "11" :
                     data = String.valueOf(1);
                     break;
@@ -128,8 +125,16 @@ public class DetailActivity extends AppCompatActivity {
                     data = String.valueOf(8);
                     break;
 
+                case "19" :
+                    data = String.valueOf(9);
+                    break;
+
+                case "20" :
+                    data = String.valueOf(10);
+                    break;
+
                 default:
-                    data = String.valueOf(0);
+                    data = String.valueOf(1);
                     break;
 
             }
@@ -140,4 +145,21 @@ public class DetailActivity extends AppCompatActivity {
 
         });
     }
+
+    private String formatTitle(String title) {
+        StringBuilder formattedTitle = new StringBuilder();
+        int consecutiveSpaces = 0;
+        for (char c : title.toCharArray()) {
+            if (c == ' ') {
+                consecutiveSpaces++;
+                if (consecutiveSpaces == 3) {
+                    formattedTitle.append("\n");
+                    consecutiveSpaces = 0;
+                }
+            }
+            formattedTitle.append(c);
+        }
+        return formattedTitle.toString();
+    }
+
 }

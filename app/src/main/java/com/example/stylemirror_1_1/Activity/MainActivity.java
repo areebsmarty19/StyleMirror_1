@@ -2,6 +2,7 @@ package com.example.stylemirror_1_1.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.telecom.Call;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -16,15 +17,11 @@ import com.example.stylemirror_1_1.R;
 import com.example.stylemirror_1_1.databinding.ActivityMainBinding;
 import com.example.stylemirror_1_1.domain.PopularDomain;
 import com.example.stylemirror_1_1.Dbmodels.DatabaseHelper;
+import com.google.android.gms.common.api.Response;
 
 import java.util.ArrayList;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 
 public class MainActivity extends AppCompatActivity {
-
 
     ActivityMainBinding binding;
     String usrname;
@@ -62,8 +59,6 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation();
 
         email1 = EmailOfLoggInUser();
-        String username = getIntent().getStringExtra("usrname");
-        String email = getIntent().getStringExtra("email");
 
          binding.explorerBtn.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -91,57 +86,55 @@ public class MainActivity extends AppCompatActivity {
              @Override
              public void onClick(View v) {
                  Intent intent = new Intent(MainActivity.this, activity_profile.class);
-                 intent.putExtra("usrname", usrname);
-                 intent.putExtra("email", email1);
                  startActivity(intent);
              }
          });
-        amazonApiClient = AmazonApiClient.getInstance();
-        handlerThreadManager = new HandlerThreadManager("ProductDetailsHandlerThread");
-
-        // Fetch product details asynchronously
-        handlerThreadManager.post(new Runnable() {
-            @Override
-            public void run() {
-                amazonapiservice.AmazonApiService apiService = RetrofitClient.getClient("https://vitototti.p.rapidapi.com/").create(amazonapiservice.AmazonApiService.class);
-                Call<ProductResponse> call = apiService.getProductDetails("1b115e0b9emsh209cfd59f7a8c07p13c229jsn0ec691b11e99", "B07GR5MSKD");
-
-                call.enqueue(new Callback<ProductResponse>() {
-                    @Override
-                    public void onResponse(Call<ProductResponse> call, Response<ProductResponse> response) {
-                        if (response.isSuccessful()) {
-                            ProductResponse productResponse = response.body();
-                            if (productResponse != null && productResponse.getProduct() != null) {
-                                final String title = productResponse.getProduct().getTitle();
-                                final String description = productResponse.getProduct().getDescription();
-                                final String price = productResponse.getProduct().getPrice();
-
-                                // Update UI on the main thread
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        TextView productTitleTextView = findViewById(R.id.product_title);
-                                        TextView productDescriptionTextView = findViewById(R.id.product_description);
-                                        TextView productPriceTextView = findViewById(R.id.product_price);
-
-                                        productTitleTextView.setText(title);
-                                        productDescriptionTextView.setText(description);
-                                        productPriceTextView.setText(price);
-                                    }
-                                });
-                            }
-                        } else {
-                            Log.e("MainActivity", "Error fetching product details: " + response.message());
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<ProductResponse> call, Throwable t) {
-                        Log.e("MainActivity", "Error fetching product details: " + t.getMessage());
-                    }
-                });
-            }
-        });
+//        amazonApiClient = AmazonApiClient.getInstance();
+//        handlerThreadManager = new HandlerThreadManager("ProductDetailsHandlerThread");
+//
+//        // Fetch product details asynchronously
+//        handlerThreadManager.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                amazonapiservice.AmazonApiService apiService = RetrofitClient.getClient("https://vitototti.p.rapidapi.com/").create(amazonapiservice.AmazonApiService.class);
+//                Call<ProductResponse> call = apiService.getProductDetails("1b115e0b9emsh209cfd59f7a8c07p13c229jsn0ec691b11e99", "B07GR5MSKD");
+//
+//                call.enqueue(new Callback<ProductResponse>() {
+//                    @Override
+//                    public void onResponse(Call<ProductResponse> call, Response<ProductResponse> response) {
+//                        if (response.isSuccessful()) {
+//                            ProductResponse productResponse = response.body();
+//                            if (productResponse != null && productResponse.getProduct() != null) {
+//                                final String title = productResponse.getProduct().getTitle();
+//                                final String description = productResponse.getProduct().getDescription();
+//                                final String price = productResponse.getProduct().getPrice();
+//
+//                                // Update UI on the main thread
+//                                runOnUiThread(new Runnable() {
+//                                    @Override
+//                                    public void run() {
+//                                        TextView productTitleTextView = findViewById(R.id.product_title);
+//                                        TextView productDescriptionTextView = findViewById(R.id.product_description);
+//                                        TextView productPriceTextView = findViewById(R.id.product_price);
+//
+//                                        productTitleTextView.setText(title);
+//                                        productDescriptionTextView.setText(description);
+//                                        productPriceTextView.setText(price);
+//                                    }
+//                                });
+//                            }
+//                        } else {
+//                            Log.e("MainActivity", "Error fetching product details: " + response.message());
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<ProductResponse> call, Throwable t) {
+//                        Log.e("MainActivity", "Error fetching product details: " + t.getMessage());
+//                    }
+//                });
+//            }
+//        });
     }
 
     @Override
@@ -182,17 +175,7 @@ public class MainActivity extends AppCompatActivity {
                 "fusion of classy and funky range of imported sneakers\n"+
                 "for the youth who wants to look confident, with comfort\n"+
                 "and style on his side, wants full control of his life."));
-        items.add(new PopularDomain(2,"Smart Watch","item_2",10,4.5,450,"Immerse yourself in a world of vibrant visuals and\n" +
-                " immersive sound with the monitor.\n" +
-                " Its cutting-edge monitor technology brings every\n" +
-                " scene to life with striking clarity and rich colors.\n" +
-                " With seamless integration and a sleek, modern\n" +
-                " design, the monitor Pro is not just a monitor , but a\n" +
-                " centerpiece for your entertainment space.\n" +
-                "With its sleek, modern design, the monitor is\n" +
-                " not just a TV, but a centerpiece for your \n" +
-                "entertainment space. The ultra-slim bezel and\n" +
-                " premium finish blend seamlessly with any decor"));
+        items.add(new PopularDomain(16,"UV Protection Aviator Sunglasses","spects_7",0,0,1274,"Material Composition"));
         items.add(new PopularDomain(3,"Phone","item_3",3,4.9,800,"Immerse yourself in a world of vibrant visuals and\n" +
                 " immersive sound with the monitor.\n" +
                 " Its cutting-edge monitor technology brings every\n" +

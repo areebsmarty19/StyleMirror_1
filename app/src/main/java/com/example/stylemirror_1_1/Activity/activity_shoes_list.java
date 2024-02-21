@@ -21,7 +21,7 @@ public class activity_shoes_list extends AppCompatActivity {
     }
     private void itemlistRecyclerView() {
         ArrayList<PopularDomain> items=new ArrayList<>();
-        items.add(new PopularDomain(4,"TRENDUTY Canvas Shoes for men","shoes1",15,4.1,852,"Allow your pair of shoes to air and de-odorize at\n"+
+        items.add(new PopularDomain(1,"TRENDUTY Canvas Shoes for men","shoes1",15,4.1,852,"Allow your pair of shoes to air and de-odorize at\n"+
                 "regular basis; use shoe bags to prevent any stains\n"+
                 "or mildew; dust any dry dirt from the surface \n"+
                 "using a clean cloth; do not use polish or shiner\n" +
@@ -33,13 +33,13 @@ public class activity_shoes_list extends AppCompatActivity {
                 "fusion of classy and funky range of imported sneakers\n"+
                 "for the youth who wants to look confident, with comfort\n"+
                 "and style on his side, wants full control of his life."));
-        items.add(new PopularDomain(5,"Air Max 270 Sneakers","shoes2",10,4,9796,"Wipe with clean cloth Nike's first lifestyle \n"+
+        items.add(new PopularDomain(2,"Air Max 270 Sneakers","shoes2",10,4,9796,"Wipe with clean cloth Nike's first lifestyle \n"+
                 "Air Max brings you style, comfort and big \n"+
                 "attitude in the Nike Air Max 270. The design \n"+
                 "draws inspiration from Air Max icons, showcasing\n"+
                 "Nike's greatest innovation with its large window\n"+
                 "and fresh array of colours."));
-        items.add(new PopularDomain(6,"AIR ZOOM PEGASUS 36 Running","shoes3",5,4.3,3000,"Nike Air Zoom Pegasus 36-Men's\n"+
+        items.add(new PopularDomain(3,"AIR ZOOM PEGASUS 36 Running","shoes3",5,4.3,3000,"Nike Air Zoom Pegasus 36-Men's\n"+
                 "Running Shoe-AN ICON GETS SLIMMER AND COOLER.\n"+
                 "The iconic Nike Air Zoom Pegasus 36 returns with\n"+
                 "more perforations and engineered mesh in the upper\n"+
@@ -50,13 +50,13 @@ public class activity_shoes_list extends AppCompatActivity {
                 "on upper enhance breathability in forefoot and arch.\n"+
                 "Full-length Zoom Air unit provides a smooth,responsive ride.\n"+
                 "Slimmer design reduces bulk for a comfortable,conforming fit."));
-        items.add(new PopularDomain(7,"NIKE Men's Air Max 90 Running Shoe","shoes4",0,0,11890,"Wipe with clean cloth Nike's first lifestyle \n"+
+        items.add(new PopularDomain(4,"NIKE Men's Air Max 90 Running Shoe","shoes4",0,0,11890,"Wipe with clean cloth Nike's first lifestyle \n"+
                 "Air Max brings you style, comfort and big \n"+
                 "attitude in the Nike Air Max 270. The design \n"+
                 "draws inspiration from Air Max icons, showcasing\n"+
                 "Nike's greatest innovation with its large window\n"+
                 "and fresh array of colours."));
-        items.add(new PopularDomain(8,"Jordan 1 Retro High OG Bordeaux Men's Basketball 555088-611","shoes5",30,4.5,50828,"The Air Jordan 1 High OG Rebellionaire is a unique colorway of\n"+
+        items.add(new PopularDomain(5,"Jordan 1 Retro High OG Bordeaux Men's Basketball 555088-611","shoes5",30,4.5,50828,"The Air Jordan 1 High OG Rebellionaire is a unique colorway of\n"+
                 "the vintage basketball shoe that takes inspiration from Nike's\n"+
                 "1985 Banded commercial, specifically the ad's They can't stop you\n"+
                 "from wearing them slogan A March 2021 release, the “Rebel” \n"+
@@ -68,7 +68,7 @@ public class activity_shoes_list extends AppCompatActivity {
                 "Jordan 1 “Banned” commercial Red “X’s” are found on the heel,\n"+
                 "similar in appearance to the Air Jordan 1 High OG “Band”\n" +
                 "graffiti-style branding printed on black leather overlays\n"));
-        items.add(new PopularDomain(9,"Nike Viale Premium Men's Running Shoes","shoes6",0,0,5695,"Nike Viale Premium Men's Running Shoes\n" +
+        items.add(new PopularDomain(6,"Nike Viale Premium Men's Running Shoes","shoes6",0,0,5695,"Nike Viale Premium Men's Running Shoes\n" +
                 "NIKE men's running shoes\n"));
         binding.productList.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         binding.productList.setAdapter(new PopularAdapter(items,this));

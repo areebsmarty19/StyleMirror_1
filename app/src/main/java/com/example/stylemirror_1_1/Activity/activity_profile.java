@@ -8,24 +8,26 @@ import android.view.View;
 
 import com.example.stylemirror_1_1.R;
 import com.example.stylemirror_1_1.databinding.ActivityProfileBinding;
+import com.example.stylemirror_1_1.Dbmodels.DatabaseHelper;
 
 public class activity_profile extends AppCompatActivity {
 
     ActivityProfileBinding binding;
+    DatabaseHelper databaseHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
-
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        String username = getIntent().getStringExtra("usrname");
-        String email = getIntent().getStringExtra("email");
+        databaseHelper = new DatabaseHelper(this);
+
+        String username = UsernameOfLoggInUser();
+        String email = EmailOfLoggInUser();
 
         // Display the username in the activity_profile layout
-        binding.usernameTextView.setText("Username: " + username);
-        binding.emailTextView.setText(""+email);
+        binding.usernameTextView.setText("Username : " + username);
+        binding.emailTextView.setText("Email : " + email);
 
         binding.tbr1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,4 +52,12 @@ public class activity_profile extends AppCompatActivity {
             }
         });
     }
+
+    private String UsernameOfLoggInUser(){
+        return databaseHelper.getUsernameByIfLoggIn();
+    }
+    private String EmailOfLoggInUser(){
+        return databaseHelper.getEmailByIfLoggIn();
+    }
+
 }
