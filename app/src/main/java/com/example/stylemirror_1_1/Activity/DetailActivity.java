@@ -159,16 +159,22 @@ public class DetailActivity extends AppCompatActivity {
             }
             Intent intent = new Intent(Intent.ACTION_VIEW);
             String full="";
-//            if (id <= "10") {
-//                full = shoeurl + "?data=" + Uri.encode(data);
-//                intent.setData(Uri.parse(full));
-//                startActivity(intent);
-//            }
-//            else if (id <= "20") {
-//                full = specsurl + "?data=" + Uri.encode(data);
-//                intent.setData(Uri.parse(full));
-//                startActivity(intent);
-//            }
+            Integer id1 = Integer.parseInt(id);
+            if (id1 <= 10) {
+                full = shoeurl + "?data=" + Uri.encode(data);
+                intent.setData(Uri.parse(full));
+                startActivity(intent);
+            }
+            else if (id1 <= 20 && id1 >10) {
+                full = specsurl + "?data=" + Uri.encode(data);
+                intent.setData(Uri.parse(full));
+                startActivity(intent);
+            }
+            else{
+                full = specsurl + "?data=" + Uri.encode(data);
+                intent.setData(Uri.parse(full));
+                startActivity(intent);
+            }
 
         });
     }
