@@ -1,7 +1,6 @@
 package com.example.stylemirror_1_1.Activity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -11,9 +10,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.stylemirror_1_1.Dbmodels.DatabaseHelper;
 import com.example.stylemirror_1_1.databinding.ActivityLoginBinding;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class activity_login extends AppCompatActivity {
     private ActivityLoginBinding binding;
     DatabaseHelper databaseHelper;
+
+    // Define regex pattern for password
+    private static final String PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{6,12}$";
+
+    // Matcher object for regex validation
+    private Matcher passwordMatcher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,21 +50,32 @@ public class activity_login extends AppCompatActivity {
                 String username = binding.username.getText().toString();
                 String password = binding.password.getText().toString();
 
-                if (username.equals("") || password.equals("")) {
-                    Toast.makeText(activity_login.this, "All fields are mandatory", Toast.LENGTH_SHORT).show();
+                // Validate username
+                if (username.isEmpty()) {
+                    Toast.makeText(activity_login.this, "Username field is mandatory", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Validate password
+                if (password.isEmpty()) {
+                    Toast.makeText(activity_login.this, "Password field is mandatory", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Validate password format
+                if (!isValidPassword(password)) {
+                    Toast.makeText(activity_login.this, "Invalid Password! Password should have at least 6 characters, including one capital letter and one special symbol", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                boolean checkCredentials = databaseHelper.checkEmailPassword(username, password);
+                if (checkCredentials) {
+                    databaseHelper.setUserLoggedIn(true); // Mark user as logged in
+                    Toast.makeText(activity_login.this, "Login Successfully!", Toast.LENGTH_SHORT).show();
+                    startMainActivity();
+                    finish();
                 } else {
-                    if (password.length() >= 6 && password.length() <= 12) {
-                        boolean checkCredentials = databaseHelper.checkEmailPassword(username, password);
-                        if (checkCredentials) {
-                            databaseHelper.setUserLoggedIn(true); // Mark user as logged in
-                            Toast.makeText(activity_login.this, "Login Successfully!", Toast.LENGTH_SHORT).show();
-                            startMainActivity();
-                        } else {
-                            Toast.makeText(activity_login.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
-                        }
-                    } else {
-                        Toast.makeText(activity_login.this, "Invalid Password!", Toast.LENGTH_SHORT).show();
-                    }
+                    Toast.makeText(activity_login.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -81,5 +100,11 @@ public class activity_login extends AppCompatActivity {
         intent.putExtra("username", binding.username.getText().toString());
         startActivity(intent);
         finish();
+    }
+
+    // Method to validate password using regex
+    private boolean isValidPassword(String password) {
+        passwordMatcher = Pattern.compile(PASSWORD_PATTERN).matcher(password);
+        return passwordMatcher.matches();
     }
 }
