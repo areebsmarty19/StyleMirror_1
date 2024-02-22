@@ -73,6 +73,7 @@ public class activity_login extends AppCompatActivity {
                     databaseHelper.setUserLoggedIn(true); // Mark user as logged in
                     Toast.makeText(activity_login.this, "Login Successfully!", Toast.LENGTH_SHORT).show();
                     startMainActivity();
+                    finish();
                 } else {
                     Toast.makeText(activity_login.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                 }

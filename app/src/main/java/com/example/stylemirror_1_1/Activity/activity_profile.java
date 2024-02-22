@@ -61,6 +61,7 @@ public class activity_profile extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity_profile.this, activity_fav_items.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -69,13 +70,13 @@ public class activity_profile extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity_profile.this, CartActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
         binding.backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity_profile.this, MainActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
     }
