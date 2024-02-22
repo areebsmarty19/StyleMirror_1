@@ -41,7 +41,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Viewholder> {
 
     @Override
     public void onBindViewHolder(CartAdapter.Viewholder holder, int position) {
-        binding.titleTxt.setText(items.get(position).getTitle());
+        binding.titleTxt.setText(formatTitle(items.get(position).getTitle()));
         binding.feeEachItem.setText("$" + items.get(position).getPrice());
         binding.totalEachItem.setText("$" + Math.round(items.get(position).getNumberInCart() * items.get(position).getPrice()));
         binding.numberItemTxt.setText(String.valueOf(items.get(position).getNumberInCart()));
@@ -82,4 +82,21 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Viewholder> {
             binding=b;
         }
     }
+
+    private String formatTitle(String title) {
+        StringBuilder formattedTitle = new StringBuilder();
+        int consecutiveSpaces = 0;
+        for (char c : title.toCharArray()) {
+            if (c == ' ') {
+                consecutiveSpaces++;
+                if (consecutiveSpaces == 3) {
+                    formattedTitle.append("\n");
+                    consecutiveSpaces = 0;
+                }
+            }
+            formattedTitle.append(c);
+        }
+        return formattedTitle.toString();
+    }
+
 }

@@ -13,6 +13,7 @@
         android:scaleType="fitXY"
         android:id="@+id/profbg"
         android:src="@drawable/top_background" />
+
     <ImageButton
         android:id="@+id/backButton"
         android:layout_width="60dp"

@@ -3,6 +3,7 @@ package com.example.stylemirror_1_1.Activity;
 import android.hardware.biometrics.BiometricPrompt;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,7 +24,13 @@ public class activity_forget_password extends AppCompatActivity {
         binding = ActivityForgetPasswordBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         databaseHelper = new DatabaseHelper(this);
-        retrievePassword();
+        binding.submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                retrievePassword();
+            }
+        });
+
     }
 
     // Method to retrieve password if authentication is successful
