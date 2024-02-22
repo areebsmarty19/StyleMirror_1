@@ -9,7 +9,7 @@
     <!-- Back button -->
     <ImageView
         android:layout_width="1000sp"
-        android:layout_height="300sp"
+        android:layout_height="350sp"
         android:scaleType="fitXY"
         android:id="@+id/profbg"
         android:src="@drawable/top_background" />
@@ -26,11 +26,21 @@
     <!-- Profile photo -->
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilePhoto"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:src="@drawable/profile1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp" />
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/btn1"
+        android:layout_below="@id/profilePhoto"
+        android:layout_marginLeft="240dp"
+        android:background="@drawable/camera1"
+        android:scaleType="fitCenter"
+
+        />
 
     <!-- Username -->
     <TextView
@@ -43,7 +53,7 @@
         android:text="Username"
         android:layout_below="@id/profilePhoto"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="36dp" />
 
     <!-- Email -->
     <TextView
@@ -67,57 +77,57 @@
         android:background="@drawable/border"
         android:padding="16dp">
 
-    <!-- Wishlist section -->
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tbr1"
-        android:paddingBottom="8dp"
-        android:background="@drawable/goldenbr">
-
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/wishlist"
-            android:scaleType="fitCenter"
-            android:layout_marginRight="16dp"
-            android:layout_gravity="center_vertical" />
-
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- Wishlist section -->
+        <TableRow
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Go to Wishlist"
-            android:textSize="16sp"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
-            android:layout_gravity="center_vertical" />
+            android:id="@+id/tbr1"
+            android:paddingBottom="8dp"
+            android:background="@drawable/goldenbr">
 
-    </TableRow>
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/wishlist"
+                android:scaleType="fitCenter"
+                android:layout_marginRight="16dp"
+                android:layout_gravity="center_vertical" />
 
-    <!-- Cart section -->
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tbr2"
-        android:background="@drawable/goldenbr"
-        android:paddingTop="8dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Go to Wishlist"
+                android:textSize="16sp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical" />
 
-    <ImageView
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:src="@drawable/ic_cart"
-        android:layout_marginRight="16dp"
-        android:layout_gravity="center_vertical" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add to Cart"
-        android:textColor="#ffffff"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_gravity="center_vertical" />
+        </TableRow>
 
-    </TableRow>
+        <!-- Cart section -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tbr2"
+            android:background="@drawable/goldenbr"
+            android:paddingTop="8dp">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_cart"
+                android:layout_marginRight="16dp"
+                android:layout_gravity="center_vertical" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add to Cart"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical" />
+
+        </TableRow>
 
     </TableLayout>
     <TextView
