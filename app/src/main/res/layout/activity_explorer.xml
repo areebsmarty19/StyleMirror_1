@@ -42,7 +42,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:scaleType="fitCenter"
-                android:src="@drawable/specses"
+                android:src="@drawable/speces"
                 android:layout_margin="10dp"
                 android:background="@drawable/golden_border"/>
 

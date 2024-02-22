@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#111E2F"
+    android:padding="16dp">
+
+    <!-- Back button -->
+    <ImageView
+        android:layout_width="1000sp"
+        android:layout_height="300sp"
+        android:scaleType="fitXY"
+        android:id="@+id/profbg"
+        android:src="@drawable/top_background" />
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:scaleType="fitCenter"
+        android:background="@null"
+        android:src="@drawable/backbtn"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp" />
+
+    <!-- Profile photo -->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profilePhoto"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/profile1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp" />
+
+    <!-- Username -->
+    <TextView
+        android:id="@+id/usernameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:text="Username"
+        android:layout_below="@id/profilePhoto"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <!-- Email -->
+    <TextView
+        android:id="@+id/emailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:text="example@email.com"
+        android:layout_below="@id/usernameTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emailTextView"
+        android:layout_marginTop="190dp"
+        android:id="@+id/tb1"
+        android:background="@drawable/border"
+        android:padding="16dp">
+
+    <!-- Wishlist section -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tbr1"
+        android:paddingBottom="8dp"
+        android:background="@drawable/goldenbr">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/wishlist"
+            android:scaleType="fitCenter"
+            android:layout_marginRight="16dp"
+            android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go to Wishlist"
+            android:textSize="16sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical" />
+
+    </TableRow>
+
+    <!-- Cart section -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tbr2"
+        android:background="@drawable/goldenbr"
+        android:paddingTop="8dp">
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_cart"
+        android:layout_marginRight="16dp"
+        android:layout_gravity="center_vertical" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add to Cart"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical" />
+
+    </TableRow>
+
+    </TableLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="All rights reserved"
+        android:layout_below="@id/tb1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="190sp" />
+</RelativeLayout>
