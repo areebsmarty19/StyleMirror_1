@@ -20,7 +20,7 @@ import com.example.stylemirror_1_1.domain.PopularDomain;
 public class DetailActivity extends AppCompatActivity {
 
     private final String specsurl = "https://specstry.netlify.app/";
-    private final String shoeurl = "https://shoevto.netlify.app/";
+    private final String shoeurl = "https://shoetry.netlify.app/";
     private ActivityDetailBinding binding;
     private PopularDomain object;
     private FavDB favDB;
