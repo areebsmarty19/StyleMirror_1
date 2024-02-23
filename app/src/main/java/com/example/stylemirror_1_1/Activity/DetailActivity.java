@@ -159,7 +159,7 @@ public class DetailActivity extends AppCompatActivity {
             }
             Intent intent = new Intent(Intent.ACTION_VIEW);
             String full="";
-            Integer id1 = Integer.parseInt(id);
+            int id1 = Integer.parseInt(id);
             if (id1 <= 10) {
                 full = shoeurl + "?data=" + Uri.encode(data);
                 intent.setData(Uri.parse(full));
