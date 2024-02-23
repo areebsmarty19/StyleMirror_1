@@ -16,9 +16,6 @@
             android:name=".Activity.activity_profile"
             android:exported="false" />
         <activity
-            android:name=".Activity.activtity_forget_password"
-            android:exported="false" />
-        <activity
             android:name=".Activity.activity_forget_password"
             android:exported="false" />
         <activity
