@@ -31,8 +31,8 @@
 
         <ImageView
             android:id="@+id/favBtn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             app:layout_constraintStart_toStartOf="@id/pic"
             app:layout_constraintTop_toTopOf="@id/pic"
             android:background="@drawable/ic_bookmark" />

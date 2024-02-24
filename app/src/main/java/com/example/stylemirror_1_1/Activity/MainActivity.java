@@ -116,6 +116,14 @@ public class MainActivity extends AppCompatActivity {
                  startActivity(intent);
              }
          });
+
+         binding.searchBtn.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent = new Intent(MainActivity.this, activity_search.class);
+                 startActivity(intent);
+             }
+         });
     }
 
     private String UsernameOfLoggInUser(){
