@@ -19,7 +19,8 @@ import com.example.stylemirror_1_1.domain.PopularDomain;
 
 public class DetailActivity extends AppCompatActivity {
 
-    private final String url = "https://specstry.netlify.app/";
+    private final String specsurl = "https://specstry.netlify.app/";
+    private final String shoeurl = "https://shoetry.netlify.app/";
     private ActivityDetailBinding binding;
     private PopularDomain object;
     private FavDB favDB;
@@ -93,55 +94,87 @@ public class DetailActivity extends AppCompatActivity {
 
 //            intent.putExtra("id",object.getId());
             switch (id){
-                case "11" :
+                case "1":
+                case "11":
+                case "21":
+                    data = String.valueOf(0);
+                    break;
+                case "2":
+                case "12" :
+                case "22":
                     data = String.valueOf(1);
                     break;
-
-                case "12" :
+                case "3":
+                case "13" :
+                case "23" :
                     data = String.valueOf(2);
                     break;
 
-                case "13" :
+                case "4":
+                case "14" :
+                case "24" :
                     data = String.valueOf(3);
                     break;
 
-                case "14" :
+                case "5":
+                case "15" :
+                case "25" :
                     data = String.valueOf(4);
                     break;
 
-                case "15" :
+                case "6":
+                case "16" :
+                case "26" :
                     data = String.valueOf(5);
                     break;
 
-                case "16" :
+                case "7":
+                case "17" :
+                case "27" :
                     data = String.valueOf(6);
                     break;
 
-                case "17" :
+                case "8":
+                case "18" :
+                case "28" :
                     data = String.valueOf(7);
                     break;
 
-                case "18" :
+                case "9":
+                case "19" :
+                case "29" :
                     data = String.valueOf(8);
                     break;
 
-                case "19" :
+                case "10":
+                case "20" :
+                case "30" :
                     data = String.valueOf(9);
                     break;
 
-                case "20" :
-                    data = String.valueOf(10);
-                    break;
-
                 default:
-                    data = String.valueOf(1);
+                    data = String.valueOf(0);
                     break;
 
             }
-            String full = url+"?data="+ Uri.encode(data);
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(full));
-            startActivity(intent);
+            String full="";
+            int id1 = Integer.parseInt(id);
+            if (id1 <= 10) {
+                full = shoeurl + "?data=" + Uri.encode(data);
+                intent.setData(Uri.parse(full));
+                startActivity(intent);
+            }
+            else if (id1 <= 20 && id1 >10) {
+                full = specsurl + "?data=" + Uri.encode(data);
+                intent.setData(Uri.parse(full));
+                startActivity(intent);
+            }
+            else{
+                full = specsurl + "?data=" + Uri.encode(data);
+                intent.setData(Uri.parse(full));
+                startActivity(intent);
+            }
 
         });
     }

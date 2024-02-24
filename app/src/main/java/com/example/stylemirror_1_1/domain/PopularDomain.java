@@ -30,6 +30,12 @@ public class PopularDomain implements Serializable {
         this.description=description;
     }
 
+    public PopularDomain(int id,String title, int picUrl){
+        this.id=id;
+        this.title=title;
+        this.picUrl= String.valueOf(picUrl);
+    }
+
     public String getId() {
         return String.valueOf(id);
     }

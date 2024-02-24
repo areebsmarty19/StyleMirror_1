@@ -29,7 +29,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 USERNAME + " TEXT, " + EMAIL + " TEXT, " +
                 PASSWORD + " VARCHAR, " + LOGGED_IN + " INTEGER DEFAULT 0)"; // Default value for login status
         sqLiteDatabase.execSQL(createTable);
-        Log.d("Database", "Query running: " + createTable);
+        Log.d("Database", "Query running : " + createTable);
     }
 
     @Override

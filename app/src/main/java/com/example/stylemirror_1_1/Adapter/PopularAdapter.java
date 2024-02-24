@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,8 +21,9 @@ import com.example.stylemirror_1_1.R;
 import com.example.stylemirror_1_1.Activity.DetailActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewholder> {
+public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewholder>{
     private ArrayList<PopularDomain> items;
     private Context context;
     private FavDB favDB;
@@ -43,8 +45,7 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
     public void onBindViewHolder(@NonNull Viewholder holder, int position) {
         PopularDomain item = items.get(position);
 
-        String title = item.getTitle();
-        holder.binding.titleTxt.setText(formatTitle(title));
+        holder.binding.titleTxt.setText(formatTitle(item.getTitle()));
         holder.binding.feeTxt.setText("" + item.getPrice());
 
         String description = items.get(position).getDescription();
@@ -96,7 +97,6 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
         return formattedTitle.toString();
     }
 
-
     @Override
     public int getItemCount() {
         return items.size();
@@ -110,6 +110,5 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
             this.binding = binding;
         }
     }
-
-
 }
+
