@@ -12,6 +12,7 @@ public class PopularDomain implements Serializable {
     private double price;
     private String description;
 
+    //Constructor of All Products.
     public PopularDomain(int id , String title, String picUrl, int review, double rating, double price,String description) {
         this.id = id;
         this.title = title;
@@ -22,18 +23,24 @@ public class PopularDomain implements Serializable {
         this.description=description;
     }
 
-    public PopularDomain(int id, String title, String picUrl, double price ,String description) {
+    //Constructor of Favorite Items.
+    public PopularDomain(int id, String title, String picUrl, double price , String description) {
         this.id=id;
         this.title=title;
-        this.picUrl=picUrl;
+        this.picUrl= picUrl;
         this.price=price;
         this.description=description;
     }
 
-    public PopularDomain(int id,String title, int picUrl){
+    //Constructor of SearchAdapter
+    public PopularDomain(int id, String title, int picUrl, int review, int rating, int price, String description) {
         this.id=id;
-        this.title=title;
-        this.picUrl= String.valueOf(picUrl);
+        this.title = title;
+        this.picUrl = String.valueOf(picUrl);
+        this.review = review;
+        this.rating = rating;
+        this.price = price;
+        this.description=description;
     }
 
     public String getId() {

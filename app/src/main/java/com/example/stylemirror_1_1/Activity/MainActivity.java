@@ -13,11 +13,13 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.stylemirror_1_1.Adapter.PopularAdapter;
+import com.example.stylemirror_1_1.Adapter.SliderAdapter;
 import com.example.stylemirror_1_1.R;
 import com.example.stylemirror_1_1.databinding.ActivityMainBinding;
 import com.example.stylemirror_1_1.domain.PopularDomain;
 import com.example.stylemirror_1_1.Dbmodels.DatabaseHelper;
 import com.google.android.gms.common.api.Response;
+import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
 
@@ -27,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
     String usrname;
     String email1;
     DatabaseHelper databaseHelper;
+
+    String url1,url2,url3;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,13 +92,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        binding.formals.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, activity_shoes_list.class);
-                startActivity(intent);
-            }
-        });
+//        binding.formals.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity.this, activity_shoes_list.class);
+//                startActivity(intent);
+//            }
+//        });
 
         binding.makeup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,6 +129,40 @@ public class MainActivity extends AppCompatActivity {
                  startActivity(intent);
              }
          });
+
+        ArrayList<SliderData> sliderDataArrayList = new ArrayList<>();
+
+        // initializing the slider view.
+
+        // adding the urls inside array list
+        sliderDataArrayList.add(new SliderData(R.drawable.specposter));
+        sliderDataArrayList.add(new SliderData(R.drawable.shoebanner));
+        sliderDataArrayList.add(new SliderData(R.drawable.cosmetics));
+
+        SliderView sliderView = findViewById(R.id.slider);
+
+
+        // passing this array list inside our adapter class.
+        SliderAdapter adapter = new SliderAdapter(this, sliderDataArrayList);
+
+        // below method is used to set auto cycle direction in left to
+        // right direction you can change according to requirement.
+        sliderView.setAutoCycleDirection(SliderView.LAYOUT_DIRECTION_LTR);
+
+        // below method is used to
+        // setadapter to sliderview.
+        sliderView.setSliderAdapter(adapter);
+
+        // below method is use to set
+        // scroll time in seconds.
+        sliderView.setScrollTimeInSec(3);
+
+        // to set it scrollable automatically
+        // we use below method.
+        sliderView.setAutoCycle(true);
+
+        // to start autocycle below method is used.
+        sliderView.startAutoCycle();
     }
 
     private String UsernameOfLoggInUser(){
