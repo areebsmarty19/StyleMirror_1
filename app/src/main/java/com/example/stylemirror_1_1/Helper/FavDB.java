@@ -91,9 +91,8 @@ public class FavDB extends SQLiteOpenHelper {
         String[] selectionArgs = {id, "1"};
         Cursor cursor = db.query(TABLE_NAME, null, selection, selectionArgs, null, null, null);
         boolean isFavorite = cursor != null && cursor.getCount() > 0;
-        if (cursor != null) {
+        if (cursor != null)
             cursor.close();
-        }
         return isFavorite;
     }
 

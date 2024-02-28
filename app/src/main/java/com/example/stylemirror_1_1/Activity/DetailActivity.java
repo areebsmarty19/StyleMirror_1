@@ -19,8 +19,8 @@ import com.example.stylemirror_1_1.domain.PopularDomain;
 
 public class DetailActivity extends AppCompatActivity {
 
-    private final String specsurl = "https://specstry.netlify.app/";
     private final String shoeurl = "https://shoetry.netlify.app/";
+    private final String specsurl = "https://specstry.netlify.app/";
     private ActivityDetailBinding binding;
     private PopularDomain object;
     private FavDB favDB;
@@ -49,13 +49,14 @@ public class DetailActivity extends AppCompatActivity {
         object = (PopularDomain) getIntent().getSerializableExtra("object");
         isFavorite = favDB.checkFavoriteStatus(object.getId());
 
+
         int drawableResourceId = this.getResources().getIdentifier(object.getPicUrl(), "drawable", this.getPackageName());
 
         Glide.with(this)
                 .load(drawableResourceId)
                 .into(binding.productImage);
 
-        binding.productTitle.setText(formatTitle(object.getTitle()));
+        binding.productTitle.setText(object.getTitle());
         binding.productPrice.setText("" + object.getPrice());
         binding.productDescription.setText(object.getDescription());
         binding.reviewTxt.setText(String.valueOf(object.getReview()));
@@ -71,6 +72,7 @@ public class DetailActivity extends AppCompatActivity {
             managmentCart.insertFood(object);
             Intent intent = new Intent(DetailActivity.this, CartActivity.class);
             startActivity(intent);
+            finish();
         });
 
         binding.favBtn.setImageResource(isFavorite ? R.drawable.ic_bookmark_filled : R.drawable.ic_bookmark);
@@ -85,6 +87,7 @@ public class DetailActivity extends AppCompatActivity {
             isFavorite = !isFavorite;
             binding.favBtn.setImageResource(isFavorite ? R.drawable.ic_bookmark_filled : R.drawable.ic_bookmark);
         });
+
         binding.backBtn.setOnClickListener(v -> finish());
 
         binding.virtual.setOnClickListener(v->{
@@ -92,7 +95,6 @@ public class DetailActivity extends AppCompatActivity {
              String data = "";
              String id = object.getId();
 
-//            intent.putExtra("id",object.getId());
             switch (id){
                 case "1":
                 case "11":
@@ -157,6 +159,7 @@ public class DetailActivity extends AppCompatActivity {
                     break;
 
             }
+
             Intent intent = new Intent(Intent.ACTION_VIEW);
             String full="";
             int id1 = Integer.parseInt(id);
@@ -175,24 +178,6 @@ public class DetailActivity extends AppCompatActivity {
                 intent.setData(Uri.parse(full));
                 startActivity(intent);
             }
-
         });
     }
-
-    private String formatTitle(String title) {
-        StringBuilder formattedTitle = new StringBuilder();
-        int consecutiveSpaces = 0;
-        for (char c : title.toCharArray()) {
-            if (c == ' ') {
-                consecutiveSpaces++;
-                if (consecutiveSpaces == 3) {
-                    formattedTitle.append("\n");
-                    consecutiveSpaces = 0;
-                }
-            }
-            formattedTitle.append(c);
-        }
-        return formattedTitle.toString();
-    }
-
 }
