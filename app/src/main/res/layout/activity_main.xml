@@ -434,4 +434,19 @@
             app:tint="@color/white"
             android:clickable="true"/>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+<!--    <com.etebarian.meowbottomnavigation.MeowBottomNavigation-->
+<!--        android:id="@+id/appBar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        app:mbn_circleColor="#ffffff"-->
+<!--        app:mbn_backgroundBottomColor="#673AB7"-->
+<!--        app:mbn_defaultIconColor="#90a4ae"-->
+<!--        app:mbn_rippleColor="#2f424242"-->
+<!--        app:mbn_selectedIconColor="#3c415e"-->
+<!--        app:mbn_shadowColor="#1f212121"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        tools:ignore="MissingConstraints"/>-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
