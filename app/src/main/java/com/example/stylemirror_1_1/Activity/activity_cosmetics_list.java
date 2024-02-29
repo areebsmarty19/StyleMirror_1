@@ -11,5 +11,7 @@ public class activity_cosmetics_list extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cosmetics_list);
+
+        
     }
 }
