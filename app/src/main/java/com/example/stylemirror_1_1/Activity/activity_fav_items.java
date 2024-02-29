@@ -48,7 +48,6 @@ public class activity_fav_items extends AppCompatActivity {
             } while (cursor.moveToNext());
             cursor.close();
         }
-
         return favoriteItems;
     }
 }

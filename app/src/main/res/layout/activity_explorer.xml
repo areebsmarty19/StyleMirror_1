@@ -26,7 +26,7 @@
                 android:layout_weight="1"
                 android:scaleType="fitCenter"
                 android:layout_margin="10dp"
-                android:src="@drawable/shoesex"
+                android:src="@drawable/shoesex1"
                 android:adjustViewBounds="true"
                 android:background="@drawable/golden_border"/>
         </FrameLayout>

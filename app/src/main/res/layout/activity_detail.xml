@@ -30,8 +30,8 @@
 
             <ImageView
                 android:id="@+id/favBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:src="@drawable/bookmark"
@@ -46,7 +46,7 @@
             android:layout_height="360dp"
             android:contentDescription="@string/product_image"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/shoes1"
+            app:srcCompat="@drawable/shoess_1"
             android:scaleType="fitCenter"/>
 
         <com.google.android.material.button.MaterialButton
