@@ -37,7 +37,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.081"
-                    app:srcCompat="@drawable/logo" />
+                    app:srcCompat="@drawable/logo2"
+                    android:layout_marginTop="30sp"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout

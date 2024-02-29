@@ -39,7 +39,8 @@
                         android:id="@+id/textView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" "
+                        android:text=""
+                        android:textSize="18sp"
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="@+id/textView"
@@ -51,7 +52,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="16dp"
-
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/bell" />
@@ -86,8 +86,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="24dp"
-                android:layout_marginBottom="16dp"
-                >
+                android:layout_marginBottom="16dp">
 
                 <com.smarteist.autoimageslider.SliderView
                     android:id="@+id/slider"
@@ -106,7 +105,6 @@
                     app:sliderIndicatorSelectedColor="#5A5A5A"
                     app:sliderIndicatorUnselectedColor="#FFF"
                     app:sliderScrollTimeInSec="1" />
-
 
             </RelativeLayout>
 
@@ -161,7 +159,7 @@
                         android:id="@+id/imageView52"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        app:srcCompat="@drawable/shoes2" />
+                        app:srcCompat="@drawable/shoess_2" />
 
                     <TextView
                         android:id="@+id/textView76"
@@ -436,4 +434,19 @@
             app:tint="@color/white"
             android:clickable="true"/>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+<!--    <com.etebarian.meowbottomnavigation.MeowBottomNavigation-->
+<!--        android:id="@+id/appBar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        app:mbn_circleColor="#ffffff"-->
+<!--        app:mbn_backgroundBottomColor="#673AB7"-->
+<!--        app:mbn_defaultIconColor="#90a4ae"-->
+<!--        app:mbn_rippleColor="#2f424242"-->
+<!--        app:mbn_selectedIconColor="#3c415e"-->
+<!--        app:mbn_shadowColor="#1f212121"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        tools:ignore="MissingConstraints"/>-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
