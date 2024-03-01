@@ -17,8 +17,8 @@ import java.util.ArrayList;
 public class activity_fav_items extends AppCompatActivity {
     private ActivityFavitemsBinding binding;
     private FavDB favDB;
-    MeowBottomNavigation meowBottomNavigation;
-    public final int home = 1;
+//    MeowBottomNavigation meowBottomNavigation;
+//    public final int home = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +54,8 @@ public class activity_fav_items extends AppCompatActivity {
         return favoriteItems;
     }
 
-    @Override
-    public void onBackPressed() {
-        meowBottomNavigation.show(home, true);
-    }
+//    @Override
+//    public void onBackPressed() {
+//        meowBottomNavigation.show(home, true);
+//    }
 }
