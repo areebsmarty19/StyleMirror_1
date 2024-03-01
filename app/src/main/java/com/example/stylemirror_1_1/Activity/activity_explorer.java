@@ -6,10 +6,13 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.stylemirror_1_1.databinding.ActivityExplorerBinding;
 
 public class activity_explorer extends AppCompatActivity {
     ActivityExplorerBinding binding;
+    MeowBottomNavigation meowBottomNavigation;
+    public final int home = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,5 +42,10 @@ public class activity_explorer extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        meowBottomNavigation.show(home, true);
     }
 }

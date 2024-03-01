@@ -171,29 +171,6 @@
                         android:textColor="@color/black" />
                 </LinearLayout>
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:layout_weight="0.2"-->
-<!--                    android:orientation="vertical"-->
-<!--                    android:id="@+id/formals">-->
-
-<!--                    <ImageView-->
-<!--                        android:id="@+id/imageView53"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="49dp"-->
-<!--                        app:srcCompat="@drawable/shoes4" />-->
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/textView73"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginTop="8dp"-->
-<!--                        android:text="Formals"-->
-<!--                        android:textAlignment="center"-->
-<!--                        android:textColor="@color/black" />-->
-<!--                </LinearLayout>-->
-
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -284,169 +261,168 @@
             </ScrollView>
         </LinearLayout>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="110dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/appBar"
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:layout_gravity="bottom"
-            android:background="@drawable/edittext_background"
-            android:padding="4dp"
-            app:fabCradleMargin="8dp"
-            app:fabCradleRoundedCornerRadius="50dp"
-            app:fabCradleVerticalOffset="6dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:orientation="vertical"
-                    android:id="@+id/explorerBtn">
-
-                    <ImageView
-                        android:id="@+id/imageView61"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/btn_1" />
-
-                    <TextView
-                        android:id="@+id/textView101"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Explorer"
-                        android:textAlignment="center" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:orientation="vertical"
-                    android:id="@+id/wishlistBtn">
-
-                    <ImageView
-                        android:id="@+id/imageView62"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/btn_2" />
-
-                    <TextView
-                        android:id="@+id/textView102"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Wishlist"
-                        android:textAlignment="center" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:orientation="vertical"
-                    android:visibility="invisible">
-
-                    <ImageView
-                        android:id="@+id/imageView63"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/btn_1" />
-
-                    <TextView
-                        android:id="@+id/textView103"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Explorer"
-                        android:textAlignment="center" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/cartBtn"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/imageView64"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/btn_3" />
-
-                    <TextView
-                        android:id="@+id/textView104"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Cart"
-                        android:textAlignment="center" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:orientation="vertical"
-                    android:id="@+id/profileBtn">
-
-                    <ImageView
-                        android:id="@+id/imageView6"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/btn_4" />
-
-                    <TextView
-                        android:id="@+id/textView10"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Profile"
-                        android:textAlignment="center" />
-                </LinearLayout>
-            </LinearLayout>
-        </com.google.android.material.bottomappbar.BottomAppBar>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/searchBtn"
-            android:src="@drawable/search_icon"
-            app:backgroundTint="@color/purple_Dark"
-            app:layout_anchor="@id/appBar"
-            app:maxImageSize="30dp"
-            app:tint="@color/white"
-            android:clickable="true"/>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-<!--    <com.etebarian.meowbottomnavigation.MeowBottomNavigation-->
-<!--        android:id="@+id/appBar"-->
+<!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
 <!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        app:mbn_circleColor="#ffffff"-->
-<!--        app:mbn_backgroundBottomColor="#673AB7"-->
-<!--        app:mbn_defaultIconColor="#90a4ae"-->
-<!--        app:mbn_rippleColor="#2f424242"-->
-<!--        app:mbn_selectedIconColor="#3c415e"-->
-<!--        app:mbn_shadowColor="#1f212121"-->
+<!--        android:layout_height="110dp"-->
 <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        tools:ignore="MissingConstraints"/>-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent">-->
+
+<!--        <com.google.android.material.bottomappbar.BottomAppBar-->
+<!--            android:id="@+id/appBar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="65dp"-->
+<!--            android:layout_gravity="bottom"-->
+<!--            android:background="@drawable/edittext_background"-->
+<!--            android:padding="4dp"-->
+<!--            app:fabCradleMargin="8dp"-->
+<!--            app:fabCradleRoundedCornerRadius="50dp"-->
+<!--            app:fabCradleVerticalOffset="6dp">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content">-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="0.2"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:id="@+id/explorerBtn">-->
+
+<!--                    <ImageView-->
+<!--                        android:id="@+id/imageView61"-->
+<!--                        android:layout_width="24dp"-->
+<!--                        android:layout_height="24dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:src="@drawable/btn_1" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/textView101"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="4dp"-->
+<!--                        android:text="Explorer"-->
+<!--                        android:textAlignment="center" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="0.2"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:id="@+id/wishlistBtn">-->
+
+<!--                    <ImageView-->
+<!--                        android:id="@+id/imageView62"-->
+<!--                        android:layout_width="24dp"-->
+<!--                        android:layout_height="24dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:src="@drawable/btn_2" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/textView102"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="4dp"-->
+<!--                        android:text="Wishlist"-->
+<!--                        android:textAlignment="center" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="0.2"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:visibility="invisible">-->
+
+<!--                    <ImageView-->
+<!--                        android:id="@+id/imageView63"-->
+<!--                        android:layout_width="24dp"-->
+<!--                        android:layout_height="24dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:src="@drawable/btn_1" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/textView103"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="4dp"-->
+<!--                        android:text="Explorer"-->
+<!--                        android:textAlignment="center" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/cartBtn"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="0.2"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    <ImageView-->
+<!--                        android:id="@+id/imageView64"-->
+<!--                        android:layout_width="24dp"-->
+<!--                        android:layout_height="24dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:src="@drawable/btn_3" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/textView104"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="4dp"-->
+<!--                        android:text="Cart"-->
+<!--                        android:textAlignment="center" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="0.2"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:id="@+id/profileBtn">-->
+
+<!--                    <ImageView-->
+<!--                        android:id="@+id/imageView6"-->
+<!--                        android:layout_width="24dp"-->
+<!--                        android:layout_height="24dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:src="@drawable/btn_4" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/textView10"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="4dp"-->
+<!--                        android:text="Profile"-->
+<!--                        android:textAlignment="center" />-->
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+<!--        </com.google.android.material.bottomappbar.BottomAppBar>-->
+
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/searchBtn"-->
+<!--            android:src="@drawable/search_icon"-->
+<!--            app:backgroundTint="@color/purple_Dark"-->
+<!--            app:layout_anchor="@id/appBar"-->
+<!--            app:maxImageSize="30dp"-->
+<!--            app:tint="@color/white"-->
+<!--            android:clickable="true"/>-->
+<!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
+
+    <com.etebarian.meowbottomnavigation.MeowBottomNavigation
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:mbn_circleColor="#ffffff"
+        app:mbn_backgroundBottomColor="#673AB7"
+        app:mbn_defaultIconColor="#7ECCF3"
+        app:mbn_rippleColor="#2f424242"
+        app:mbn_selectedIconColor="#3c415e"
+        app:mbn_shadowColor="#1f212121"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

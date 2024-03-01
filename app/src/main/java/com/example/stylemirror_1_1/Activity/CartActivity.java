@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.stylemirror_1_1.Adapter.CartAdapter;
 import com.example.stylemirror_1_1.R;
 import com.example.stylemirror_1_1.databinding.ActivityCartBinding;
@@ -17,6 +18,8 @@ public class CartActivity extends AppCompatActivity {
     private ManagmentCart managmentCart;
     ActivityCartBinding binding;
     double tax;
+    MeowBottomNavigation meowBottomNavigation;
+    public final int home = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,5 +68,10 @@ public class CartActivity extends AppCompatActivity {
 
     private void setVariable() {
         binding.backBtn.setOnClickListener(v -> finish());
+    }
+
+    @Override
+    public void onBackPressed() {
+        meowBottomNavigation.show(home, true);
     }
 }

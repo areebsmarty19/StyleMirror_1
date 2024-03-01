@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.stylemirror_1_1.Dbmodels.DatabaseHelper;
 import com.example.stylemirror_1_1.R;
 import com.example.stylemirror_1_1.databinding.ActivityProfileBinding;
@@ -28,6 +29,8 @@ public class activity_profile extends AppCompatActivity {
 
     ActivityProfileBinding binding;
     DatabaseHelper databaseHelper;
+    MeowBottomNavigation meowBottomNavigation;
+    public final int home = 1;
     private static final int GALLERY_REQUEST_CODE = 2;
     private static final int CAMERA_PHOTO_REQUEST_CODE = 1;
 
@@ -153,5 +156,10 @@ public class activity_profile extends AppCompatActivity {
                 Log.e("MainActivity", "Error fetching bitmap", e);
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        meowBottomNavigation.show(home, true);
     }
 }
