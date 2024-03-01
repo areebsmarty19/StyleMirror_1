@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.stylemirror_1_1.Adapter.PopularAdapter;
 import com.example.stylemirror_1_1.Adapter.SliderAdapter;
 import com.example.stylemirror_1_1.R;
@@ -20,18 +22,21 @@ import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
 
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
     DatabaseHelper databaseHelper;
-
+//    MeowBottomNavigation meowBottomNavigation;
+//
 //    String url1,url2,url3;
 //    protected final int home = 1;
 //    protected final int book = 2;
 //    protected final int search = 3;
 //    protected final int cart = 4;
 //    protected final int profile = 5;
-//    MeowBottomNavigation meowBottomNavigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         databaseHelper = new DatabaseHelper(this);
 
+        //Set the username.
         if (loggedIn()) {
             binding.textView2.setText(UsernameOfLoggInUser());
         }
@@ -48,106 +54,7 @@ public class MainActivity extends AppCompatActivity {
         statusBarColor();
         initRecyclerView();
 
-        binding.spec.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, activity_specs_list.class);
-                startActivity(intent);
-            }
-        });
-
-        binding.sneakers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, activity_shoes_list.class);
-                startActivity(intent);
-            }
-        });
-
-        binding.makeup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, activity_cosmetics_list.class);
-                startActivity(intent);
-            }
-        });
-
-        binding.ViewAll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, activity_explorer.class);
-                startActivity(intent);
-            }
-        });
-
-         binding.explorerBtn.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 Intent intent = new Intent(MainActivity.this, activity_explorer.class);
-                 startActivity(intent);
-             }
-         });
-         binding.wishlistBtn.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 Intent intent = new Intent(MainActivity.this, activity_fav_items.class);
-                 startActivity(intent);
-             }
-         });
-         binding.searchBtn.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 Intent intent = new Intent(MainActivity.this, activity_search.class);
-                 startActivity(intent);
-             }
-         });
-         binding.cartBtn.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 Intent intent = new Intent(MainActivity.this, CartActivity.class);
-                 startActivity(intent);
-             }
-         });
-         binding.profileBtn.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 Intent intent = new Intent(MainActivity.this, activity_profile.class);
-                 startActivity(intent);
-             }
-         });
-
-        ArrayList<SliderDomain> sliderDomainArrayList = new ArrayList<>();
-
-        // initializing the slider view.
-        // adding the urls inside array list
-        sliderDomainArrayList.add(new SliderDomain(R.drawable.specposter));
-        sliderDomainArrayList.add(new SliderDomain(R.drawable.shoebanner));
-        sliderDomainArrayList.add(new SliderDomain(R.drawable.cosmetics));
-
-        SliderView sliderView = findViewById(R.id.slider);
-
-        // passing this array list inside our adapter class.
-        SliderAdapter adapter = new SliderAdapter(this, sliderDomainArrayList);
-
-        // below method is used to set auto cycle direction in left to
-        // right direction you can change according to requirement.
-        sliderView.setAutoCycleDirection(SliderView.LAYOUT_DIRECTION_LTR);
-
-        // below method is used to
-        // setadapter to sliderview.
-        sliderView.setSliderAdapter(adapter);
-
-        // below method is use to set
-        // scroll time in seconds.
-        sliderView.setScrollTimeInSec(3);
-
-        // to set it scrollable automatically
-        // we use below method.
-        sliderView.setAutoCycle(true);
-
-        // to start autocycle below method is used.
-        sliderView.startAutoCycle();
-
+        //Nav Bar Of App.
 //        meowBottomNavigation = findViewById(R.id.appBar);
 //        meowBottomNavigation.add(new MeowBottomNavigation.Model(home,R.drawable.baseline_view_list_24));
 //        meowBottomNavigation.add(new MeowBottomNavigation.Model(book,R.drawable.baseline_bookmark_border_24));
@@ -198,12 +105,118 @@ public class MainActivity extends AppCompatActivity {
 //                return null;
 //            }
 //        });
+
+        binding.spec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, activity_specs_list.class);
+                startActivity(intent);
+            }
+        });
+
+        binding.sneakers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, activity_shoes_list.class);
+                startActivity(intent);
+            }
+        });
+
+        binding.makeup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, activity_cosmetics_list.class);
+                startActivity(intent);
+            }
+        });
+
+        binding.ViewAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, activity_explorer.class);
+                startActivity(intent);
+            }
+        });
+
+        //Listener Of All Nav Bar items.
+         binding.explorerBtn.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent = new Intent(MainActivity.this, activity_explorer.class);
+                 startActivity(intent);
+             }
+         });
+         binding.wishlistBtn.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent = new Intent(MainActivity.this, activity_fav_items.class);
+                 startActivity(intent);
+             }
+         });
+         binding.searchBtn.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent = new Intent(MainActivity.this, activity_search.class);
+                 startActivity(intent);
+             }
+         });
+         binding.cartBtn.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent = new Intent(MainActivity.this, CartActivity.class);
+                 startActivity(intent);
+             }
+         });
+         binding.profileBtn.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent = new Intent(MainActivity.this, activity_profile.class);
+                 startActivity(intent);
+             }
+         });
+
+
+
+        //Slider Code.
+        ArrayList<SliderDomain> sliderDomainArrayList = new ArrayList<>();
+
+        // initializing the slider view.
+        // adding the urls inside array list
+        sliderDomainArrayList.add(new SliderDomain(R.drawable.specposter));
+        sliderDomainArrayList.add(new SliderDomain(R.drawable.shoebanner));
+        sliderDomainArrayList.add(new SliderDomain(R.drawable.cosmetics));
+
+        SliderView sliderView = findViewById(R.id.slider);
+
+        // passing this array list inside our adapter class.
+        SliderAdapter adapter = new SliderAdapter(this, sliderDomainArrayList);
+
+        // below method is used to set auto cycle direction in left to
+        // right direction you can change according to requirement.
+        sliderView.setAutoCycleDirection(SliderView.LAYOUT_DIRECTION_LTR);
+
+        // below method is used to
+        // setadapter to sliderview.
+        sliderView.setSliderAdapter(adapter);
+
+        // below method is use to set
+        // scroll time in seconds.
+        sliderView.setScrollTimeInSec(3);
+
+        // to set it scrollable automatically
+        // we use below method.
+        sliderView.setAutoCycle(true);
+
+        // to start autocycle below method is used.
+        sliderView.startAutoCycle();
     }
 
+    //Fetch If User Already Login or Not.
     private boolean loggedIn() {
         return databaseHelper.isLoggedIn(); // You need to implement isLoggedIn method in DatabaseHelper
     }
 
+    //Fetch The Username Of Logged In User.
     private String UsernameOfLoggInUser(){
         return databaseHelper.getUsernameByIfLoggIn();
     }
@@ -213,6 +226,7 @@ public class MainActivity extends AppCompatActivity {
         window.setStatusBarColor(ContextCompat.getColor(MainActivity.this,R.color.purple_Dark));
     }
 
+    //MainActivity Recycle View.
     private void initRecyclerView() {
         ArrayList<PopularDomain> items=new ArrayList<>();
         items.add(new PopularDomain(1,"Air Max 270 Sneakers For Men","shoess_1","shoess_1_2","shoess_1_3",0,4,9796,"Wipe with clean cloth Nike's first lifestyle Air Max brings you style, comfort and big attitude in the Nike Air Max 270. The design draws inspiration from Air Max icons, showcasing Nike's greatest innovation with its large window and fresh array of colours.","https://www.flipkart.com/nike-air-max-270-sneakers-men/p/itm1d9717048f829?pid=SHOGQZKYZYC3K2B4&cmpid=product.share.pp&_refId=PP.1f10854d-aa61-4c99-a442-686cc67a67a6.SHOGQZKYZYC3K2B4&_appId=WA"));
