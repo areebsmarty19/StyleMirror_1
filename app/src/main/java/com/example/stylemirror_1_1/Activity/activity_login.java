@@ -17,11 +17,12 @@ public class activity_login extends AppCompatActivity {
     private ActivityLoginBinding binding;
     DatabaseHelper databaseHelper;
 
-    // Define regex pattern for password
+    // Define regex patterns for username and password
+    private static final String USERNAME_PATTERN = "^[a-zA-Z]{2,}\\s[a-zA-Z]{2,}$";
     private static final String PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{6,12}$";
 
     // Matcher object for regex validation
-    private Matcher passwordMatcher;
+    private Matcher usernameMatcher,passwordMatcher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,12 @@ public class activity_login extends AppCompatActivity {
                     return;
                 }
 
+                // validate username format
+                if (!isValidUsername(username)) {
+                    Toast.makeText(activity_login.this, "Invalid username format! Username should have at least 2 words", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 // Validate password format
                 if (!isValidPassword(password)) {
                     Toast.makeText(activity_login.this, "Invalid Password! Password should have at least 6 characters, including one capital letter and one special symbol", Toast.LENGTH_SHORT).show();
@@ -89,17 +96,22 @@ public class activity_login extends AppCompatActivity {
         });
     }
 
+    // Method to start MainActivity
+    private void startMainActivity() {
+        Intent intent = new Intent(activity_login.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     // Method to check if user is logged in
     private boolean loggedIn() {
         return databaseHelper.isLoggedIn(); // You need to implement isLoggedIn method in DatabaseHelper
     }
 
-    // Method to start MainActivity
-    private void startMainActivity() {
-        Intent intent = new Intent(activity_login.this, MainActivity.class);
-        intent.putExtra("username", binding.username.getText().toString());
-        startActivity(intent);
-        finish();
+    // Method to validate username using regex
+    private boolean isValidUsername(String username) {
+        usernameMatcher = Pattern.compile(USERNAME_PATTERN).matcher(username);
+        return usernameMatcher.matches();
     }
 
     // Method to validate password using regex

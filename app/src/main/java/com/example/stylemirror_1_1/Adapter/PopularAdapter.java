@@ -52,7 +52,7 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
         String des = description.length() > 38 ? description.substring(0,20) + "\n" + description.substring(20,38) : description;
         holder.binding.descriptionTxt.setText(des + "...");
 
-        int drawableResourced = holder.itemView.getResources().getIdentifier(items.get(position).getPicUrl()
+        int drawableResourced = holder.itemView.getResources().getIdentifier(items.get(position).getPicUrl1()
                 , "drawable", holder.itemView.getContext().getPackageName());
 
         Glide.with(context)
@@ -68,7 +68,7 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
                 favDB.remove_fav(item.getId());
                 Toast.makeText(context, item.getTitle() +" Removed from Favorites.", Toast.LENGTH_SHORT).show();
             } else {
-                favDB.insertIntoTheDatabase(item.getTitle(), item.getPicUrl(), item.getPrice(), item.getDescription(), item.getId(), "1");
+                favDB.insertIntoTheDatabase(item.getTitle(), item.getPicUrl1(), item.getPrice(), item.getDescription(), item.getId(), "1");
                 Toast.makeText(context, item.getTitle()+" Added to Favorites.", Toast.LENGTH_SHORT).show();
             }
             holder.binding.favBtn.setImageResource(isFavorite ? R.drawable.ic_bookmark : R.drawable.ic_bookmark_filled);
