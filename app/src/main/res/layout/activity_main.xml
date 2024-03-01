@@ -102,8 +102,8 @@
                     app:sliderIndicatorOrientation="horizontal"
                     app:sliderIndicatorPadding="3dp"
                     app:sliderIndicatorRadius="2dp"
-                    app:sliderIndicatorSelectedColor="#5A5A5A"
-                    app:sliderIndicatorUnselectedColor="#FFF"
+                    app:sliderIndicatorSelectedColor="#673AB7"
+                    app:sliderIndicatorUnselectedColor="#5A5A5A"
                     app:sliderScrollTimeInSec="1" />
 
             </RelativeLayout>

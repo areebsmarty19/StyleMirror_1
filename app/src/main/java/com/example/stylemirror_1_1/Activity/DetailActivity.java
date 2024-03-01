@@ -5,17 +5,25 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
+import com.example.stylemirror_1_1.Adapter.SliderAdapter;
 import com.example.stylemirror_1_1.Helper.FavDB;
 import com.example.stylemirror_1_1.Helper.ManagmentCart;
 import com.example.stylemirror_1_1.R;
 import com.example.stylemirror_1_1.databinding.ActivityDetailBinding;
 import com.example.stylemirror_1_1.domain.PopularDomain;
+import com.example.stylemirror_1_1.domain.SliderDomain;
+import com.example.stylemirror_1_1.Adapter.SliderAdapter;
+import com.smarteist.autoimageslider.SliderView;
+import com.smarteist.autoimageslider.SliderViewAdapter;
+
+import java.util.ArrayList;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -40,6 +48,7 @@ public class DetailActivity extends AppCompatActivity {
         getBundles();
     }
 
+
     private void statusBarColor() {
         Window window = DetailActivity.this.getWindow();
         window.setStatusBarColor(ContextCompat.getColor(DetailActivity.this, R.color.white));
@@ -49,12 +58,18 @@ public class DetailActivity extends AppCompatActivity {
         object = (PopularDomain) getIntent().getSerializableExtra("object");
         isFavorite = favDB.checkFavoriteStatus(object.getId());
 
+        int drawableResourceId1 = this.getResources().getIdentifier(object.getPicUrl1(), "drawable", this.getPackageName());
+        int drawableResourceId2 = this.getResources().getIdentifier(object.getPicUrl2(), "drawable", this.getPackageName());
+        int drawableResourceId3 = this.getResources().getIdentifier(object.getPicUrl3(), "drawable", this.getPackageName());
 
-        int drawableResourceId = this.getResources().getIdentifier(object.getPicUrl(), "drawable", this.getPackageName());
+//        Glide.with(this)
+//                .load(drawableResourceId1)
+//                .into(binding.slider);
 
-        Glide.with(this)
-                .load(drawableResourceId)
-                .into(binding.productImage);
+//        Glide.with(viewHolder.itemView)
+//                .load(sliderItem.getImgUrl())
+//                .fitCenter()
+//                .into(viewHolder.imageViewBackground);
 
         binding.productTitle.setText(object.getTitle());
         binding.productPrice.setText("" + object.getPrice());
@@ -68,11 +83,9 @@ public class DetailActivity extends AppCompatActivity {
         });
 
         binding.buyNow.setOnClickListener(v -> {
-            object.setNumberInCart(1);
-            managmentCart.insertFood(object);
-            Intent intent = new Intent(DetailActivity.this, CartActivity.class);
+            String url = object.getUrl();
+            Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse(url));
             startActivity(intent);
-            finish();
         });
 
         binding.favBtn.setImageResource(isFavorite ? R.drawable.ic_bookmark_filled : R.drawable.ic_bookmark);
@@ -81,7 +94,7 @@ public class DetailActivity extends AppCompatActivity {
                 favDB.remove_fav(object.getId());
                 Toast.makeText(this, object.getTitle() +" Removed from Favorites.", Toast.LENGTH_SHORT).show();
             } else {
-                favDB.insertIntoTheDatabase(object.getTitle(), object.getPicUrl(), object.getPrice(), object.getDescription(), object.getId(), "1");
+                favDB.insertIntoTheDatabase(object.getTitle(), object.getPicUrl1(), object.getPrice(), object.getDescription(), object.getId(), "1");
                 Toast.makeText(this, object.getTitle() + " Added to Favorites.", Toast.LENGTH_SHORT).show();
             }
             isFavorite = !isFavorite;
@@ -96,16 +109,19 @@ public class DetailActivity extends AppCompatActivity {
              String id = object.getId();
 
             switch (id){
+
                 case "1":
                 case "11":
                 case "21":
                     data = String.valueOf(0);
                     break;
+
                 case "2":
                 case "12" :
                 case "22":
                     data = String.valueOf(1);
                     break;
+
                 case "3":
                 case "13" :
                 case "23" :
@@ -179,5 +195,27 @@ public class DetailActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        ArrayList<SliderDomain> sliderDomainArrayList = new ArrayList<>();
+
+        // initializing the slider view.
+        // adding the urls inside array list
+        sliderDomainArrayList.add(new SliderDomain(drawableResourceId1));
+        sliderDomainArrayList.add(new SliderDomain(drawableResourceId2));
+        sliderDomainArrayList.add(new SliderDomain(drawableResourceId3));
+
+        SliderView sliderView = findViewById(R.id.slider);
+
+        // passing this array list inside our adapter class.
+        SliderAdapter adapter = new SliderAdapter(this, sliderDomainArrayList);
+
+        // below method is used to
+        // setadapter to sliderview.
+        sliderView.setSliderAdapter(adapter);
+
+        // below method is use to set
+        // scroll time in seconds.
+        sliderView.setScrollTimeInSec(3);
     }
+
 }

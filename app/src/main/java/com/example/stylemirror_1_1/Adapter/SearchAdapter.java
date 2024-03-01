@@ -38,7 +38,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         PopularDomain data = mList.get(position);
         holder.binding.title.setText(formatTitle(data.getTitle()));
-        holder.binding.image.setImageResource(Integer.parseInt(data.getPicUrl()));
+        holder.binding.image.setImageResource(Integer.parseInt(data.getPicUrl1()));
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, DetailActivity.class);

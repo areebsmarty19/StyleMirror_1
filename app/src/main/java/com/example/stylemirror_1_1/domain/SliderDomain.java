@@ -1,17 +1,21 @@
-package com.example.stylemirror_1_1.Activity;
+package com.example.stylemirror_1_1.domain;
 
 import android.media.Image;
 
-public class SliderData {
+public class SliderDomain {
 
     // image url is used to
     // store the url of image
     private Integer imgUrl;
 
     // Constructor method.
-    public SliderData(Integer imgUrl) {
+    public SliderDomain(Integer imgUrl) {
         this.imgUrl = imgUrl;
     }
+
+//    public SliderDomain(String imgUrl) {
+//        this.imgUrl= Integer.parseInt(imgUrl);
+//    }
 
     // Getter method
     public Integer getImgUrl() {
