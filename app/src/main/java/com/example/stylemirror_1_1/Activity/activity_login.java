@@ -96,16 +96,16 @@ public class activity_login extends AppCompatActivity {
         });
     }
 
-    // Method to check if user is logged in
-    private boolean loggedIn() {
-        return databaseHelper.isLoggedIn(); // You need to implement isLoggedIn method in DatabaseHelper
-    }
-
     // Method to start MainActivity
     private void startMainActivity() {
         Intent intent = new Intent(activity_login.this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    // Method to check if user is logged in
+    private boolean loggedIn() {
+        return databaseHelper.isLoggedIn(); // You need to implement isLoggedIn method in DatabaseHelper
     }
 
     // Method to validate username using regex

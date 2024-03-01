@@ -7,8 +7,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.example.stylemirror_1_1.Activity.SliderData;
+import com.example.stylemirror_1_1.domain.SliderDomain;
 import com.example.stylemirror_1_1.R;
+import com.example.stylemirror_1_1.domain.SliderDomain;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
 import java.util.ArrayList;
@@ -17,11 +18,11 @@ import java.util.List;
 public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapterViewHolder> {
 
     // list for storing urls of images.
-    private final List<SliderData> mSliderItems;
+    private final List<SliderDomain> mSliderItems;
 
     // Constructor
-    public SliderAdapter(Context context, ArrayList<SliderData> sliderDataArrayList) {
-        this.mSliderItems = sliderDataArrayList;
+    public SliderAdapter(Context context, ArrayList<SliderDomain> sliderDomainArrayList) {
+        this.mSliderItems = sliderDomainArrayList;
     }
 
     // We are inflating the slider_layout
@@ -37,7 +38,7 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapter
     @Override
     public void onBindViewHolder(SliderAdapterViewHolder viewHolder, final int position) {
 
-        final SliderData sliderItem = mSliderItems.get(position);
+        final SliderDomain sliderItem = mSliderItems.get(position);
 
         // Glide is use to load image
         // from url in your imageview.
@@ -51,7 +52,6 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapter
     // the count of our list.
     @Override
     public int getCount() {
-
         return mSliderItems.size();
     }
 

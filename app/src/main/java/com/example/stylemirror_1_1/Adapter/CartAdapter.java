@@ -46,7 +46,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Viewholder> {
         binding.totalEachItem.setText("$" + Math.round(items.get(position).getNumberInCart() * items.get(position).getPrice()));
         binding.numberItemTxt.setText(String.valueOf(items.get(position).getNumberInCart()));
 
-        int drawableResourced = holder.itemView.getResources().getIdentifier(items.get(position).getPicUrl()
+        int drawableResourced = holder.itemView.getResources().getIdentifier(items.get(position).getPicUrl1()
                 , "drawable", holder.itemView.getContext().getPackageName());
 
         Glide.with(context)
