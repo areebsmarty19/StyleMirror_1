@@ -29,14 +29,14 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
     DatabaseHelper databaseHelper;
-    MeowBottomNavigation meowBottomNavigation;
-
+//    MeowBottomNavigation meowBottomNavigation;
+//
 //    String url1,url2,url3;
-    protected final int home = 1;
-    protected final int book = 2;
-    protected final int search = 3;
-    protected final int cart = 4;
-    protected final int profile = 5;
+//    protected final int home = 1;
+//    protected final int book = 2;
+//    protected final int search = 3;
+//    protected final int cart = 4;
+//    protected final int profile = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,56 +55,56 @@ public class MainActivity extends AppCompatActivity {
         initRecyclerView();
 
         //Nav Bar Of App.
-        meowBottomNavigation = findViewById(R.id.appBar);
-        meowBottomNavigation.add(new MeowBottomNavigation.Model(home,R.drawable.baseline_view_list_24));
-        meowBottomNavigation.add(new MeowBottomNavigation.Model(book,R.drawable.baseline_bookmark_border_24));
-        meowBottomNavigation.add(new MeowBottomNavigation.Model(search,R.drawable.baseline_search_24));
-        meowBottomNavigation.add(new MeowBottomNavigation.Model(cart,R.drawable.baseline_shopping_cart_24));
-        meowBottomNavigation.add(new MeowBottomNavigation.Model(profile,R.drawable.baseline_person_outline_24));
-
-        meowBottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
-            @Override
-            public Unit invoke(MeowBottomNavigation.Model model) {
-                String name;
-                switch (model.getId()){
-                    case home:
-                        name="Home";
-                        Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
-                        Intent intent1 = new Intent(MainActivity.this,activity_explorer.class);
-                        startActivity(intent1);
-                        break;
-
-                    case book:
-                        name="WishList";
-                        Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
-                        Intent intent2 = new Intent(MainActivity.this,activity_fav_items.class);
-                        startActivity(intent2);
-                        break;
-
-                    case search:
-                        name="Search";
-                        Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
-                        Intent intent3 = new Intent(MainActivity.this,activity_search.class);
-                        startActivity(intent3);
-                        break;
-
-                    case cart:
-                        name="Cart";
-                        Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
-                        Intent intent4 = new Intent(MainActivity.this,CartActivity.class);
-                        startActivity(intent4);
-                        break;
-
-                    case profile:
-                        name="Profile";
-                        Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
-                        Intent intent5 = new Intent(MainActivity.this,activity_profile.class);
-                        startActivity(intent5);
-                        break;
-                }
-                return null;
-            }
-        });
+//        meowBottomNavigation = findViewById(R.id.appBar);
+//        meowBottomNavigation.add(new MeowBottomNavigation.Model(home,R.drawable.baseline_view_list_24));
+//        meowBottomNavigation.add(new MeowBottomNavigation.Model(book,R.drawable.baseline_bookmark_border_24));
+//        meowBottomNavigation.add(new MeowBottomNavigation.Model(search,R.drawable.baseline_search_24));
+//        meowBottomNavigation.add(new MeowBottomNavigation.Model(cart,R.drawable.baseline_shopping_cart_24));
+//        meowBottomNavigation.add(new MeowBottomNavigation.Model(profile,R.drawable.baseline_person_outline_24));
+//
+//        meowBottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
+//            @Override
+//            public Unit invoke(MeowBottomNavigation.Model model) {
+//                String name;
+//                switch (model.getId()){
+//                    case home:
+//                        name="Home";
+//                        Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
+//                        Intent intent1 = new Intent(MainActivity.this,activity_explorer.class);
+//                        startActivity(intent1);
+//                        break;
+//
+//                    case book:
+//                        name="WishList";
+//                        Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
+//                        Intent intent2 = new Intent(MainActivity.this,activity_fav_items.class);
+//                        startActivity(intent2);
+//                        break;
+//
+//                    case search:
+//                        name="Search";
+//                        Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
+//                        Intent intent3 = new Intent(MainActivity.this,activity_search.class);
+//                        startActivity(intent3);
+//                        break;
+//
+//                    case cart:
+//                        name="Cart";
+//                        Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
+//                        Intent intent4 = new Intent(MainActivity.this,CartActivity.class);
+//                        startActivity(intent4);
+//                        break;
+//
+//                    case profile:
+//                        name="Profile";
+//                        Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
+//                        Intent intent5 = new Intent(MainActivity.this,activity_profile.class);
+//                        startActivity(intent5);
+//                        break;
+//                }
+//                return null;
+//            }
+//        });
 
         binding.spec.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,41 +139,41 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Listener Of All Nav Bar items.
-//         binding.explorerBtn.setOnClickListener(new View.OnClickListener() {
-//             @Override
-//             public void onClick(View v) {
-//                 Intent intent = new Intent(MainActivity.this, activity_explorer.class);
-//                 startActivity(intent);
-//             }
-//         });
-//         binding.wishlistBtn.setOnClickListener(new View.OnClickListener() {
-//             @Override
-//             public void onClick(View v) {
-//                 Intent intent = new Intent(MainActivity.this, activity_fav_items.class);
-//                 startActivity(intent);
-//             }
-//         });
-//         binding.searchBtn.setOnClickListener(new View.OnClickListener() {
-//             @Override
-//             public void onClick(View v) {
-//                 Intent intent = new Intent(MainActivity.this, activity_search.class);
-//                 startActivity(intent);
-//             }
-//         });
-//         binding.cartBtn.setOnClickListener(new View.OnClickListener() {
-//             @Override
-//             public void onClick(View v) {
-//                 Intent intent = new Intent(MainActivity.this, CartActivity.class);
-//                 startActivity(intent);
-//             }
-//         });
-//         binding.profileBtn.setOnClickListener(new View.OnClickListener() {
-//             @Override
-//             public void onClick(View v) {
-//                 Intent intent = new Intent(MainActivity.this, activity_profile.class);
-//                 startActivity(intent);
-//             }
-//         });
+         binding.explorerBtn.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent = new Intent(MainActivity.this, activity_explorer.class);
+                 startActivity(intent);
+             }
+         });
+         binding.wishlistBtn.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent = new Intent(MainActivity.this, activity_fav_items.class);
+                 startActivity(intent);
+             }
+         });
+         binding.searchBtn.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent = new Intent(MainActivity.this, activity_search.class);
+                 startActivity(intent);
+             }
+         });
+         binding.cartBtn.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent = new Intent(MainActivity.this, CartActivity.class);
+                 startActivity(intent);
+             }
+         });
+         binding.profileBtn.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent = new Intent(MainActivity.this, activity_profile.class);
+                 startActivity(intent);
+             }
+         });
 
 
 
