@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.stylemirror_1_1.R;
 import com.example.stylemirror_1_1.databinding.ActivitySearchBinding;
 import com.example.stylemirror_1_1.domain.PopularDomain;
@@ -20,6 +21,8 @@ public class activity_search extends AppCompatActivity {
     ActivitySearchBinding binding;
     private ArrayList<PopularDomain> mList;
     private SearchAdapter adapter;
+    MeowBottomNavigation meowBottomNavigation;
+    public final int home = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,5 +87,10 @@ public class activity_search extends AppCompatActivity {
         mList.add(new PopularDomain(18,"Fastrack Mirrored Aviator Men's Sunglasses", R.drawable.spects_8,0, (int) 2.3,2295,"Material Composition"));
         mList.add(new PopularDomain(19,"UV Protection Cat-eye Sunglasses",R.drawable.spects_9,0, (int) 3.9,404,"Material Composition"));
         mList.add(new PopularDomain(20,"Riding Glasses Wayfarer Sunglasses",R.drawable.spects_10,0,0,182,"The amazing accessories to enhance your style statement is Spectacles Frames. They are trendy and never really go out of style. Made of polycarbonate material our products are ergonomically designed to give you a comfortable head hugging fit. Thus providing all-day wearing comfort. Spectacles Frames have been designed keeping your comfort and care as our first priority. These Spectacles Frames are really light and have been made of high quality frame with Stunning Looks & Flashy Colors. Mehjabeen enterprise Frames give you 100% protection against harmful UVA/UVB rays and are polarized for your eye care. Stay young. What do You get? Sunglasses * 1 Sunglasses Case * 1 Cleaning Soft Cloth * 1 sunglasses for mens sunglasses for women stylish sunglasses for women sunglasses for men."));
+    }
+
+    @Override
+    public void onBackPressed() {
+        meowBottomNavigation.show(home, true);
     }
 }

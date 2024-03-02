@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.stylemirror_1_1.Adapter.PopularAdapter;
 import com.example.stylemirror_1_1.Helper.FavDB;
 import com.example.stylemirror_1_1.databinding.ActivityFavitemsBinding;
@@ -16,6 +17,8 @@ import java.util.ArrayList;
 public class activity_fav_items extends AppCompatActivity {
     private ActivityFavitemsBinding binding;
     private FavDB favDB;
+//    MeowBottomNavigation meowBottomNavigation;
+//    public final int home = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,4 +53,9 @@ public class activity_fav_items extends AppCompatActivity {
         }
         return favoriteItems;
     }
+
+//    @Override
+//    public void onBackPressed() {
+//        meowBottomNavigation.show(home, true);
+//    }
 }
