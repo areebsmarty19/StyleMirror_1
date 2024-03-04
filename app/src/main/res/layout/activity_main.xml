@@ -10,7 +10,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="30dp"
+            android:paddingBottom="30sp"
             android:id="@+id/ln1">
 
             <LinearLayout
@@ -22,9 +22,9 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="24dp">
+                    android:layout_marginStart="24sp"
+                    android:layout_marginTop="20sp"
+                    android:layout_marginEnd="24sp">
 
                     <TextView
                         android:id="@+id/textView"
@@ -50,8 +50,8 @@
                         android:id="@+id/imageView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="16sp"
+                        android:layout_marginEnd="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/bell" />
@@ -66,6 +66,17 @@
                         app:layout_constraintStart_toEndOf="@+id/imageView"
                         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
+<!--                        <ImageView-->
+<!--                            android:id="@+id/profileBtn"-->
+<!--                            android:layout_width="45sp"-->
+<!--                            android:layout_height="45sp"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:src="@drawable/baseline_person_24"-->
+<!--                            android:layout_marginTop="5sp"-->
+<!--                            android:layout_marginEnd="5sp"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent"/>-->
+
                     <TextView
                         android:id="@+id/textView4"
                         android:layout_width="wrap_content"
@@ -76,32 +87,33 @@
                         app:layout_constraintEnd_toEndOf="@+id/imageView3"
                         app:layout_constraintStart_toStartOf="@+id/imageView3"
                         app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="16dp">
+                android:layout_height="160sp"
+                android:layout_marginStart="24sp"
+                android:layout_marginTop="16sp"
+                android:layout_marginEnd="24sp"
+                android:layout_marginBottom="16sp">
 
                 <com.smarteist.autoimageslider.SliderView
                     android:id="@+id/slider"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="150sp"
                     android:layout_centerInParent="true"
                     app:sliderAnimationDuration="600"
                     app:sliderAutoCycleDirection="back_and_forth"
                     app:sliderIndicatorAnimationDuration="600"
                     app:sliderIndicatorEnabled="true"
                     app:sliderIndicatorGravity="center_horizontal|bottom"
-                    app:sliderIndicatorMargin="15dp"
+                    app:sliderIndicatorMargin="15sp"
                     app:sliderIndicatorOrientation="horizontal"
-                    app:sliderIndicatorPadding="3dp"
-                    app:sliderIndicatorRadius="2dp"
+                    app:sliderIndicatorPadding="3sp"
+                    app:sliderIndicatorRadius="2sp"
                     app:sliderIndicatorSelectedColor="#673AB7"
                     app:sliderIndicatorUnselectedColor="#5A5A5A"
                     app:sliderScrollTimeInSec="1" />
@@ -112,7 +124,7 @@
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
+                android:layout_marginStart="24sp"
                 android:text="Categories"
                 android:textColor="@color/black"
                 android:textSize="19sp"
@@ -121,12 +133,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
+                android:layout_marginStart="12sp"
+                android:layout_marginEnd="12sp"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:orientation="vertical"
@@ -135,21 +147,21 @@
                     <ImageView
                         android:id="@+id/imageView51"
                         android:layout_width="match_parent"
-                        android:layout_height="51dp"
+                        android:layout_height="51sp"
                         android:src="@drawable/speces" />
 
                     <TextView
                         android:id="@+id/textView72"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
+                        android:layout_marginTop="6sp"
                         android:text="Spectacles"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:orientation="vertical"
@@ -158,21 +170,21 @@
                     <ImageView
                         android:id="@+id/imageView52"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="50sp"
                         app:srcCompat="@drawable/shoess_2" />
 
                     <TextView
                         android:id="@+id/textView76"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="8sp"
                         android:text="Sneakers"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:orientation="vertical"
@@ -188,14 +200,14 @@
                         android:id="@+id/textView74"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="8sp"
                         android:text="Beauty"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:orientation="vertical"
@@ -211,7 +223,7 @@
                         android:id="@+id/textView75"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="8sp"
                         android:text="View all"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -221,9 +233,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginStart="24sp"
+                android:layout_marginTop="16sp"
+                android:layout_marginEnd="24sp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -254,8 +266,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:clipToPadding="false"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="12dp"
+                    android:paddingStart="12sp"
+                    android:paddingEnd="12sp"
                     app:layout_constraintTop_toTopOf="@id/appBar"/>
 
             </ScrollView>
@@ -263,7 +275,7 @@
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="110sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -271,20 +283,21 @@
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/appBar"
             android:layout_width="match_parent"
-            android:layout_height="65dp"
+            android:layout_height="50sp"
             android:layout_gravity="bottom"
             android:background="@drawable/edittext_background"
-            android:padding="4dp"
-            app:fabCradleMargin="8dp"
-            app:fabCradleRoundedCornerRadius="50dp"
-            app:fabCradleVerticalOffset="6dp">
+            android:padding="4sp"
+            app:fabCradleMargin="8sp"
+            app:fabCradleRoundedCornerRadius="50sp"
+            app:fabCradleVerticalOffset="6sp"
+            android:backgroundTint="@color/purple_Dark">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:orientation="vertical"
@@ -292,22 +305,23 @@
 
                     <ImageView
                         android:id="@+id/imageView61"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="24sp"
+                        android:layout_height="24sp"
                         android:layout_gravity="center"
-                        android:src="@drawable/btn_1" />
+                        android:src="@drawable/baseline_view_list_24"
+                        app:tint="@color/white" />
 
-                    <TextView
-                        android:id="@+id/textView101"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Explorer"
-                        android:textAlignment="center" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/textView101"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="4sp"-->
+<!--                        android:text="Explorer"-->
+<!--                        android:textAlignment="center" />-->
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:orientation="vertical"
@@ -315,22 +329,23 @@
 
                     <ImageView
                         android:id="@+id/imageView62"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="24sp"
+                        android:layout_height="24sp"
                         android:layout_gravity="center"
-                        android:src="@drawable/btn_2" />
+                        android:src="@drawable/baseline_bookmark_border_24"
+                        app:tint="@color/white" />
 
-                    <TextView
-                        android:id="@+id/textView102"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Wishlist"
-                        android:textAlignment="center" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/textView102"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="4sp"-->
+<!--                        android:text="Wishlist"-->
+<!--                        android:textAlignment="center" />-->
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:orientation="vertical"
@@ -338,45 +353,47 @@
 
                     <ImageView
                         android:id="@+id/imageView63"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="24sp"
+                        android:layout_height="24sp"
                         android:layout_gravity="center"
-                        android:src="@drawable/btn_1" />
+                        android:src="@drawable/btn_1"
+                        app:tint="@color/white" />
 
-                    <TextView
-                        android:id="@+id/textView103"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Explorer"
-                        android:textAlignment="center" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/textView103"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="4sp"-->
+<!--                        android:text="Explorer"-->
+<!--                        android:textAlignment="center" />-->
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/cartBtn"
-                    android:layout_width="0dp"
+                    android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/imageView64"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="24sp"
+                        android:layout_height="24sp"
                         android:layout_gravity="center"
-                        android:src="@drawable/btn_3" />
+                        android:src="@drawable/baseline_shopping_cart_24"
+                        app:tint="@color/white" />
 
-                    <TextView
-                        android:id="@+id/textView104"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Cart"
-                        android:textAlignment="center" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/textView104"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="4sp"-->
+<!--                        android:text="Cart"-->
+<!--                        android:textAlignment="center" />-->
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:orientation="vertical"
@@ -384,18 +401,19 @@
 
                     <ImageView
                         android:id="@+id/imageView6"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="24sp"
+                        android:layout_height="24sp"
                         android:layout_gravity="center"
-                        android:src="@drawable/btn_4" />
+                        android:src="@drawable/baseline_person_outline_24"
+                        app:tint="@color/white" />
 
-                    <TextView
-                        android:id="@+id/textView10"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Profile"
-                        android:textAlignment="center" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/textView10"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="4sp"-->
+<!--                        android:text="Profile"-->
+<!--                        android:textAlignment="center" />-->
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.bottomappbar.BottomAppBar>
@@ -407,9 +425,8 @@
             android:src="@drawable/search_icon"
             app:backgroundTint="@color/purple_Dark"
             app:layout_anchor="@id/appBar"
-            app:maxImageSize="30dp"
-            app:tint="@color/white"
-            android:clickable="true"/>
+            app:maxImageSize="30sp"
+            app:tint="@color/white"/>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 <!--    <com.etebarian.meowbottomnavigation.MeowBottomNavigation-->
