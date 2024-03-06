@@ -1,6 +1,12 @@
 package com.example.stylemirror_1_1.Adapter;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +20,7 @@ import com.example.stylemirror_1_1.Helper.ChangeNumberItemsListener;
 import com.example.stylemirror_1_1.Helper.ManagmentCart;
 import com.example.stylemirror_1_1.databinding.ViewholderCartBinding;
 import com.example.stylemirror_1_1.domain.PopularDomain;
+import com.example.stylemirror_1_1.Activity.CartActivity;
 
 import java.util.ArrayList;
 
@@ -23,6 +30,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Viewholder> {
     ViewholderCartBinding binding;
     ChangeNumberItemsListener changeNumberItemsListener;
     ManagmentCart managmentCart;
+
 
     public CartAdapter(ArrayList<PopularDomain> items,Context context, ChangeNumberItemsListener changeNumberItemsListener) {
         this.items = items;
@@ -40,11 +48,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Viewholder> {
     }
 
     @Override
-    public void onBindViewHolder(CartAdapter.Viewholder holder, int position) {
+    public void onBindViewHolder(CartAdapter.Viewholder holder, @SuppressLint("RecyclerView") int position) {
         binding.titleTxt.setText(formatTitle(items.get(position).getTitle()));
         binding.feeEachItem.setText("$" + items.get(position).getPrice());
         binding.totalEachItem.setText("$" + Math.round(items.get(position).getNumberInCart() * items.get(position).getPrice()));
-        binding.numberItemTxt.setText(String.valueOf(items.get(position).getNumberInCart()));
+//        binding.numberItemTxt.setText(String.valueOf(items.get(position).getNumberInCart()));
 
         int drawableResourced = holder.itemView.getResources().getIdentifier(items.get(position).getPicUrl1()
                 , "drawable", holder.itemView.getContext().getPackageName());
@@ -54,20 +62,58 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Viewholder> {
                 .transform(new GranularRoundedCorners(30, 30, 0, 0))
                 .into(binding.pic);
 
-        binding.plusCartBtn.setOnClickListener(v -> managmentCart.plusNumberItem(items, position, () -> {
-            changeNumberItemsListener.change();
-            binding.numberItemTxt.setText(String.valueOf(items.get(position).getNumberInCart()));
-            notifyItemChanged(position);
-        }));
+//        binding.plusCartBtn.setOnClickListener(v -> managmentCart.plusNumberItem(items, position, () -> {
+//            changeNumberItemsListener.change();
+//            binding.numberItemTxt.setText(String.valueOf(items.get(position).getNumberInCart()));
+//            notifyItemChanged(position);
+//        }));
+//
+//        binding.minusCartItem.setOnClickListener(v -> managmentCart.minusNumberItem(items, position, () -> {
+//            if (binding.numberItemTxt.getText().toString().equals("1")){
+//                binding.minusCartItem.setVisibility(View.INVISIBLE);
+//            }
+//            changeNumberItemsListener.change();
+//            binding.numberItemTxt.setText(String.valueOf(items.get(position).getNumberInCart()));
+//            notifyItemChanged(position);
+//        }));
 
-        binding.minusCartItem.setOnClickListener(v -> managmentCart.minusNumberItem(items, position, () -> {
-            if (binding.numberItemTxt.getText().toString().equals("1")){
-                binding.minusCartItem.setVisibility(View.INVISIBLE);
+        binding.removeItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(context)
+                        .setTitle("Remove Item")
+                        .setMessage("Are you sure you want to remove this item from the cart?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Call removeItem from ManagmentCart
+                                managmentCart.removeItem(position, () -> {
+                                // Notify activity to recalculate cart
+                                changeNumberItemsListener.change();
+                                if (managmentCart.getListCart().size() >= 0 ){
+                                    Intent intent = new Intent(context,CartActivity.class);
+                                    context.startActivity(intent);
+                                    ((Activity) context).finish();
+                                }
+                                });
+                                // Dismiss the dialog
+                                dialog.dismiss();
+                            }
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
             }
-            changeNumberItemsListener.change();
-            binding.numberItemTxt.setText(String.valueOf(items.get(position).getNumberInCart()));
-            notifyItemChanged(position);
-        }));
+        });
+
+
+        binding.buyItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = items.get(position).getUrl();
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
