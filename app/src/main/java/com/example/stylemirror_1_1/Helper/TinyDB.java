@@ -296,9 +296,6 @@ public class TinyDB {
         return new ArrayList<String>(Arrays.asList(TextUtils.split(preferences.getString(key, ""), "‚‗‚")));
     }
 
-    public ArrayList<String> getShoesListString(String key) {
-        return new ArrayList<String>(Arrays.asList(TextUtils.split(preferences.getString(key, ""), "‚‗‚")));
-    }
     /**
      * Get boolean value from SharedPreferences at 'key'. If key not found, return false
      * @param key SharedPreferences key
