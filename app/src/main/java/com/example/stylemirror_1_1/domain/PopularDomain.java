@@ -30,11 +30,13 @@ public class PopularDomain implements Serializable {
     }
 
     //Constructor of Favorite Items.
-    public PopularDomain(int id, String title, String picUrl1, double price , String description) {
+    public PopularDomain(int id, String title, String picUrl1, String picUrl2, String picUrl3, Double price, String description) {
         this.id=id;
-        this.title=title;
-        this.picUrl1= picUrl1;
-        this.price=price;
+        this.title = title;
+        this.picUrl1 = picUrl1;
+        this.picUrl2 = picUrl2;
+        this.picUrl3 = picUrl3;
+        this.price = price;
         this.description=description;
     }
 

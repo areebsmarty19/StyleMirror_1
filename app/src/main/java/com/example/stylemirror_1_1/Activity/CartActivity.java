@@ -18,8 +18,6 @@ public class CartActivity extends AppCompatActivity {
     private ManagmentCart managmentCart;
     ActivityCartBinding binding;
     double tax;
-//    MeowBottomNavigation meowBottomNavigation;
-//    public final int home = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +68,4 @@ public class CartActivity extends AppCompatActivity {
         binding.backBtn.setOnClickListener(v -> finish());
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        meowBottomNavigation.show(home, true);
-//    }
 }

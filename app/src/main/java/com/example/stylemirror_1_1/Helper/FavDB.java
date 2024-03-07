@@ -14,14 +14,16 @@ public class FavDB extends SQLiteOpenHelper {
     private static String TABLE_NAME = "favoriteTable";
     public static String KEY_ID = "id";
     public static String ITEM_TITLE = "itemTitle";
-    public static String ITEM_IMAGE = "itemImage";
+    public static String ITEM_IMAGE1 = "itemImage1";
+    public static String ITEM_IMAGE2 = "itemImage2";
+    public static String ITEM_IMAGE3 = "itemImage3";
     public static String ITEM_PRICE = "itemPrice";
     public static String ITEM_DESCRIPTION = "itemDescription";
     public static String FAVORITE_STATUS = "fStatus";
     // dont forget write this spaces
     private static String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + "("
             + KEY_ID + " TEXT," + ITEM_TITLE+ " TEXT,"
-            + ITEM_IMAGE + " TEXT," + ITEM_PRICE+ " DOUBLE,"
+            + ITEM_IMAGE1 + " TEXT," + ITEM_IMAGE2 + " TEXT," + ITEM_IMAGE3 + " TEXT," + ITEM_PRICE+ " DOUBLE,"
             + ITEM_DESCRIPTION+ " TEXT,"+ FAVORITE_STATUS+" TEXT)";
 
     public FavDB(Context context) { super(context,DATABASE_NAME,null,DB_VERSION);}
@@ -49,12 +51,14 @@ public class FavDB extends SQLiteOpenHelper {
     }
 
     // insert data into database
-    public void insertIntoTheDatabase(String item_title, String item_image,Double item_price, String item_description ,String id, String fav_status) {
+    public void insertIntoTheDatabase(String item_title, String item_image1, String item_image2, String item_image3, Double item_price, String item_description ,String id, String fav_status) {
         SQLiteDatabase db;
         db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(ITEM_TITLE, item_title);
-        cv.put(ITEM_IMAGE, item_image);
+        cv.put(ITEM_IMAGE1, item_image1);
+        cv.put(ITEM_IMAGE2, item_image2);
+        cv.put(ITEM_IMAGE3, item_image3);
         cv.put(ITEM_PRICE,item_price);
         cv.put(ITEM_DESCRIPTION,item_description);
         cv.put(KEY_ID, id);
@@ -77,8 +81,8 @@ public class FavDB extends SQLiteOpenHelper {
         db.execSQL(sql);
         Log.d("remove", id.toString());
     }
-    // select all favorite list
 
+    // select all favorite list
     public Cursor select_all_favorite_list() {
         SQLiteDatabase db = this.getReadableDatabase();
         String sql = "SELECT * FROM "+TABLE_NAME+" WHERE "+FAVORITE_STATUS+" ='1'";
