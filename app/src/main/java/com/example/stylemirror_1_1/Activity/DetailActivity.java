@@ -29,6 +29,7 @@ public class DetailActivity extends AppCompatActivity {
 
     private final String shoeurl = "https://shoetry.netlify.app/";
     private final String specsurl = "https://specstry.netlify.app/";
+    private final String cosmeticssurl = "https://cosm.netlify.app/";
     private ActivityDetailBinding binding;
     private PopularDomain object;
     private FavDB favDB;
@@ -190,7 +191,7 @@ public class DetailActivity extends AppCompatActivity {
                 startActivity(intent);
             }
             else{
-                full = specsurl + "?data=" + Uri.encode(data);
+                full = cosmeticssurl + "?data=" + Uri.encode(data);
                 intent.setData(Uri.parse(full));
                 startActivity(intent);
             }
