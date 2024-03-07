@@ -94,7 +94,7 @@ public class DetailActivity extends AppCompatActivity {
                 favDB.remove_fav(object.getId());
                 Toast.makeText(this, object.getTitle() +" Removed from Favorites.", Toast.LENGTH_SHORT).show();
             } else {
-                favDB.insertIntoTheDatabase(object.getTitle(), object.getPicUrl1(), object.getPrice(), object.getDescription(), object.getId(), "1");
+                favDB.insertIntoTheDatabase(object.getTitle(), object.getPicUrl1(), object.getPicUrl2(), object.getPicUrl3(), object.getPrice(), object.getDescription(), object.getId(), "1");
                 Toast.makeText(this, object.getTitle() + " Added to Favorites.", Toast.LENGTH_SHORT).show();
             }
             isFavorite = !isFavorite;

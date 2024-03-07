@@ -1,5 +1,8 @@
 package com.example.stylemirror_1_1.Activity;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,15 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
     DatabaseHelper databaseHelper;
-//    MeowBottomNavigation meowBottomNavigation;
 
 //    String url1,url2,url3;
-//    protected final int home = 1;
-//    protected final int view = 2;
-//    protected final int book = 3;
-//    protected final int search = 4;
-//    protected final int cart = 5;
-//    protected final int profile = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,62 +51,13 @@ public class MainActivity extends AppCompatActivity {
         statusBarColor();
         initRecyclerView();
 
-        //Nav Bar Of App.
-//        meowBottomNavigation = findViewById(R.id.appBar);
-//        meowBottomNavigation.add(new MeowBottomNavigation.Model(view,R.drawable.baseline_view_list_24));
-//        meowBottomNavigation.add(new MeowBottomNavigation.Model(book,R.drawable.baseline_bookmark_border_24));
-//        meowBottomNavigation.add(new MeowBottomNavigation.Model(home,R.drawable.baseline_home_24));
-//        meowBottomNavigation.add(new MeowBottomNavigation.Model(search,R.drawable.baseline_search_24));
-//        meowBottomNavigation.add(new MeowBottomNavigation.Model(cart,R.drawable.baseline_shopping_cart_24));
-////        meowBottomNavigation.add(new MeowBottomNavigation.Model(profile,R.drawable.baseline_person_outline_24));
-//
-//        meowBottomNavigation.show(home,true);
-//
-//        meowBottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
-//            @Override
-//            public Unit invoke(MeowBottomNavigation.Model model) {
-//                String name;
-//                switch (model.getId()){
-//
-//                    case view:
-//                        name="View More";
-//                        Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
-//                        Intent intent5 = new Intent(MainActivity.this,activity_explorer.class);
-//                        startActivity(intent5);
-//                        break;
-//
-//                    case book:
-//                        name="WishList";
-//                        Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
-//                        Intent intent2 = new Intent(MainActivity.this,activity_fav_items.class);
-//                        startActivity(intent2);
-//                        break;
-//
-//                    case home:
-//                        name="Home";
-//                        Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
-////                        Intent intent1 = new Intent(MainActivity.this,activity_explorer.class);
-////                        startActivity(intent1);
-//                        break;
-//
-//                    case search:
-//                        name="Search";
-//                        Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
-//                        Intent intent3 = new Intent(MainActivity.this,activity_search.class);
-//                        startActivity(intent3);
-//                        break;
-//
-//                    case cart:
-//                        name="Cart";
-//                        Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
-//                        Intent intent4 = new Intent(MainActivity.this,CartActivity.class);
-//                        startActivity(intent4);
-//                        break;
-//
-//                }
-//                return null;
-//            }
-//        });
+        //User Want to Log Out from the App.
+        binding.logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logout();
+            }
+        });
 
         binding.spec.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -220,6 +167,26 @@ public class MainActivity extends AppCompatActivity {
         // to start autocycle below method is used.
         sliderView.startAutoCycle();
     }
+
+        //Log Out User From the App
+        private void logout() {
+            new AlertDialog.Builder(this)
+                    .setTitle("Log Out")
+                    .setMessage("Are you sure you want to Log Out From App?")
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            databaseHelper.setUserLoggedIn(false);
+
+                            Intent intent = new Intent(MainActivity.this,activity_login.class);
+                            startActivity(intent);
+                            finish();
+                            dialog.dismiss();
+                        }
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
+        }
 
     //Fetch If User Already Login or Not.
     private boolean loggedIn() {

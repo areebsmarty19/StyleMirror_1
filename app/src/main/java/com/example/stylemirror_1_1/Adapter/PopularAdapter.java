@@ -68,7 +68,7 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
                 favDB.remove_fav(item.getId());
                 Toast.makeText(context, item.getTitle() +" Removed from Favorites.", Toast.LENGTH_SHORT).show();
             } else {
-                favDB.insertIntoTheDatabase(item.getTitle(), item.getPicUrl1(), item.getPrice(), item.getDescription(), item.getId(), "1");
+                favDB.insertIntoTheDatabase(item.getTitle(), item.getPicUrl1(), item.getPicUrl2(), item.getPicUrl3(), item.getPrice(), item.getDescription(), item.getId(), "1");
                 Toast.makeText(context, item.getTitle()+" Added to Favorites.", Toast.LENGTH_SHORT).show();
             }
             holder.binding.favBtn.setImageResource(isFavorite ? R.drawable.ic_bookmark : R.drawable.ic_bookmark_filled);
