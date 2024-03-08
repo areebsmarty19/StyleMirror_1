@@ -7,7 +7,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.stylemirror_1_1.Dbmodels.DatabaseHelper;
-import com.example.stylemirror_1_1.Dbmodels.UserModel;
 import com.example.stylemirror_1_1.databinding.ActivityRegisterBinding;
 
 import android.util.Patterns;

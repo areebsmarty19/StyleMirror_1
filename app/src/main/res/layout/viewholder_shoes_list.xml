@@ -27,12 +27,12 @@
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/shoes2" />
+            app:srcCompat="@drawable/shoess_2_1" />
 
         <ImageView
             android:id="@+id/favBtn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             app:layout_constraintStart_toStartOf="@id/pic"
             app:layout_constraintTop_toTopOf="@id/pic"
             android:background="@drawable/ic_bookmark" />
@@ -72,6 +72,7 @@
             app:layout_constraintStart_toEndOf="@id/currency"
             app:layout_constraintTop_toBottomOf="@id/titleTxt"
             tools:text="1,000" />
+
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/descriptionTxt"
             android:layout_width="wrap_content"
