@@ -32,12 +32,12 @@ public class ManagmentCart {
             }
         }
         if(existAlready){
-            listpop.get(n).setNumberInCart(item.getNumberInCart()+1);
+            Toast.makeText(context, "Item Already Add in Your cart.", Toast.LENGTH_SHORT).show();
         }else{
             listpop.add(item);
         }
         tinyDB.putListObject("CartList",listpop);
-        Toast.makeText(context, listpop.get(n).getTitle()+" Added to your Cart.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Added to your Cart.", Toast.LENGTH_SHORT).show();
     }
 
     public ArrayList<PopularDomain> getListCart() {
@@ -53,21 +53,6 @@ public class ManagmentCart {
         return fee;
     }
 
-//    public void minusNumberItem(ArrayList<PopularDomain> listItem,int position,ChangeNumberItemsListener changeNumberItemsListener){
-//        if(listItem.get(position).getNumberInCart()==1){
-//            listItem.remove(position);
-//        }else{
-//            listItem.get(position).setNumberInCart(listItem.get(position).getNumberInCart()-1);
-//        }
-//        tinyDB.putListObject("CartList",listItem);
-//        changeNumberItemsListener.change();
-//    }
-
-//    public  void plusNumberItem(ArrayList<PopularDomain> listItem,int position,ChangeNumberItemsListener changeNumberItemsListener){
-//        listItem.get(position).setNumberInCart(listItem.get(position).getNumberInCart()+1);
-//        tinyDB.putListObject("CartList",listItem);
-//        changeNumberItemsListener.change();
-//    }
 
     public void removeItem(int position, Runnable callback) {
         ArrayList<PopularDomain> listItem = getListCart();

@@ -163,6 +163,86 @@ public class DetailActivity extends AppCompatActivity {
                     data = String.valueOf(9);
                     break;
 
+                case "31" :
+                    data = String.valueOf(10);
+                    break;
+
+                case "32" :
+                    data = String.valueOf(11);
+                    break;
+
+                case "33" :
+                    data = String.valueOf(12);
+                    break;
+
+                case "34" :
+                    data = String.valueOf(13);
+                    break;
+
+                case "35" :
+                    data = String.valueOf(14);
+                    break;
+
+                case "36" :
+                    data = String.valueOf(15);
+                    break;
+
+                case "37" :
+                    data = String.valueOf(16);
+                    break;
+
+                case "38" :
+                    data = String.valueOf(17);
+                    break;
+
+                case "39" :
+                    data = String.valueOf(18);
+                    break;
+
+                case "40" :
+                    data = String.valueOf(19);
+                    break;
+
+                case "41" :
+                    data = String.valueOf(20);
+                    break;
+
+                case "42" :
+                    data = String.valueOf(21);
+                    break;
+
+                case "43" :
+                    data = String.valueOf(22);
+                    break;
+
+                case "44" :
+                    data = String.valueOf(23);
+                    break;
+
+                case "45" :
+                    data = String.valueOf(24);
+                    break;
+
+                case "46" :
+                    data = String.valueOf(25);
+                    break;
+
+                case "47" :
+                    data = String.valueOf(26);
+                    break;
+
+                case "48" :
+                    data = String.valueOf(27);
+                    break;
+
+                case "49" :
+                    data = String.valueOf(28);
+                    break;
+
+                case "50" :
+                    data = String.valueOf(29);
+                    break;
+
                 default:
                     data = String.valueOf(0);
                     break;
