@@ -24,7 +24,6 @@
         android:id="@+id/pic"
         android:layout_width="64dp"
         android:layout_height="64dp"
-
         app:layout_constraintBottom_toBottomOf="@+id/view6"
         app:layout_constraintEnd_toEndOf="@+id/view6"
         app:layout_constraintStart_toStartOf="@+id/view6"
@@ -43,22 +42,10 @@
         app:layout_constraintTop_toTopOf="@+id/view6" />
 
     <TextView
-        android:id="@+id/feeEachItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="0"
-        android:textSize="18sp"
-
-        android:textColor="@color/purple_light"
-        app:layout_constraintBottom_toBottomOf="@+id/view6"
-        app:layout_constraintStart_toEndOf="@+id/view6" />
-
-    <TextView
         android:id="@+id/totalEachItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:text="0"
         android:textColor="@color/purple_light"
@@ -68,9 +55,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="100dp"
+        android:layout_width="70dp"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="@+id/feeEachItem"
+        app:layout_constraintBottom_toBottomOf="@+id/pic"
         app:layout_constraintEnd_toEndOf="@+id/totalEachItem">
 
         <ImageView
@@ -104,7 +91,6 @@
             android:gravity="center"
             android:layout_marginEnd="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/buyItem"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toStartOf="@+id/buyItem" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

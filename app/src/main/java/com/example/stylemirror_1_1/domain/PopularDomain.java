@@ -41,10 +41,12 @@ public class PopularDomain implements Serializable {
     }
 
     //Constructor of SearchAdapter
-    public PopularDomain(int id, String title, int picUrl1, int review, int rating, int price, String description) {
+    public PopularDomain(int id, String title, int picUrl1, int picUrl2, int picUrl3, int review, int rating, int price, String description) {
         this.id=id;
         this.title = title;
         this.picUrl1 = String.valueOf(picUrl1);
+        this.picUrl2 = String.valueOf(picUrl2);
+        this.picUrl3 = String.valueOf(picUrl3);
         this.review = review;
         this.rating = rating;
         this.price = price;

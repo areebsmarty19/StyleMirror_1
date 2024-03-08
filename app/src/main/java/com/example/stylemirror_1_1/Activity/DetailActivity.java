@@ -29,6 +29,7 @@ public class DetailActivity extends AppCompatActivity {
 
     private final String shoeurl = "https://shoetry.netlify.app/";
     private final String specsurl = "https://specstry.netlify.app/";
+    private final String cosmeticssurl = "https://cosm.netlify.app/";
     private ActivityDetailBinding binding;
     private PopularDomain object;
     private FavDB favDB;
@@ -62,14 +63,6 @@ public class DetailActivity extends AppCompatActivity {
         int drawableResourceId2 = this.getResources().getIdentifier(object.getPicUrl2(), "drawable", this.getPackageName());
         int drawableResourceId3 = this.getResources().getIdentifier(object.getPicUrl3(), "drawable", this.getPackageName());
 
-//        Glide.with(this)
-//                .load(drawableResourceId1)
-//                .into(binding.slider);
-
-//        Glide.with(viewHolder.itemView)
-//                .load(sliderItem.getImgUrl())
-//                .fitCenter()
-//                .into(viewHolder.imageViewBackground);
 
         binding.productTitle.setText(object.getTitle());
         binding.productPrice.setText("" + object.getPrice());
@@ -190,12 +183,13 @@ public class DetailActivity extends AppCompatActivity {
                 startActivity(intent);
             }
             else{
-                full = specsurl + "?data=" + Uri.encode(data);
+                full = cosmeticssurl + "?data=" + Uri.encode(data);
                 intent.setData(Uri.parse(full));
                 startActivity(intent);
             }
         });
 
+        //Slider! Multiple images of a product.
         ArrayList<SliderDomain> sliderDomainArrayList = new ArrayList<>();
 
         // initializing the slider view.
