@@ -50,8 +50,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Viewholder> {
     @Override
     public void onBindViewHolder(CartAdapter.Viewholder holder, @SuppressLint("RecyclerView") int position) {
         binding.titleTxt.setText(formatTitle(items.get(position).getTitle()));
-        binding.feeEachItem.setText("$" + items.get(position).getPrice());
-        binding.totalEachItem.setText("$" + Math.round(items.get(position).getNumberInCart() * items.get(position).getPrice()));
+//        binding.feeEachItem.setText("₹" + items.get(position).getPrice());
+        binding.totalEachItem.setText("₹" + items.get(position).getPrice());
 //        binding.numberItemTxt.setText(String.valueOf(items.get(position).getNumberInCart()));
 
         int drawableResourced = holder.itemView.getResources().getIdentifier(items.get(position).getPicUrl1()
@@ -62,20 +62,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Viewholder> {
                 .transform(new GranularRoundedCorners(30, 30, 0, 0))
                 .into(binding.pic);
 
-//        binding.plusCartBtn.setOnClickListener(v -> managmentCart.plusNumberItem(items, position, () -> {
-//            changeNumberItemsListener.change();
-//            binding.numberItemTxt.setText(String.valueOf(items.get(position).getNumberInCart()));
-//            notifyItemChanged(position);
-//        }));
-//
-//        binding.minusCartItem.setOnClickListener(v -> managmentCart.minusNumberItem(items, position, () -> {
-//            if (binding.numberItemTxt.getText().toString().equals("1")){
-//                binding.minusCartItem.setVisibility(View.INVISIBLE);
-//            }
-//            changeNumberItemsListener.change();
-//            binding.numberItemTxt.setText(String.valueOf(items.get(position).getNumberInCart()));
-//            notifyItemChanged(position);
-//        }));
 
         binding.removeItem.setOnClickListener(new View.OnClickListener() {
             @Override

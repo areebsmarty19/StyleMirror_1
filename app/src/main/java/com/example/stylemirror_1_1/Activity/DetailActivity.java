@@ -63,14 +63,6 @@ public class DetailActivity extends AppCompatActivity {
         int drawableResourceId2 = this.getResources().getIdentifier(object.getPicUrl2(), "drawable", this.getPackageName());
         int drawableResourceId3 = this.getResources().getIdentifier(object.getPicUrl3(), "drawable", this.getPackageName());
 
-//        Glide.with(this)
-//                .load(drawableResourceId1)
-//                .into(binding.slider);
-
-//        Glide.with(viewHolder.itemView)
-//                .load(sliderItem.getImgUrl())
-//                .fitCenter()
-//                .into(viewHolder.imageViewBackground);
 
         binding.productTitle.setText(object.getTitle());
         binding.productPrice.setText("" + object.getPrice());
@@ -197,6 +189,7 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
+        //Slider! Multiple images of a product.
         ArrayList<SliderDomain> sliderDomainArrayList = new ArrayList<>();
 
         // initializing the slider view.

@@ -182,7 +182,7 @@
                         android:id="@+id/imageView52"
                         android:layout_width="match_parent"
                         android:layout_height="50sp"
-                        app:srcCompat="@drawable/shoess_2" />
+                        app:srcCompat="@drawable/shoess_2_1" />
 
                     <TextView
                         android:id="@+id/textView76"
