@@ -77,6 +77,7 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context,DetailActivity.class);
             intent.putExtra("object", items.get(position));
+            Toast.makeText(context, items.get(position).getTitle(), Toast.LENGTH_SHORT).show();
             context.startActivity(intent);
         });
     }
