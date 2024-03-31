@@ -9,13 +9,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="0sp"
         android:layout_weight="1"
         android:orientation="horizontal"
         android:weightSum="2">
 
         <FrameLayout
-            android:layout_width="0dp"
+            android:layout_width="0sp"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
@@ -25,14 +25,14 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:scaleType="fitCenter"
-                android:layout_margin="10dp"
+                android:layout_margin="10sp"
                 android:src="@drawable/shoesex1"
                 android:adjustViewBounds="true"
                 android:background="@drawable/golden_border"/>
         </FrameLayout>
 
         <FrameLayout
-            android:layout_width="0dp"
+            android:layout_width="0sp"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
@@ -43,7 +43,7 @@
                 android:layout_weight="1"
                 android:scaleType="fitCenter"
                 android:src="@drawable/speces"
-                android:layout_margin="10dp"
+                android:layout_margin="10sp"
                 android:background="@drawable/golden_border"/>
 
         </FrameLayout>
@@ -52,13 +52,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="0sp"
         android:layout_weight="1"
         android:orientation="horizontal"
         android:weightSum="2">
 
         <FrameLayout
-            android:layout_width="0dp"
+            android:layout_width="0sp"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
@@ -69,12 +69,12 @@
                 android:layout_weight="1"
                 android:scaleType="fitCenter"
                 android:src="@drawable/cosmetics"
-                android:layout_margin="10dp"
+                android:layout_margin="10sp"
                 android:background="@drawable/golden_border"/>
         </FrameLayout>
 
         <FrameLayout
-            android:layout_width="0dp"
+            android:layout_width="0sp"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
@@ -85,7 +85,7 @@
                 android:layout_weight="1"
                 android:scaleType="fitCenter"
                 android:src="@drawable/coming"
-                android:layout_margin="10dp"
+                android:layout_margin="10sp"
                 android:background="@drawable/golden_border"/>
 
         </FrameLayout>

@@ -33,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     DatabaseHelper databaseHelper;
 
-//    String url1,url2,url3;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

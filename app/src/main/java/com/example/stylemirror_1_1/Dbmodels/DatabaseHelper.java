@@ -80,28 +80,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return loggedIn;
     }
-    // Add a method to retrieve the password associated with a given email
-//    public String getPasswordByEmail(String email) {
-//        db = this.getReadableDatabase();
-//        String password = null;
-//        cursor = db.rawQuery("SELECT " + PASSWORD + " FROM " + USER_TABLE + " WHERE " + EMAIL + " = ?", new String[]{email});
-//        if (cursor.moveToFirst()) {
-//            password = cursor.getString(cursor.getColumnIndex(PASSWORD));
-//        }
-//        cursor.close();
-//        return password;
-//    }
-//
-//    public String getUsernameByIfLoggIn(){
-//        db = this.getReadableDatabase();
-//        String username = null;
-//        cursor = db.rawQuery("SELECT " + USERNAME + " FROM " + USER_TABLE + " WHERE " + LOGGED_IN + " = 1",null);
-//        if (cursor.moveToFirst()) {
-//            username = cursor.getString(cursor.getColumnIndex(USERNAME));
-//        }
-//        cursor.close();
-//        return username;
-//    }
+
     public String getPasswordByEmail(String email) {
         db = this.getReadableDatabase();
         String password = null;

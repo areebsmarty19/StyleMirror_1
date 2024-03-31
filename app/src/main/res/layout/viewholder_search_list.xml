@@ -4,23 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="8dp"
+    app:cardCornerRadius="8sp"
     app:cardUseCompatPadding="true"
-    app:cardElevation="1dp"
+    app:cardElevation="1sp"
     android:id="@+id/search_item">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
+        android:padding="8sp"
         android:layout_marginLeft="3sp"
         android:layout_marginRight="3sp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            app:cardCornerRadius="100dp"
+            android:layout_width="70sp"
+            android:layout_height="70sp"
+            app:cardCornerRadius="100sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">

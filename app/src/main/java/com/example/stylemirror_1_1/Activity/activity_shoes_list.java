@@ -1,10 +1,12 @@
 package com.example.stylemirror_1_1.Activity;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.stylemirror_1_1.Adapter.PopularAdapter;
+import com.example.stylemirror_1_1.R;
 import com.example.stylemirror_1_1.domain.PopularDomain;
 import com.example.stylemirror_1_1.databinding.ActivityShoesListBinding;
 

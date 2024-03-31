@@ -13,10 +13,6 @@ public class SliderDomain {
         this.imgUrl = imgUrl;
     }
 
-//    public SliderDomain(String imgUrl) {
-//        this.imgUrl= Integer.parseInt(imgUrl);
-//    }
-
     // Getter method
     public Integer getImgUrl() {
         return imgUrl;

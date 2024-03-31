@@ -67,8 +67,8 @@ public class DetailActivity extends AppCompatActivity {
         binding.productTitle.setText(object.getTitle());
         binding.productPrice.setText("" + object.getPrice());
         binding.productDescription.setText(object.getDescription());
-        binding.reviewTxt.setText(String.valueOf(object.getReview()));
-        binding.ratingTxt.setText(String.valueOf(object.getScore()));
+        binding.reviewTxt.setText(String.valueOf(object.getScore()));
+        binding.ratingTxt.setText(String.valueOf(object.getReview()));
 
         binding.addToCart.setOnClickListener(v -> {
             object.setNumberInCart(1);

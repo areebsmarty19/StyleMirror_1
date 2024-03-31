@@ -66,6 +66,5 @@ public class ManagmentCart {
         tinyDB.putListObject("CartList", listItem);
         callback.run();
     }
-
 }
 

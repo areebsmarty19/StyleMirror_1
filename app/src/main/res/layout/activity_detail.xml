@@ -11,10 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16sp">
 
         <LinearLayout
-            android:layout_width="380dp"
+            android:layout_width="380sp"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
@@ -23,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="290sp"
-                android:padding="8dp"
+                android:padding="8sp"
                 android:src="@drawable/arrow"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -40,6 +40,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
         </LinearLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="300sp">
@@ -54,10 +55,10 @@
                 app:sliderIndicatorAnimationDuration="600"
                 app:sliderIndicatorEnabled="true"
                 app:sliderIndicatorGravity="center_horizontal|bottom"
-                app:sliderIndicatorMargin="15dp"
+                app:sliderIndicatorMargin="15sp"
                 app:sliderIndicatorOrientation="horizontal"
-                app:sliderIndicatorPadding="3dp"
-                app:sliderIndicatorRadius="2dp"
+                app:sliderIndicatorPadding="3sp"
+                app:sliderIndicatorRadius="2sp"
                 app:sliderIndicatorSelectedColor="#673AB7"
                 app:sliderIndicatorUnselectedColor="#5A5A5A"
                 app:sliderScrollTimeInSec="1" />
@@ -84,7 +85,7 @@
             tools:text="Shoes"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="16sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -111,41 +112,35 @@
                 tools:text="1,000"/>
         </LinearLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="30sp"
-            android:orientation="horizontal"
-            android:layout_marginTop="10sp">
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="10sp">
 
             <TextView
                 android:id="@+id/ratingTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10sp"
-                android:text="0"
-                android:textSize="20sp"/>
-
-            <ImageView
-                android:id="@+id/ratingImg"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_baseline_star_outline_24"
-                android:layout_marginLeft="5sp" />
+                android:text=""
+                android:textSize="20sp"
+                android:drawableEnd="@drawable/ic_baseline_star_outline_24"
+                android:drawablePadding="5sp"/>
 
             <TextView
                 android:id="@+id/reviewTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="250sp"
-                android:text="0"
-                android:textSize="20sp"/>
+                android:text=""
+                android:textAlignment="textEnd"
+                android:textSize="20sp"
+                android:layout_toRightOf="@id/ratingTxt"
+                android:drawablePadding="5sp"
+                android:drawableEnd="@drawable/review"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5sp"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/review"
-                android:layout_marginLeft="5sp"/>
-        </LinearLayout>
+        </RelativeLayout>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/product_details_title"
@@ -153,7 +148,7 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="16sp"
             android:text="@string/product_details" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -169,24 +164,24 @@
             android:textSize="16sp"
             android:textColor="#00695C"
             android:layout_marginTop="5sp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="5sp"
             android:text="@string/in_stock"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/add_to_cart"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginBottom="4dp"
+            android:layout_height="56sp"
+            android:layout_marginBottom="4sp"
             android:backgroundTint="#FFC805"
             android:text="@string/add_to_cart"
             android:textColor="@color/black"
-            app:cornerRadius="6dp" />
+            app:cornerRadius="6sp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buy_now"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            app:cornerRadius="6dp"
+            android:layout_height="56sp"
+            app:cornerRadius="6sp"
             android:text="@string/buy_now"
             android:backgroundTint="#FD8421"
             android:textColor="@color/black" />

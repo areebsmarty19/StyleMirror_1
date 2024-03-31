@@ -50,9 +50,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Viewholder> {
     @Override
     public void onBindViewHolder(CartAdapter.Viewholder holder, @SuppressLint("RecyclerView") int position) {
         binding.titleTxt.setText(formatTitle(items.get(position).getTitle()));
-//        binding.feeEachItem.setText("₹" + items.get(position).getPrice());
         binding.totalEachItem.setText("₹" + items.get(position).getPrice());
-//        binding.numberItemTxt.setText(String.valueOf(items.get(position).getNumberInCart()));
 
         int drawableResourced = holder.itemView.getResources().getIdentifier(items.get(position).getPicUrl1()
                 , "drawable", holder.itemView.getContext().getPackageName());
