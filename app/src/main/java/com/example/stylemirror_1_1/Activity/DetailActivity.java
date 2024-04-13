@@ -98,8 +98,8 @@ public class DetailActivity extends AppCompatActivity {
 
         binding.virtual.setOnClickListener(v->{
 
-             String data = "";
-             String id = object.getId();
+            String data = "";
+            String id = object.getId();
 
             switch (id){
 
