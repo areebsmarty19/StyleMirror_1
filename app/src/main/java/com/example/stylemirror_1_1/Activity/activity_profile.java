@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
-import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+//import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.stylemirror_1_1.Dbmodels.DatabaseHelper;
 import com.example.stylemirror_1_1.R;
 import com.example.stylemirror_1_1.databinding.ActivityProfileBinding;

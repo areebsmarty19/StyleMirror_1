@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+//import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.stylemirror_1_1.databinding.ActivityExplorerBinding;
 
 public class activity_explorer extends AppCompatActivity {
