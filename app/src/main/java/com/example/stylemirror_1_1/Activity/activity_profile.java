@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
+//import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.stylemirror_1_1.Dbmodels.DatabaseHelper;
 import com.example.stylemirror_1_1.R;
 import com.example.stylemirror_1_1.databinding.ActivityProfileBinding;
@@ -27,7 +28,6 @@ import java.io.IOException;
 public class activity_profile extends AppCompatActivity {
 
     ActivityProfileBinding binding;
-
     DatabaseHelper databaseHelper;
     private static final int GALLERY_REQUEST_CODE = 2;
     private static final int CAMERA_PHOTO_REQUEST_CODE = 1;
@@ -46,8 +46,8 @@ public class activity_profile extends AppCompatActivity {
         String email = EmailOfLoggInUser();
 
         // Display the username in the activity_profile layout
-        binding.usernameTextView.setText("Username: " + username);
-        binding.emailTextView.setText(""+email);
+        binding.usernameTextView.setText("" + username);
+        binding.emailTextView.setText("" + email);
 
         binding.btn1.setOnClickListener(new View.OnClickListener() {
             @Override

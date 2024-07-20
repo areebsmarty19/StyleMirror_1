@@ -1,7 +1,7 @@
 package com.example.stylemirror_1_1.Helper;
 
 import android.content.Context;
-import android.view.View;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.stylemirror_1_1.databinding.ViewholderCartBinding;
@@ -32,12 +32,12 @@ public class ManagmentCart {
             }
         }
         if(existAlready){
-            listpop.get(n).setNumberInCart(item.getNumberInCart()+1);
+            Toast.makeText(context, "Item Already Add in Your cart.", Toast.LENGTH_SHORT).show();
         }else{
             listpop.add(item);
         }
         tinyDB.putListObject("CartList",listpop);
-        Toast.makeText(context, listpop.get(n).getTitle()+" Added to your Cart", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Added to your Cart.", Toast.LENGTH_SHORT).show();
     }
 
     public ArrayList<PopularDomain> getListCart() {
@@ -52,19 +52,19 @@ public class ManagmentCart {
         }
         return fee;
     }
-    public void minusNumberItem(ArrayList<PopularDomain> listItem,int position,ChangeNumberItemsListener changeNumberItemsListener){
-        if(listItem.get(position).getNumberInCart()==1){
+
+
+    public void removeItem(int position, Runnable callback) {
+        ArrayList<PopularDomain> listItem = getListCart();
+        if (listItem.size() == 1) {
+            // If only one item is left in the cart, clear the cart
+            listItem.clear();
+        } else {
+            // Remove the item at the specified position
             listItem.remove(position);
-        }else{
-            listItem.get(position).setNumberInCart(listItem.get(position).getNumberInCart()-1);
         }
-        tinyDB.putListObject("CartList",listItem);
-        changeNumberItemsListener.change();
-    }
-    public  void plusNumberItem(ArrayList<PopularDomain> listItem,int position,ChangeNumberItemsListener changeNumberItemsListener){
-        listItem.get(position).setNumberInCart(listItem.get(position).getNumberInCart()+1);
-        tinyDB.putListObject("CartList",listItem);
-        changeNumberItemsListener.change();
+        tinyDB.putListObject("CartList", listItem);
+        callback.run();
     }
 }
 

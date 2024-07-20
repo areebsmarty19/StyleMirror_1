@@ -8,7 +8,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -37,7 +37,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.081"
-                    app:srcCompat="@drawable/logo" />
+                    app:srcCompat="@drawable/logo2"
+                    android:layout_marginTop="30sp"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
@@ -70,15 +71,15 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/username"
                         android:hint="Enter Username"
-                       android:textColorHint="@color/black"
+                        android:textColorHint="@color/black"
                         android:textSize="20sp"
                         android:drawableStart="@drawable/baseline_email_24"
                         android:drawablePadding="20dp"
                         android:inputType="textEmailAddress"
                         android:layout_marginStart="25sp"
                         android:layout_marginEnd="25dp"
-                        android:background="@drawable/edittext_background"
-                        android:textColor="#000000"/>
+                        android:background="@drawable/edittext2_background"
+                        android:textColor="#000000" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
@@ -115,34 +116,6 @@
                         android:textColor="#000000"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:orientation="horizontal"-->
-<!--                    android:layout_marginTop="16dp">-->
-
-<!--                    <ImageView-->
-<!--                        android:id="@+id/imageView5"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_weight="1"-->
-<!--                        app:srcCompat="@drawable/facebook" />-->
-
-<!--                    <ImageView-->
-<!--                        android:id="@+id/imageView4"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_weight="1"-->
-<!--                        app:srcCompat="@drawable/google" />-->
-
-<!--                    <ImageView-->
-<!--                        android:id="@+id/imageView3"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_weight="1"-->
-<!--                        app:srcCompat="@drawable/twitter" />-->
-<!--                </LinearLayout>-->
 
                 <TextView
                     android:layout_width="wrap_content"

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+
 import com.example.stylemirror_1_1.Adapter.CartAdapter;
 import com.example.stylemirror_1_1.R;
 import com.example.stylemirror_1_1.databinding.ActivityCartBinding;
@@ -57,13 +58,14 @@ public class CartActivity extends AppCompatActivity {
         double total = Math.round((managmentCart.getTotalFee() + tax + delivery) * 100) / 100;
         double itemTotal = Math.round(managmentCart.getTotalFee()  * 100) / 100;
 
-          binding.totalFeeTxt.setText("$" + itemTotal);
-          binding.taxTxt.setText("$" + tax);
-          binding.deliveryTxt.setText("$" + delivery);
-          binding.totalTxt.setText("$" + total);
+          binding.totalFeeTxt.setText("₹" + itemTotal);
+          binding.taxTxt.setText("₹" + tax);
+          binding.deliveryTxt.setText("₹" + delivery);
+          binding.totalTxt.setText("₹" + total);
     }
 
     private void setVariable() {
         binding.backBtn.setOnClickListener(v -> finish());
     }
+
 }

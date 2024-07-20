@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.stylemirror_1_1.Adapter.PopularAdapter;
 import com.example.stylemirror_1_1.Helper.FavDB;
 import com.example.stylemirror_1_1.databinding.ActivityFavitemsBinding;
@@ -28,8 +29,7 @@ public class activity_fav_items extends AppCompatActivity {
         ArrayList<PopularDomain> favoriteItems = getFavoriteItems();
 
         binding.productList.setLayoutManager(new LinearLayoutManager(this));
-        PopularAdapter adapter = new PopularAdapter(favoriteItems, this);
-        binding.productList.setAdapter(adapter);
+        binding.productList.setAdapter(new PopularAdapter(favoriteItems,this));
     }
 
     private ArrayList<PopularDomain> getFavoriteItems() {
@@ -40,15 +40,16 @@ public class activity_fav_items extends AppCompatActivity {
             do {
                 int id = cursor.getInt(cursor.getColumnIndex(FavDB.KEY_ID));
                 String title = cursor.getString(cursor.getColumnIndex(FavDB.ITEM_TITLE));
-                String imageUrl = cursor.getString(cursor.getColumnIndex(FavDB.ITEM_IMAGE));
+                String imageUrl1 = cursor.getString(cursor.getColumnIndex(FavDB.ITEM_IMAGE1));
+                String imageUrl2 = cursor.getString(cursor.getColumnIndex(FavDB.ITEM_IMAGE2));
+                String imageUrl3 = cursor.getString(cursor.getColumnIndex(FavDB.ITEM_IMAGE3));
                 Double price = cursor.getDouble(cursor.getColumnIndex(FavDB.ITEM_PRICE));
                 String description = cursor.getString(cursor.getColumnIndex(FavDB.ITEM_DESCRIPTION));
 
-                favoriteItems.add(new PopularDomain(id, title, imageUrl, price, description));
+                favoriteItems.add(new PopularDomain(id, title, imageUrl1, imageUrl2, imageUrl3, price, description));
             } while (cursor.moveToNext());
             cursor.close();
         }
-
         return favoriteItems;
     }
 }

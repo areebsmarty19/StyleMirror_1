@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,8 +21,9 @@ import com.example.stylemirror_1_1.R;
 import com.example.stylemirror_1_1.Activity.DetailActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewholder> {
+public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewholder>{
     private ArrayList<PopularDomain> items;
     private Context context;
     private FavDB favDB;
@@ -43,15 +45,14 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
     public void onBindViewHolder(@NonNull Viewholder holder, int position) {
         PopularDomain item = items.get(position);
 
-        String title = item.getTitle();
-        holder.binding.titleTxt.setText(formatTitle(title));
+        holder.binding.titleTxt.setText(formatTitle(item.getTitle()));
         holder.binding.feeTxt.setText("" + item.getPrice());
 
         String description = items.get(position).getDescription();
         String des = description.length() > 38 ? description.substring(0,20) + "\n" + description.substring(20,38) : description;
         holder.binding.descriptionTxt.setText(des + "...");
 
-        int drawableResourced = holder.itemView.getResources().getIdentifier(items.get(position).getPicUrl()
+        int drawableResourced = holder.itemView.getResources().getIdentifier(items.get(position).getPicUrl1()
                 , "drawable", holder.itemView.getContext().getPackageName());
 
         Glide.with(context)
@@ -67,7 +68,7 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
                 favDB.remove_fav(item.getId());
                 Toast.makeText(context, item.getTitle() +" Removed from Favorites.", Toast.LENGTH_SHORT).show();
             } else {
-                favDB.insertIntoTheDatabase(item.getTitle(), item.getPicUrl(), item.getPrice(), item.getDescription(), item.getId(), "1");
+                favDB.insertIntoTheDatabase(item.getTitle(), item.getPicUrl1(), item.getPicUrl2(), item.getPicUrl3(), item.getPrice(), item.getDescription(), item.getId(), "1");
                 Toast.makeText(context, item.getTitle()+" Added to Favorites.", Toast.LENGTH_SHORT).show();
             }
             holder.binding.favBtn.setImageResource(isFavorite ? R.drawable.ic_bookmark : R.drawable.ic_bookmark_filled);
@@ -76,6 +77,7 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context,DetailActivity.class);
             intent.putExtra("object", items.get(position));
+            Toast.makeText(context, items.get(position).getTitle(), Toast.LENGTH_SHORT).show();
             context.startActivity(intent);
         });
     }
@@ -96,7 +98,6 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
         return formattedTitle.toString();
     }
 
-
     @Override
     public int getItemCount() {
         return items.size();
@@ -110,6 +111,5 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
             this.binding = binding;
         }
     }
-
-
 }
+
