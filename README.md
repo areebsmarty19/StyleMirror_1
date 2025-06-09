@@ -19,10 +19,10 @@ reality (AR) and deep learning to provide users with a highly immersive
 and realistic virtual try-on experience. By seamlessly overlaying virtual
 clothing items onto live video feeds captured by users' devices, Style
 Mirror AR will enable customers to visualize how garments look and fit
-in real-time, enhancing their confidence in making online purchases.
-![WhatsApp Image 2025-06-09 at 8 14 55 PM](https://github.com/user-attachments/assets/f44298fd-fa89-4e5d-9b12-5e0d458ca6e3)
-![WhatsApp Image 2025-06-09 at 8 14 53 PM](https://github.com/user-attachments/assets/0cdf7d0c-88e3-49a1-98bf-34624adac279)
-![WhatsApp Image 2025-06-09 at 8 14 53 PM (1)](https://github.com/user-attachments/assets/9674e17d-6bf8-44c5-96d9-c30d175d805b)
-![WhatsApp Image 2025-06-09 at 8 14 54 PM](https://github.com/user-attachments/assets/f02149db-e37a-41c1-8510-febada5be840)
-![WhatsApp Image 2025-06-09 at 8 14 54 PM (1)](https://github.com/user-attachments/assets/726492c0-4c16-4e3e-b88f-fcb1b1809b71)
-![WhatsApp Image 2025-06-09 at 8 14 55 PM](https://github.com/user-attachments/assets/bfe03a78-63c9-4acf-9a8f-b3cc4ba2a59c)
+in real-time, enhancing their confidence in making online purchases
+![WhatsApp Image 2025-06-09 at 8 14 55 PM (1)](https://github.com/user-attachments/assets/5ce522e8-8a98-4554-ad0b-a439aa72a0c0)
+![WhatsApp Image 2025-06-09 at 8 14 53 PM](https://github.com/user-attachments/assets/cfe37c35-559a-4e36-8248-e48d8a975620)
+![WhatsApp Image 2025-06-09 at 8 14 53 PM (1)](https://github.com/user-attachments/assets/53824a9e-3f2f-435d-9e4d-8ad9872896f1)
+![WhatsApp Image 2025-06-09 at 8 14 54 PM](https://github.com/user-attachments/assets/ca07a8ad-81ec-4e35-aa9a-2236e645cd48)
+![WhatsApp Image 2025-06-09 at 8 14 54 PM (1)](https://github.com/user-attachments/assets/6562943f-c9e8-48f6-8398-1611e3484a19)
+![WhatsApp Image 2025-06-09 at 8 14 55 PM](https://github.com/user-attachments/assets/ceab664b-1a48-4fce-80bc-ddc4e512930b)
